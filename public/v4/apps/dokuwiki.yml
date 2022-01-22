@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -9,7 +11,7 @@ services:
             DOKUWIKI_PASSWORD: $$DOKUWIKI_PASSWORD
             DOKUWIKI_WIKI_NAME: $$DOKUWIKI_WIKI_NAME
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
         volumes:
             - $$cap_appname:/bitnami/dokuwiki
 caproverOneClickApp:
@@ -21,27 +23,27 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$DOKUWIKI_USERNAME
           label: username
-          defaultValue: 'user'
+          defaultValue: "user"
           description: Dokuwiki application username
           validRegex: /.{1,}/
         - id: $$DOKUWIKI_EMAIL
           label: email
-          defaultValue: 'noreply@gmail.com'
+          defaultValue: "noreply@gmail.com"
           description: Dokuwiki application user email
           validRegex: /.{1,}/
         - id: $$DOKUWIKI_FULL_NAME
           label: full name
-          defaultValue: 'full name'
+          defaultValue: "full name"
           description: Dokuwiki application user full name
           validRegex: /.{1,}/
         - id: $$DOKUWIKI_PASSWORD
           label: password
-          defaultValue: 'password'
+          defaultValue: "password"
           description: Dokuwiki application password
           validRegex: /.{1,}/
         - id: $$DOKUWIKI_WIKI_NAME
           label: Dokuwiki
-          defaultValue: 'Dokuwiki wiki name'
+          defaultValue: "Dokuwiki wiki name"
           description: Dokuwiki wiki name
           validRegex: /.{1,}/
     instructions:

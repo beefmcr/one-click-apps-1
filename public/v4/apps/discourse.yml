@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgresql:
@@ -9,7 +11,7 @@ services:
         volumes:
             - $$cap_appname-postgresql-data:/bitnami/postgresql
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         documentation: Taken from https://hub.docker.com/r/bitnami/redis
         image: docker.io/bitnami/redis:$$cap_redis_version
@@ -19,7 +21,7 @@ services:
         volumes:
             - $$cap_appname-redis-data:/bitnami
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         documentation: Taken from https://hub.docker.com/r/bitnami/discourse
         image: docker.io/bitnami/discourse:$$cap_discourse_version
@@ -48,7 +50,7 @@ services:
             SMTP_USER: $$cap_smtp_user
             SMTP_PASSWORD: $$cap_smtp_pass
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     $$cap_appname-sidekiq:
         documentaion: Taken from https://hub.docker.com/r/bitnami/discourse
         depends_on:
@@ -60,7 +62,7 @@ services:
             DISCOURSE_POSTGRESQL_USERNAME: $$cap_db_user
             DISCOURSE_POSTGRESQL_PASSWORD: $$cap_db_pass
             DISCOURSE_HOST: srv-captain--$$cap_appname
-            DISCOURSE_PORT: '3000'
+            DISCOURSE_PORT: "3000"
             DISCOURSE_HOSTNAME: $$cap_appname.$$cap_root_domain
             POSTGRESQL_HOST: srv-captain--$$cap_appname-postgresql
             REDIS_HOST: srv-captain--$$cap_appname-redis
@@ -72,7 +74,7 @@ services:
             dockerfileLines:
                 - FROM docker.io/bitnami/discourse:$$cap_discourse_version
                 - CMD ["nami" , "start" , "--foreground" , "discourse-sidekiq"]
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_discourse_version
@@ -82,7 +84,7 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgresql_version
           label: Postgresql (database) version
-          defaultValue: '11'
+          defaultValue: "11"
           description: Version of Postgresql
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_sitename
@@ -91,7 +93,7 @@ caproverOneClickApp:
           description: The title of the site, the words on the tab
         - id: $$cap_redis_version
           label: Redis version
-          defaultValue: '5.0'
+          defaultValue: "5.0"
           description: Version of Redis
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_admin_user
@@ -130,7 +132,7 @@ caproverOneClickApp:
           description: The host for your smtp server
         - id: $$cap_smtp_port
           label: SMTP port
-          defaultValue: '587'
+          defaultValue: "587"
           description: The port for your smtp server
         - id: $$cap_smtp_user
           label: SMTP user

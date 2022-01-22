@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Mercure
@@ -6,7 +8,7 @@ services:
         restart: unless-stopped
         environment:
             # Uncomment the following line to disable HTTPS
-            SERVER_NAME: ':80'
+            SERVER_NAME: ":80"
             MERCURE_PUBLISHER_JWT_KEY: $$cap_mercure_publisher_jwt_key
             MERCURE_SUBSCRIBER_JWT_KEY: $$cap_mercure_subscriber_jwt_key
             MERCURE_EXTRA_DIRECTIVES: $$cap_mercure_extra_directives
@@ -15,26 +17,26 @@ services:
             - $$cap_appname-mercure-config:/config
         # Uncomment the following line to enable the development mode
         caproverExtra:
-            containerHttpPort: '80'
+            containerHttpPort: "80"
 caproverOneClickApp:
     variables:
         - id: $$cap_mercure_version
           label: Mercure Version
-          defaultValue: 'v0.13'
+          defaultValue: "v0.13"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/dunglas/mercure/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mercure_publisher_jwt_key
           label: Mercure Publisher JWT Key
-          defaultValue: '!ChangeMe!'
-          description: 'The JWT key to use for publishers'
+          defaultValue: "!ChangeMe!"
+          description: "The JWT key to use for publishers"
         - id: $$cap_mercure_subscriber_jwt_key
           label: Mercure Subscriber JWT Key
-          defaultValue: '!ChangeMe!'
-          description: 'The JWT key to use for subscribers'
+          defaultValue: "!ChangeMe!"
+          description: "The JWT key to use for subscribers"
         - id: $$cap_mercure_extra_directives
           label: Extra Directives
-          defaultValue: 'subscriptions demo anonymous cors_origins * publish_origins *'
-          description: 'A list of extra Mercure directives inject in the Caddy file, one per line'
+          defaultValue: "subscriptions demo anonymous cors_origins * publish_origins *"
+          description: "A list of extra Mercure directives inject in the Caddy file, one per line"
     instructions:
         start: >-
             Mercure is a protocol allowing to push data updates to web browsers and other HTTP clients in a convenient, fast, reliable and battery-efficient way. It is especially useful to publish real-time updates of resources served through web APIs, to reactive web and mobile apps.
@@ -45,7 +47,7 @@ caproverOneClickApp:
         end: >-
             Aaaand you're done! 😄
             Your service is available at http://$$cap_appname.$$cap_root_domain
-    displayName: 'Mercure'
+    displayName: "Mercure"
     isOfficial: true
     description: Mercure is a protocol allowing to push data updates to web browsers and other HTTP clients.
     documentation: Taken from https://mercure.rocks/docs/hub/install

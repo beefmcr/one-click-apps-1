@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Duplicati
@@ -13,7 +15,7 @@ services:
             - $$cap_localpath:/backups # Path to store local backups.
             - $$cap_sourcepath:/source # Path to source for files to backup.
         caproverExtra:
-            containerHttpPort: '8200'
+            containerHttpPort: "8200"
 caproverOneClickApp:
     variables:
         - id: $$cap_tz
@@ -23,22 +25,22 @@ caproverOneClickApp:
         - id: $$cap_duplicati_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/duplicati/tags
-          defaultValue: 'version-v2.0.5.1-2.0.5.1_beta_2020-01-18'
+          defaultValue: "version-v2.0.5.1-2.0.5.1_beta_2020-01-18"
         - id: $$cap_puid
           label: User ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: User ID that the process uses, run (id $user) in your instance to see the id
           validRegex: /.{1,}/
         - id: $$cap_guid
           label: Group ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: Group ID that the process uses, run (id $user) in your instance to see the id
           validRegex: /.{1,}/
         - id: $$cap_localpath
           label: Path to store local backups.
         - id: $$cap_sourcepath
           label: Path to source for files to backup.
-          description: 'eg: /var/lib/docker/volumes or just / So you can select the folders you want to backup'
+          description: "eg: /var/lib/docker/volumes or just / So you can select the folders you want to backup"
         - id: $$cap_cli_args
           label: Command line arguments
           description: Optionally specify any CLI variables you want to launch the app with, see https://duplicati.readthedocs.io/en/latest/07-other-command-line-utilities/

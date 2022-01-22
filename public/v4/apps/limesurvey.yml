@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -12,7 +14,7 @@ services:
             MYSQL_USER: $$cap_db_user
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         documentation: Taken from https://registry.hub.docker.com/r/crramirez/limesurvey
         depends_on:
@@ -25,7 +27,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_limesurvey_version
           label: Limesurvey Version
-          defaultValue: '3'
+          defaultValue: "3"
           description: https://registry.hub.docker.com/r/crramirez/limesurvey/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mariadb_version

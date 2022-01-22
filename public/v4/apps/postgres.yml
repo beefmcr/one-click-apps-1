@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,25 +13,25 @@ services:
             POSTGRES_DB: $$cap_pg_db
             POSTGRES_INITDB_ARGS: $$cap_pg_initdb_args
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgres Version
-          defaultValue: '9.6'
+          defaultValue: "9.6"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_user
           label: Postgres Username
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_pass
           label: Postgres Password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_db
           label: Postgres Default Database
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_initdb_args
           label: "OPTIONAL: Arguments for 'postgres initdb'"

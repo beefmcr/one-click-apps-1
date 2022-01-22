@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -9,7 +11,7 @@ services:
         caproverExtra:
             dockerfileLines:
                 - FROM alpine:latest as helper
-                - '# Similar to the original file, except, /database.db is inside a directory now so that we can assign a volume to it.'
+                - "# Similar to the original file, except, /database.db is inside a directory now so that we can assign a volume to it."
                 - RUN echo "{'port':80,'baseURL':'','address':'','log':'stdout','database':'/database/database.db','root':'/srv'}" | sed "s/\'/\"/g" >/.edited.json
                 - FROM filebrowser/filebrowser:$$cap_filebrowser_version
                 - COPY --from=helper /.edited.json /.filebrowser.json
@@ -17,7 +19,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_filebrowser_version
           label: File Browser Version Tag
-          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/filebrowser/filebrowser/tags'
+          description: "Check out their Docker page for the valid tags: https://hub.docker.com/r/filebrowser/filebrowser/tags"
           defaultValue: v2.0.16
           validRegex: /^([^\s^\/])+$/
     instructions:
@@ -51,7 +53,7 @@ caproverOneClickApp:
 
 
             Don't change the "/srv" part of the mapping. "/srv" is the directory inside FileBrowser which is used to display content in FileBrowser.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files with supports for multi users.
     documentation: Taken from https://filebrowser.xyz/installation#docker except moved the database to a directory to be able to associate with a volume

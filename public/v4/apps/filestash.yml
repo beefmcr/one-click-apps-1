@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,7 +8,7 @@ services:
             - $$cap_appname-app-data-state:/app/data/state
         restart: always
         caproverExtra:
-            containerHttpPort: '8334'
+            containerHttpPort: "8334"
 caproverOneClickApp:
     variables:
         - id: $$cap_filestash_version

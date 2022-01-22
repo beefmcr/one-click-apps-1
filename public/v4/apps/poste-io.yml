@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -25,7 +27,7 @@ caproverOneClickApp:
         - id: $$cap_poste_version
           label: Poste.io version tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/analogic/poste.io/tags
-          defaultValue: '2'
+          defaultValue: "2"
         - id: $$cap_email
           label: Email Address
           description: The email address used for Lets Encrypt certificates.

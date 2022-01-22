@@ -1,10 +1,12 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: phpmyadmin/phpmyadmin:$$cap_pma_version
         restart: always
         environment:
-            PMA_ARBITRARY: '1'
+            PMA_ARBITRARY: "1"
             UPLOAD_LIMIT: $$cap_upload_limit
 caproverOneClickApp:
     variables:

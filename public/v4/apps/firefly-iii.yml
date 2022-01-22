@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -11,7 +13,7 @@ services:
         environment:
             SITE_OWNER: $$cap_firefly_site-owner
             TZ: $$cap_firefly_time-zone
-            TRUSTED_PROXIES: '**'
+            TRUSTED_PROXIES: "**"
             DB_CONNECTION: mysql
             DB_PORT: 3306
             DB_DATABASE: firefly
@@ -20,7 +22,7 @@ services:
             DB_PASSWORD: $$cap_mariadb_password
             APP_KEY: $$cap_firefly_app-key
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
     $$cap_appname-db:
         image: mariadb:$$cap_mariadb_version
         volumes:
@@ -32,7 +34,7 @@ services:
             MYSQL_USER: firefly
             MYSQL_PASSWORD: $$cap_mariadb_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_mariadb_version

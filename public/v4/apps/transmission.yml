@@ -1,17 +1,19 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: ghcr.io/linuxserver/transmission:$$cap_transmission_version
         environment:
-            PUID: '1000'
-            PGID: '1000'
+            PUID: "1000"
+            PGID: "1000"
             TZ: $$cap_tz
             TRANSMISSION_WEB_HOME: /$$cap_ui/
             USER: $$cap_user
             PASS: $$cap_pass
-            WHITELIST: '' #optional
-            HOST_WHITELIST: '' #optional
-            WEBUI_PORT: '9091'
+            WHITELIST: "" #optional
+            HOST_WHITELIST: "" #optional
+            WEBUI_PORT: "9091"
         ports:
             - 51413:51413
         hostname: $$cap_appname.$$cap_root_domain
@@ -20,7 +22,7 @@ services:
             - $$cap_path_to_downloads:/downloads
             - $$cap_appname-watch:/watch
         caproverExtra:
-            containerHttpPort: '9091'
+            containerHttpPort: "9091"
 caproverOneClickApp:
     variables:
         - id: $$cap_transmission_version
@@ -43,7 +45,7 @@ caproverOneClickApp:
           label: Path to downloads folder
           defaultValue: transmission-downloads
           description: Path to downloads folder where you want to save the downloaded torrents. You can mention an existing directory here too. Eg. /home/user/torrents/
-          validRegex: '/.{1,}/'
+          validRegex: "/.{1,}/"
         - id: $$cap_ui
           label: User Interface
           defaultValue: transmission-web-control

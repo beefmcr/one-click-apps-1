@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # SearX
@@ -9,7 +11,7 @@ services:
             MORTY_URL: https://$$cap_appname-morty.$$cap_root_domain
             MORTY_KEY: $$cap_MORTY_KEY
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
     # Filtron
     $$cap_appname-filtron:
         volumes:
@@ -25,7 +27,7 @@ services:
                 - USER root
                 - RUN chmod -R 755 /etc/filtron/
                 - ENTRYPOINT ["/usr/local/filtron/filtron", "--rules", "/etc/filtron/rules.json", "--listen", "0.0.0.0:4004", "--api", "0.0.0.0:4005", "--target", "srv-captain--searx:8080"]
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     # Morty
     $$cap_appname-morty:
         restart: always
@@ -33,7 +35,7 @@ services:
             MORTY_KEY: $$cap_MORTY_KEY
             MORTY_ADDRESS: 0.0.0.0:3000
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
             dockerfileLines:
                 - FROM dalf/morty@$$cap_morty_version
                 - CMD -timeout 6 -ipv6
@@ -51,19 +53,19 @@ caproverOneClickApp:
     variables:
         - id: $$cap_searx_version
           label: Searx Version Tag
-          defaultValue: '0.17.0-281-219af243'
+          defaultValue: "0.17.0-281-219af243"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/searx/searx/tags/
         - id: $$cap_filtron_version
           label: Filtron Docker Version Hash
-          defaultValue: 'sha256:5b55f79b06fdd58122a6d764eca09d2ec687c5af5b78969124e69714d6bb889b'
+          defaultValue: "sha256:5b55f79b06fdd58122a6d764eca09d2ec687c5af5b78969124e69714d6bb889b"
           description: Starts with 'sha256:'.  Find on https://hub.docker.com/r/dalf/filtron/tags/
         - id: $$cap_morty_version
           label: Morty Docker Version Hash
-          defaultValue: 'sha256:cb930c25254337e7a3abaf6daab326c663a4cdf1cbf4ae040ff7f670493df7fd'
+          defaultValue: "sha256:cb930c25254337e7a3abaf6daab326c663a4cdf1cbf4ae040ff7f670493df7fd"
           description: Starts with 'sha256:'.  Find on https://hub.docker.com/r/dalf/morty/tags/
         - id: $$cap_checker_version
           label: Searx-checker Docker Version Hash
-          defaultValue: 'sha256:8ebda54ed8854e1300a4670e2bba86a5d2f4ceeb5c39290e4cc20df22bf974be'
+          defaultValue: "sha256:8ebda54ed8854e1300a4670e2bba86a5d2f4ceeb5c39290e4cc20df22bf974be"
           description: Starts with 'sha256:'.  Find on https://hub.docker.com/r/searx/searx-checker/tags/
         - label: Morty Secret Key
           description: use openssl rand -base64 33

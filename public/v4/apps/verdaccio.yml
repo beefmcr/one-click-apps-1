@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -9,13 +11,13 @@ services:
         restart: always
         environment: {}
         caproverExtra:
-            containerHttpPort: '4873'
+            containerHttpPort: "4873"
 caproverOneClickApp:
     variables:
         - id: $$cap__verdaccio_version
           label: Verdaccio Version
           defaultValue: 3.11.6
-          description: 'Additional tags can be found here: https://hub.docker.com/r/verdaccio/verdaccio/tags'
+          description: "Additional tags can be found here: https://hub.docker.com/r/verdaccio/verdaccio/tags"
     instructions:
         start: >-
             Verdaccio is a simple, zero-config-required local private npm registry. 
@@ -26,7 +28,7 @@ caproverOneClickApp:
 
             Enter your verdaccio Configuration parameters and click on next. It will take about a minute for the process to finish.
         end: Verdaccio is deployed and available as srv-captain--$$cap_appname:4873 to other apps..
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Verdaccio is a lightweight private npm proxy registry that allows you to have your own npm registry for free
     documentation: Taken from https://hub.docker.com/r/verdaccio/verdaccio/

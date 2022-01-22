@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,7 +13,7 @@ services:
             POSTGRES_DB: sonarqube
             POSTGRES_INITDB_ARGS: $$cap_pg_initdb_args
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: sonarqube:$$cap_sonar_version
         depends_on:
@@ -27,12 +29,12 @@ services:
             sonar.jdbc.password: $$cap_pg_pass
             sonar.jdbc.url: jdbc:postgresql://srv-captain--$$cap_appname-db/sonarqube
         caproverExtra:
-            containerHttpPort: '9000'
+            containerHttpPort: "9000"
 caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgres Version
-          defaultValue: '9.6'
+          defaultValue: "9.6"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_sonar_version
@@ -42,7 +44,7 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_pass
           label: Postgres Password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_initdb_args
           label: "OPTIONAL: Arguments for 'postgres initdb'"
@@ -63,7 +65,7 @@ caproverOneClickApp:
 
             It will take about a minute for the process to finish.
         end: SonarQube is deployed and available as srv-captain--$$cap_appname:9000 to other apps.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Catch bugs and vulnerabilities in your app, with thousands of automated Static Code Analysis rules
     documentation: Taken from https://hub.docker.com/_/sonarqube

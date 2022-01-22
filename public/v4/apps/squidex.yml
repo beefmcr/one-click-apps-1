@@ -1,17 +1,19 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         depends_on:
             - $$cap_appname-db
-        image: 'squidex/squidex:$$cap_squidex_version'
+        image: "squidex/squidex:$$cap_squidex_version"
         volumes:
-            - '$$cap_appname-data:/app/Assets'
+            - "$$cap_appname-data:/app/Assets"
         restart: always
         environment:
-            URLS__BASEURL: 'https://$$cap_appname.$$cap_root_domain'
-            URLS__ENFORCEHTTPS: 'True'
-            EVENTSTORE__MONGODB__CONFIGURATION: 'mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-db'
-            STORE__MONGODB__CONFIGURATION: 'mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-db'
+            URLS__BASEURL: "https://$$cap_appname.$$cap_root_domain"
+            URLS__ENFORCEHTTPS: "True"
+            EVENTSTORE__MONGODB__CONFIGURATION: "mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-db"
+            STORE__MONGODB__CONFIGURATION: "mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-db"
             IDENTITY__ADMINEMAIL: $$cap_admin_email
             IDENTITY__ADMINPASSWORD: $$cap_admin_password
             IDENTITY__GOOGLECLIENT: $$cap_google_client
@@ -24,17 +26,17 @@ services:
             LETSENCRYPT_EMAIL: $$cap_admin_email
             VIRTUAL_HOST: $$cap_appname.$$cap_root_domain
     $$cap_appname-db:
-        image: 'mongo:$$cap_mongo_version'
+        image: "mongo:$$cap_mongo_version"
         volumes:
-            - '$$cap_appname-db-data:/data/db'
-            - '$$cap_appname-db-config:/data/configdb'
+            - "$$cap_appname-db-data:/data/db"
+            - "$$cap_appname-db-config:/data/configdb"
         restart: always
         environment:
             MONGO_INITDB_DATABASE: squidex
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: $$cap_mongo_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_squidex_version
@@ -46,15 +48,15 @@ caproverOneClickApp:
           validRegex: '/^([^\s^\/])+$/'
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4'
+          defaultValue: "4"
           description: >-
               Check out their Docker page for the valid tags
               https://hub.docker.com/r/library/mongo/tags/
-          validRegex: '/^([a-zA-Z0-9])+$/'
+          validRegex: "/^([a-zA-Z0-9])+$/"
         - id: $$cap_mongo_password
           label: MongoDB password
           description: Only use alphanumeric chars.
-          validRegex: '/^([a-zA-Z0-9])+$/'
+          validRegex: "/^([a-zA-Z0-9])+$/"
         - id: $$cap_admin_email
           label: Admin Email
           description: The Email which is gonna be used to login as administrator.
@@ -100,7 +102,7 @@ caproverOneClickApp:
             IMPORTANT!! Don't forget to change the URLS__BASEURL,LETSENCRYPT_HOST and VIRTUAL_HOST variable if you change your URL.
 
             IMPORTANT!! It takes up to 2-5 minutes for Squidex to boot up. You will see a 502 Error until the startup is finished.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Squidex is an open source headless CMS and content management hub.
     documentation: >-

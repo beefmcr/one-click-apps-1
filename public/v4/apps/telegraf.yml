@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,7 +8,7 @@ services:
         volumes:
             - $$cap_appname-config:/etc/telegraf
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - label: Telegraf Version

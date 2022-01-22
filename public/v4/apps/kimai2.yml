@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # kimai FPM
@@ -5,7 +7,7 @@ services:
         depends_on:
             - $$cap_appname-db
         image: kimai/kimai2:$$cap_kimai_version
-        restart: 'always'
+        restart: "always"
         environment:
             ADMINMAIL: $$cap_kimai-adminmail
             ADMINPASS: $$cap_kimai-adminpass
@@ -16,7 +18,7 @@ services:
         volumes:
             - $$cap_appname-public:/opt/kimai/public
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     # mariadb
     $$cap_appname-db:
         image: mariadb:$$cap_mariadb_version
@@ -29,7 +31,7 @@ services:
             - $$cap_appname-db-data:/var/lib/mysql
         restart: unless-stopped
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: lcxat/nginx-fpm-reverse-proxy:$$cap_nginx_version
         environment:
@@ -44,16 +46,16 @@ caproverOneClickApp:
         - id: $$cap_kimai_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/kimai/kimai2/tags
-          defaultValue: 'fpm-1.15.2-prod'
+          defaultValue: "fpm-1.15.2-prod"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mariadb_version
           label: mariaDB Version
-          defaultValue: '10'
+          defaultValue: "10"
           description: Check out their docker page for the valid tags https://hub.docker.com/_/mariadb
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_nginx_version
           label: nginx fpm Version
-          defaultValue: '1.21.3'
+          defaultValue: "1.21.3"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/lcxat/nginx-fpm-reverse-proxy/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_kimai-adminmail
@@ -75,11 +77,11 @@ caproverOneClickApp:
         - id: $$cap_mariadb-db
           label: Database Name
           description: Database name for kimai
-          defaultValue: 'kimai'
+          defaultValue: "kimai"
         - id: $$cap_mariadb-user
           label: mariadb User
           description: Database User for kimai
-          defaultValue: 'kimaiuser'
+          defaultValue: "kimaiuser"
         - id: $$cap_mariadb-pass
           label: mariadb database user password
           description: Super secret database user password

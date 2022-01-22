@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,21 +13,21 @@ services:
             MYSQL_USER: mailtrain
             MYSQL_PASSWORD: $$cap_mariadb_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         image: redis:$$cap_redis_version
         volumes:
             - $$cap_appname-redis-data:/data
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-mongo:
         image: mongo:$$cap_mongo_version
         volumes:
             - $$cap_appname-mongo-data:/data/db
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: mailtrain/mailtrain:$$cap_mailtrain_version
         depends_on:
@@ -44,7 +46,7 @@ services:
             MYSQL_HOST: srv-captain--$$cap_appname-db
             MYSQL_PASSWORD: $$cap_mariadb_password
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     $$cap_appname-$$cap_mailtrain_sandbox-appname:
         image: caprover/nginx-reverse-proxy:1-ef5ffcb
         restart: always
@@ -68,7 +70,7 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mariadb_password
           label: Mariadb User password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_redis_version
           label: Redis Version
@@ -88,12 +90,12 @@ caproverOneClickApp:
         - id: $$cap_mailtrain_sandbox-appname
           label: Sandbox Mailtrain App Name
           defaultValue: sdbx
-          description: ''
+          description: ""
           validRegex: /^[a-z]{1,}$/
         - id: $$cap_mailtrain_lists-appname
           label: Public Mailtrain App Name
           defaultValue: lists
-          description: ''
+          description: ""
           validRegex: /^[a-z]{1,}$/
     instructions:
         start: Mailtrain is a self hosted newsletter application built on Node.js (v10+) and MySQL (v8+) or MariaDB (v10+).

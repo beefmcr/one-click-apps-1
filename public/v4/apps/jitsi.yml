@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-web:
@@ -26,36 +28,36 @@ services:
             XMPP_MUC_DOMAIN: muc.meet.jitsi
             XMPP_INTERNAL_MUC_DOMAIN: internal-muc.meet.jitsi
             XMPP_GUEST_DOMAIN: guest.meet.jitsi
-            XMPP_MODULES: ''
-            XMPP_MUC_MODULES: ''
-            XMPP_INTERNAL_MUC_MODULES: ''
+            XMPP_MODULES: ""
+            XMPP_MUC_MODULES: ""
+            XMPP_INTERNAL_MUC_MODULES: ""
             JVB_BREWERY_MUC: jvbbrewery
             JVB_AUTH_USER: jvb
             JVB_STUN_SERVERS: meet-jit-si-turnrelay.jitsi.net:443
             JVB_PORT: $$cap_jvb_udp
-            JVB_TCP_HARVESTER_DISABLED: 'true'
+            JVB_TCP_HARVESTER_DISABLED: "true"
             JVB_TCP_PORT: $$cap_jvb_tcp
             JICOFO_AUTH_USER: focus
             JIGASI_XMPP_USER: jigasi
             JIGASI_BREWERY_MUC: jigasibrewery
-            JIGASI_PORT_MIN: '20000'
-            JIGASI_PORT_MAX: '20050'
+            JIGASI_PORT_MIN: "20000"
+            JIGASI_PORT_MAX: "20050"
             XMPP_RECORDER_DOMAIN: recorder.meet.jitsi
             JIBRI_RECORDER_USER: recorder
             JIBRI_RECORDING_DIR: /config/recordings
             JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: /config/finalize.sh
             JIBRI_XMPP_USER: jibri
             JIBRI_BREWERY_MUC: jibribrewery
-            JIBRI_PENDING_TIMEOUT: '90'
+            JIBRI_PENDING_TIMEOUT: "90"
             JIBRI_STRIP_DOMAIN_JID: muc
             JIBRI_LOGS_DIR: /config/logs
     $$cap_appname-prosody:
         image: jitsi/prosody:$$cap_tag_version
         restart: unless-stopped
         expose:
-            - '5222'
-            - '5347'
-            - '5280'
+            - "5222"
+            - "5347"
+            - "5280"
         volumes:
             - $$cap_appname-prosody:/config
         environment:
@@ -75,31 +77,31 @@ services:
             XMPP_MUC_DOMAIN: muc.meet.jitsi
             XMPP_INTERNAL_MUC_DOMAIN: internal-muc.meet.jitsi
             XMPP_GUEST_DOMAIN: guest.meet.jitsi
-            XMPP_MODULES: ''
-            XMPP_MUC_MODULES: ''
-            XMPP_INTERNAL_MUC_MODULES: ''
+            XMPP_MODULES: ""
+            XMPP_MUC_MODULES: ""
+            XMPP_INTERNAL_MUC_MODULES: ""
             JVB_BREWERY_MUC: jvbbrewery
             JVB_AUTH_USER: jvb
             JVB_STUN_SERVERS: meet-jit-si-turnrelay.jitsi.net:443
             JVB_PORT: $$cap_jvb_udp
-            JVB_TCP_HARVESTER_DISABLED: 'true'
+            JVB_TCP_HARVESTER_DISABLED: "true"
             JVB_TCP_PORT: $$cap_jvb_tcp
             JICOFO_AUTH_USER: focus
             JIGASI_XMPP_USER: jigasi
             JIGASI_BREWERY_MUC: jigasibrewery
-            JIGASI_PORT_MIN: '20000'
-            JIGASI_PORT_MAX: '20050'
+            JIGASI_PORT_MIN: "20000"
+            JIGASI_PORT_MAX: "20050"
             XMPP_RECORDER_DOMAIN: recorder.meet.jitsi
             JIBRI_RECORDER_USER: recorder
             JIBRI_RECORDING_DIR: /config/recordings
             JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: /config/finalize.sh
             JIBRI_XMPP_USER: jibri
             JIBRI_BREWERY_MUC: jibribrewery
-            JIBRI_PENDING_TIMEOUT: '90'
+            JIBRI_PENDING_TIMEOUT: "90"
             JIBRI_STRIP_DOMAIN_JID: muc
             JIBRI_LOGS_DIR: /config/logs
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-jicofo:
         image: jitsi/jicofo:$$cap_tag_version
         restart: unless-stopped
@@ -122,33 +124,33 @@ services:
             XMPP_MUC_DOMAIN: muc.meet.jitsi
             XMPP_INTERNAL_MUC_DOMAIN: internal-muc.meet.jitsi
             XMPP_GUEST_DOMAIN: guest.meet.jitsi
-            XMPP_MODULES: ''
-            XMPP_MUC_MODULES: ''
-            XMPP_INTERNAL_MUC_MODULES: ''
+            XMPP_MODULES: ""
+            XMPP_MUC_MODULES: ""
+            XMPP_INTERNAL_MUC_MODULES: ""
             JVB_BREWERY_MUC: jvbbrewery
             JVB_AUTH_USER: jvb
             JVB_STUN_SERVERS: meet-jit-si-turnrelay.jitsi.net:443
             JVB_PORT: $$cap_jvb_udp
-            JVB_TCP_HARVESTER_DISABLED: 'true'
+            JVB_TCP_HARVESTER_DISABLED: "true"
             JVB_TCP_PORT: $$cap_jvb_tcp
             JICOFO_AUTH_USER: focus
             JIGASI_XMPP_USER: jigasi
             JIGASI_BREWERY_MUC: jigasibrewery
-            JIGASI_PORT_MIN: '20000'
-            JIGASI_PORT_MAX: '20050'
+            JIGASI_PORT_MIN: "20000"
+            JIGASI_PORT_MAX: "20050"
             XMPP_RECORDER_DOMAIN: recorder.meet.jitsi
             JIBRI_RECORDER_USER: recorder
             JIBRI_RECORDING_DIR: /config/recordings
             JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: /config/finalize.sh
             JIBRI_XMPP_USER: jibri
             JIBRI_BREWERY_MUC: jibribrewery
-            JIBRI_PENDING_TIMEOUT: '90'
+            JIBRI_PENDING_TIMEOUT: "90"
             JIBRI_STRIP_DOMAIN_JID: muc
             JIBRI_LOGS_DIR: /config/logs
         depends_on:
             - $$cap_appname-prosody
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-jvb:
         image: jitsi/jvb:$$cap_tag_version
         restart: unless-stopped
@@ -174,46 +176,46 @@ services:
             XMPP_MUC_DOMAIN: muc.meet.jitsi
             XMPP_INTERNAL_MUC_DOMAIN: internal-muc.meet.jitsi
             XMPP_GUEST_DOMAIN: guest.meet.jitsi
-            XMPP_MODULES: ''
-            XMPP_MUC_MODULES: ''
-            XMPP_INTERNAL_MUC_MODULES: ''
+            XMPP_MODULES: ""
+            XMPP_MUC_MODULES: ""
+            XMPP_INTERNAL_MUC_MODULES: ""
             JVB_BREWERY_MUC: jvbbrewery
             JVB_AUTH_USER: jvb
             JVB_STUN_SERVERS: meet-jit-si-turnrelay.jitsi.net:443
             JVB_PORT: $$cap_jvb_udp
-            JVB_TCP_HARVESTER_DISABLED: 'true'
+            JVB_TCP_HARVESTER_DISABLED: "true"
             JVB_TCP_PORT: $$cap_jvb_tcp
             JICOFO_AUTH_USER: focus
             JIGASI_XMPP_USER: jigasi
             JIGASI_BREWERY_MUC: jigasibrewery
-            JIGASI_PORT_MIN: '20000'
-            JIGASI_PORT_MAX: '20050'
+            JIGASI_PORT_MIN: "20000"
+            JIGASI_PORT_MAX: "20050"
             XMPP_RECORDER_DOMAIN: recorder.meet.jitsi
             JIBRI_RECORDER_USER: recorder
             JIBRI_RECORDING_DIR: /config/recordings
             JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: /config/finalize.sh
             JIBRI_XMPP_USER: jibri
             JIBRI_BREWERY_MUC: jibribrewery
-            JIBRI_PENDING_TIMEOUT: '90'
+            JIBRI_PENDING_TIMEOUT: "90"
             JIBRI_STRIP_DOMAIN_JID: muc
             JIBRI_LOGS_DIR: /config/logs
         depends_on:
             - $$cap_appname-prosody
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - label: Docker tag version
-          description: 'You can check the version in Docker Hub: https://hub.docker.com/r/jitsi/web/tags'
-          defaultValue: '4416'
+          description: "You can check the version in Docker Hub: https://hub.docker.com/r/jitsi/web/tags"
+          defaultValue: "4416"
           id: $$cap_tag_version
         - label: HTTP Port
           description: This is the HTTP port to access Jitsi
-          defaultValue: '8000'
+          defaultValue: "8000"
           id: $$cap_http_port
         - label: HTTPS Port
           description: This is the HTTPS port to access Jitsi
-          defaultValue: '8443'
+          defaultValue: "8443"
           id: $$cap_https_port
         - label: Timezone
           description: This is the timezone for Jitsi
@@ -221,11 +223,11 @@ caproverOneClickApp:
           id: $$cap_timezone
         - label: JVB TCP Port
           description: TCP Port for JVB service
-          defaultValue: '4443'
+          defaultValue: "4443"
           id: $$cap_jvb_tcp
         - label: JVB UDP Port
           description: UDP Port for JVB service
-          defaultValue: '10000'
+          defaultValue: "10000"
           id: $$cap_jvb_udp
         - label: Password
           description: This is the password for Jitsi's services

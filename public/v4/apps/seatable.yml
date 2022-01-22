@@ -1,38 +1,40 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
-        image: 'mariadb:$$cap_mariadb_version'
+        image: "mariadb:$$cap_mariadb_version"
         environment:
             MYSQL_ROOT_PASSWORD: $$cap_mariadb_root_passwd
         volumes:
-            - '$$cap_appname-db-data:/var/lib/mysql'
+            - "$$cap_appname-db-data:/var/lib/mysql"
         networks:
             - seatable-net
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname-memcached:
-        image: 'memcached:$$cap_memcached_version'
+        image: "memcached:$$cap_memcached_version"
         entrypoint: memcached -m 256
         networks:
             - seatable-net
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname-redis:
-        image: 'redis:$$cap_redis_version'
+        image: "redis:$$cap_redis_version"
         networks:
             - seatable-net
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         volumes:
-            - '$$cap_appname-data:/shared'
+            - "$$cap_appname-data:/shared"
         environment:
             DB_HOST: srv-captain--$$cap_appname-db
             DB_ROOT_PASSWD: $$cap_mariadb_root_passwd
-            SEATABLE_SERVER_LETSENCRYPT: 'False'
+            SEATABLE_SERVER_LETSENCRYPT: "False"
             SEATABLE_SERVER_HOSTNAME: $$cap_appname.$$cap_root_domain
             TIME_ZONE: $$cap_timezone
         depends_on:
@@ -55,7 +57,7 @@ caproverOneClickApp:
         - id: $$cap_seatable_version
           label: SeaTable Version
           defaultValue: 1.8.0
-          description: 'Check out their docker page for the valid tags https://hub.docker.com/r/seatable/seatable/tags?page=1&ordering=last_updated'
+          description: "Check out their docker page for the valid tags https://hub.docker.com/r/seatable/seatable/tags?page=1&ordering=last_updated"
         - id: $$cap_memcached_version
           label: Memcached Version
           defaultValue: 1.5.6

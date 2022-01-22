@@ -1,18 +1,20 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: linuxserver/papermerge:$$cap_papermerge_version
         environment:
             TZ: $$cap_tz
-            PUID: '1000'
-            PGID: '1000'
+            PUID: "1000"
+            PGID: "1000"
             REDIS_URL: $$cap_redis_url
         restart: unless-stopped
         volumes:
             - $$cap_appname-config:/config
             - $$cap_appname-data:/data
         caproverExtra:
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
 caproverOneClickApp:
     variables:
         - id: $$cap_papermerge_version
@@ -27,7 +29,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_redis_url
           label: Redis URL
-          defaultValue: ''
+          defaultValue: ""
           description: Specify an external redis instance to use. Can optionally include a port (redis:6379) and/or db (redis/foo). If left blank or not included, will use a built-in redis instance. If changed after initial setup will also require manual modification of /config/settings.py
     instructions:
         start: |-

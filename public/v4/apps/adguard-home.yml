@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # AdGuard
@@ -13,12 +15,12 @@ services:
             - $$cap_appname-work:/opt/adguardhome/work
             - $$cap_appname-conf:/opt/adguardhome/conf
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - id: $$cap_adguard_version
           label: AdGuard Home Version
-          defaultValue: 'v0.104.3'
+          defaultValue: "v0.104.3"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/adguard/adguardhome/tags
     instructions:
         start: >-
@@ -34,7 +36,7 @@ caproverOneClickApp:
             After you are done you will be redirected to $$cap_appname.$$cap_root_domain:3000
             Just remove 3000 from the url and visit $$cap_appname.$$cap_root_domain
             You will be redirected to https://$$cap_appname.$$cap_root_domain/login.html
-    displayName: 'AdGuard Home'
+    displayName: "AdGuard Home"
     isOfficial: true
     description: AdGuard Home is a fast and easy way to block ads on any device and protect kids online!
     documentation: Taken from https://hub.docker.com/r/adguard/adguardhome

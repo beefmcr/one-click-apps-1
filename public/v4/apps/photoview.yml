@@ -1,17 +1,19 @@
+# @format
+
 captainVersion: 4
 
 services:
     $$cap_appname-mariadb:
         image: mariadb:$$cap_mariadb_version
         environment:
-            MYSQL_RANDOM_ROOT_PASSWORD: '1'
+            MYSQL_RANDOM_ROOT_PASSWORD: "1"
             MYSQL_DATABASE: $$cap_mariadb_db
             MYSQL_USER: $$cap_mariadb_user
             MYSQL_PASSWORD: $$cap_mariadb_pass
         volumes:
             - $$cap_appname-mariadb-data:/var/lib/mysql
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         image: viktorstrate/photoview:$$cap_photoview_version
@@ -51,7 +53,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_photoview_version
           label: Photoview Version
-          defaultValue: '2.3.9'
+          defaultValue: "2.3.9"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/viktorstrate/photoview/tags
           validRegex: /^([^\s^\/])+$/
 
@@ -73,19 +75,19 @@ caproverOneClickApp:
 
         - id: $$cap_mariadb_version
           label: MariaDB Version
-          defaultValue: '10.5'
+          defaultValue: "10.5"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/library/mariadb/tags
           validRegex: /^([^\s^\/])+$/
 
         - id: $$cap_mariadb_db
           label: MariaDB Database
           description: Name of the Database used by Photoview
-          defaultValue: 'photoview'
+          defaultValue: "photoview"
 
         - id: $$cap_mariadb_user
           label: MariaDB Username
           description: Username for the Database used by Photoview
-          defaultValue: 'photoview'
+          defaultValue: "photoview"
 
         - id: $$cap_mariadb_pass
           label: MariaDB Password

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -14,20 +16,20 @@ services:
             DOCKER_INFLUXDB_INIT_MODE: setup
             DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: $$cap_influx_token
         caproverExtra:
-            containerHttpPort: '8086'
+            containerHttpPort: "8086"
 caproverOneClickApp:
     variables:
         - id: $$cap_influx_version
           label: InfluxDb Version
-          defaultValue: '2.0'
+          defaultValue: "2.0"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/influxdb/tags/
           validRegex: /^([^\s^\/])+$/
         - label: Influx Bucket
           description: Automatically initializes a database with this bucket ID.
-          defaultValue: 'my-bucket'
+          defaultValue: "my-bucket"
           id: $$cap_influx_bucket
         - label: Username for initialization
-          defaultValue: 'username'
+          defaultValue: "username"
           id: $$cap_influx_init_username
         - label: Password for initialization
           defaultValue: $$cap_gen_random_hex(12)
@@ -36,11 +38,11 @@ caproverOneClickApp:
           defaultValue: $$cap_gen_random_hex(24)
           id: $$cap_influx_token
         - label: Organization for intialization
-          defaultValue: 'my-org'
+          defaultValue: "my-org"
           id: $$cap_influx_init_org
         - label: Retention for data
           description: The duration the system's initial bucket should retain data. If not set, the initial bucket will retain data forever.
-          defaultValue: '52w'
+          defaultValue: "52w"
           id: $$cap_influx_retention
     instructions:
         start: >-

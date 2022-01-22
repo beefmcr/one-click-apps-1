@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -10,14 +12,14 @@ services:
             POSTGRES_PASSWORD: $$cap_db_pass
             POSTGRES_DB: peertube
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         image: redis:$$cap_redis_version
         volumes:
             - $$cap_appname-redis-data:/data
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-db
@@ -33,8 +35,8 @@ services:
             PEERTUBE_DB_HOSTNAME: srv-captain--$$cap_appname-db
             PEERTUBE_REDIS_HOSTNAME: srv-captain--$$cap_appname-redis
             PEERTUBE_WEBSERVER_HOSTNAME: $$cap_appname.$$cap_root_domain
-            PEERTUBE_WEBSERVER_PORT: '443'
-            PEERTUBE_WEBSERVER_HTTPS: 'true'
+            PEERTUBE_WEBSERVER_PORT: "443"
+            PEERTUBE_WEBSERVER_HTTPS: "true"
             PEERTUBE_TRUST_PROXY: '["127.0.0.1", "loopback", "10.0.0.0/16"]'
             PEERTUBE_SMTP_USERNAME: $$cap_smtp_username
             PEERTUBE_SMTP_PASSWORD: $$cap_smtp_password
@@ -45,7 +47,7 @@ services:
             PEERTUBE_SMTP_DISABLE_STARTTLS: $$cap_smtp_starttls
             PEERTUBE_ADMIN_EMAIL: $$cap_admin_email
         caproverExtra:
-            containerHttpPort: '9000'
+            containerHttpPort: "9000"
 caproverOneClickApp:
     variables:
         - id: $$cap_db_user
@@ -54,7 +56,7 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_postgres_version
           label: Postgress Version
@@ -73,35 +75,35 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_smtp_username
           label: SMTP username
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_smtp_from
           label: SMTP from
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_smtp_password
           label: SMTP password
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_smtp_hostname
           label: SMTP hostname
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_smtp_port
           label: SMTP port
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_smtp_tls
           label: SMTP TLS
-          defaultValue: 'false'
+          defaultValue: "false"
         - id: $$cap_smtp_starttls
           label: SMTP STARTTLS
-          defaultValue: 'false'
+          defaultValue: "false"
         - id: $$cap_admin_email
           label: administrator email
-          defaultValue: ''
+          defaultValue: ""
     instructions:
-        start: 'PeerTube is a free, decentralized and federated video platform. (Github : https://github.com/Chocobozzz/PeerTube/)'
+        start: "PeerTube is a free, decentralized and federated video platform. (Github : https://github.com/Chocobozzz/PeerTube/)"
         end: >
             Peertube is deployed and available as $$cap_appname.
 
             IMPORTANT: It will take up to 2 minutes for PeerTube to be ready. Before that, you might see 502 error page.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: PeerTube is a decentralized video hosting network, based on free/libre software
     documentation: Taken from https://github.com/Chocobozzz/PeerTube/blob/develop/support/docker/production/docker-compose.yml

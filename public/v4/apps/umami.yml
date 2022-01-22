@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Umami
@@ -15,7 +17,7 @@ services:
         depends_on:
             - $$cap_appname-postgres
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     # PostgreSQL
     $$cap_appname-postgres:
         image: postgres:$$cap_postgres_version
@@ -28,22 +30,22 @@ services:
             POSTGRES_PASSWORD: $$cap_postgres_pass
             POSTGRES_INITDB_ARGS: $$cap_pg_initdb_args
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgres Version
-          defaultValue: '12.6-alpine'
+          defaultValue: "12.6-alpine"
           description: Checkout their page for the valid tags https://hub.docker.com/_/postgres
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_umami_version
           label: Caprover Umami Version
-          defaultValue: 'postgresql-5ecaf55'
+          defaultValue: "postgresql-5ecaf55"
           description: Checkout their github page for the valid tags https://github.com/tschannik/caprover-umami
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_pass
           label: Potgress Database password
-          description: 'Pasword for postgres'
+          description: "Pasword for postgres"
           defaultValue: $$cap_gen_random_hex(16)
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_initdb_args

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -21,7 +23,7 @@ services:
         ports:
             - $$cap_sshd_port:2222
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_sshd_public_key
@@ -29,11 +31,11 @@ caproverOneClickApp:
           description: Enter your public key
         - id: $$cap_sshd_username
           label: Your SSH Username
-          defaultValue: 'caprover'
+          defaultValue: "caprover"
         - id: $$cap_sshd_port
           label: Your SSH exposed port (your host mapped port)
           description: Enter a port number
-          defaultValue: '4646'
+          defaultValue: "4646"
           validRegex: /^\d+$/
     instructions:
         start: >-
@@ -50,4 +52,4 @@ caproverOneClickApp:
     displayName: SSH Container
     isOfficial: true
     description: Just a simple container that has sshd installed so you can SSH directly into this container.
-    documentation: 'Taken from https://github.com/linuxserver/docker-openssh-server'
+    documentation: "Taken from https://github.com/linuxserver/docker-openssh-server"

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,7 +13,7 @@ services:
             POSTGRES_DB: $$cap_pg_db
             POSTGRES_INITDB_ARGS: $$cap_pg_initdb_args
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: hasura/graphql-engine:$$cap_hasura_version
         depends_on:
@@ -19,11 +21,11 @@ services:
         restart: always
         environment:
             HASURA_GRAPHQL_DATABASE_URL: postgres://$$cap_pg_user:$$cap_pg_pass@srv-captain--$$cap_appname-db:5432/$$cap_pg_db
-            HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
+            HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
             HASURA_GRAPHQL_ADMIN_SECRET: $$cap_admin_secret
             HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - defaultValue: v1.2.2
@@ -31,7 +33,7 @@ caproverOneClickApp:
           id: $$cap_hasura_version
           label: Hasura Version
           validRegex: /^([^\s^\/])+$/
-        - defaultValue: '12'
+        - defaultValue: "12"
           id: $$cap_postgres_version
           label: Postgres Version
           validRegex: /^([^\s^\/])+$/
@@ -41,15 +43,15 @@ caproverOneClickApp:
           validRegex: /^(?=.*\d).{10,}$/
         - id: $$cap_pg_user
           label: Postgres Username
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_pass
           label: Postgres Password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_db
           label: Postgres Default Database
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_pg_initdb_args
           label: "OPTIONAL: Arguments for 'postgres initdb'"
@@ -61,7 +63,7 @@ caproverOneClickApp:
 
             IMPORTANT: It will take up to 2 minutes for Hasura to be ready. Before that, you might see 502 error page.
         start: Instant Realtime GraphQL on Postgres with web admin console. This Docker Compose setup runs Hasura GraphQL Engine along with a Postgres database with the PostGIS extension.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Instant realtime GraphQL APIs on any Postgres application, existing or new
     documentation: Hasura GraphQL Engine

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,7 +8,7 @@ services:
         volumes:
             - $$cap_appname-jenkins-home:/var/jenkins_home
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - id: $$cap_jenkins_version
@@ -28,7 +30,7 @@ caproverOneClickApp:
 
             It will take about a minute for the process to finish.
         end: Jenkins is deployed and available as $$cap_appname
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Jenkins helps to automate the non-human part of the software development process, with continuous integration and facilitating technical aspects of continuous delivery
-    documentation: 'Taken from https://hub.docker.com/r/jenkins/jenkins/ '
+    documentation: "Taken from https://hub.docker.com/r/jenkins/jenkins/ "

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -12,7 +14,7 @@ services:
             PGDATA: /var/lib/postgresql/data
 
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname-redis:
         volumes:
@@ -24,7 +26,7 @@ services:
             dockerfileLines:
                 - FROM redis:$$cap_redis_version
                 - CMD exec redis-server --requirepass "$$cap_redis_password"
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         depends_on:
@@ -53,14 +55,14 @@ services:
             REDIS_DB_CACHE: 1
 
         caproverExtra:
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
 
 caproverOneClickApp:
     variables:
         - id: $$cap_pg_version
           label: Postgres Version Tag
           defaultValue: 12.2
-          description: 'Check out the Docker page for valid tags https://hub.docker.com/r/library/postgres/tags/.'
+          description: "Check out the Docker page for valid tags https://hub.docker.com/r/library/postgres/tags/."
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_user
           label: Postgres Username
@@ -68,13 +70,13 @@ caproverOneClickApp:
         - id: $$cap_pg_pass
           label: Postgres Password
           defaultValue: $$cap_gen_random_hex(12)
-          description: 'Password must be at least 12 characters.  Please use a random string.'
+          description: "Password must be at least 12 characters.  Please use a random string."
         - id: $$cap_pg_name
           label: Postgres Database
           defaultValue: netbox-pgsql
         - id: $$cap_redis_version
           label: Redis Version Tag
-          description: 'Check out the Docker page for valid tags: https://hub.docker.com/_/redis?tab=tags.'
+          description: "Check out the Docker page for valid tags: https://hub.docker.com/_/redis?tab=tags."
           defaultValue: 5
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_redis_password
@@ -83,7 +85,7 @@ caproverOneClickApp:
           defaultValue: $$cap_gen_random_hex(12)
         - id: $$cap_netbox_version
           label: Netbox Version Tag
-          description: 'Check out the Docker page for valid tags: https://hub.docker.com/r/linuxserver/netbox/tags.'
+          description: "Check out the Docker page for valid tags: https://hub.docker.com/r/linuxserver/netbox/tags."
           defaultValue: 3.1.6
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_time_zone
@@ -91,7 +93,7 @@ caproverOneClickApp:
           defaultValue: America/New_York
         - id: $$cap_superuser_email
           label: Email for user "admin"
-          description: 'Email address for the Netbox admin account.'
+          description: "Email address for the Netbox admin account."
           defaultValue: user@example.tld
         - id: $$cap_superuser_pass
           label: Admin Password
@@ -116,4 +118,4 @@ caproverOneClickApp:
     displayName: Netbox
     isOfficial: false
     description: IP address management (IPAM) and data center infrastructure management (DCIM) tool
-    documentation: 'Read more at: https://docs.linuxserver.io/images/docker-netbox'
+    documentation: "Read more at: https://docs.linuxserver.io/images/docker-netbox"

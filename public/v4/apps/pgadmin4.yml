@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -13,12 +15,12 @@ caproverOneClickApp:
         - id: $$cap_pgadmin4_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/dpage/pgadmin4/tags/
-          defaultValue: '4.27'
+          defaultValue: "4.27"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_email
           label: Email
           description: Email address used when setting up the initial administrator account to login to pgAdmin
-          defaultValue: ''
+          defaultValue: ""
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_password
           label: Password
@@ -31,7 +33,7 @@ caproverOneClickApp:
 
             Enter your Configuration parameters and click on next. It will take about a minute for the process to finish.
         end: Your pgAdmin is deployed and being started. Please wait one minute before accessing your pgAdmin!
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: pgAdmin 4 is a complete rewrite of pgAdmin, built using Python and Javascript/jQuery
-    documentation: 'Taken from https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html '
+    documentation: "Taken from https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html "

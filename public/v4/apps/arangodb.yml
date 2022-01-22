@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -9,17 +11,17 @@ services:
         environment:
             ARANGO_ROOT_PASSWORD: $$cap_db_pass
         caproverExtra:
-            containerHttpPort: '8529'
+            containerHttpPort: "8529"
 caproverOneClickApp:
     variables:
         - id: $$cap_arango_version
           label: ArangoDB Version
-          defaultValue: '3.4'
+          defaultValue: "3.4"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/arangodb/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_db_pass
           label: ArangoDB Root password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
     instructions:
         start: ArangoDB is a multi-model, open-source database with flexible data models for documents, graphs, and key-values. Build high performance applications using a convenient SQL-like query language or JavaScript extensions. Use ACID transactions if you require them. Scale horizontally and vertically with a few mouse clicks.

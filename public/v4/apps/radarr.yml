@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Radarr
@@ -39,13 +41,13 @@ caproverOneClickApp:
 
         - id: $$cap_puid
           label: User ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: User ID that the process uses, run (id $user) in your instance to see the id
           validRegex: /.{1,}/
 
         - id: $$cap_guid
           label: Group ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: Group ID that the process uses, run (id $user) in your instance to see the id
           validRegex: /.{1,}/
     instructions:

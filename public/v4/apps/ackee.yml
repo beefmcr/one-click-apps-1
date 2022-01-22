@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Ackee
@@ -13,7 +15,7 @@ services:
             ACKEE_PASSWORD: $$cap_ackee_passwd
             ACKEE_ALLOW_ORIGIN: $$cap_ackee_access_origin
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     # MongoDB
     $$cap_appname-mongodb:
         image: mongo:$$cap_mongo_version
@@ -21,30 +23,30 @@ services:
             - $$cap_appname-db-data:/data/db
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_ackee_version
           label: Ackee Version
-          defaultValue: '2.3.0'
+          defaultValue: "2.3.0"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/electerious/ackee/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_ackee_username
           label: Ackee Admin User
-          defaultValue: ''
-          description: 'Username for Ackee'
+          defaultValue: ""
+          description: "Username for Ackee"
         - id: $$cap_ackee_passwd
           label: Ackee Admin Password
-          defaultValue: ''
-          description: 'Your super secret Password for Ackee'
+          defaultValue: ""
+          description: "Your super secret Password for Ackee"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_ackee_access_origin
           label: CORS headers
-          defaultValue: 'https://example.com,https://example2.com'
-          description: 'Ackee requires correct CORS headers. Please read https://docs.ackee.electerious.com/#/docs/CORS%20headers#heroku-or-platforms-as-a-service-configuration'
+          defaultValue: "https://example.com,https://example2.com"
+          description: "Ackee requires correct CORS headers. Please read https://docs.ackee.electerious.com/#/docs/CORS%20headers#heroku-or-platforms-as-a-service-configuration"
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4.0.20'
+          defaultValue: "4.0.20"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
     instructions:
@@ -53,7 +55,7 @@ caproverOneClickApp:
         end: >-
             Aaaand you're done! 😄
             Your service is available at http://$$cap_appname.$$cap_root_domain
-    displayName: 'Ackee'
+    displayName: "Ackee"
     isOfficial: true
     description: Self-hosted, Node.js based analytics tool for those who care about privacy.
     documentation: Taken from https://hub.docker.com/r/electerious/ackee

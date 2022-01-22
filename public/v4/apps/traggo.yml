@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -8,15 +10,15 @@ services:
             TRAGGO_DEFAULT_USER_NAME: $$cap_traggo_user
             TRAGGO_DEFAULT_USER_PASS: $$cap_traggo_pw
         caproverExtra:
-            containerHttpPort: '3030'
+            containerHttpPort: "3030"
             dockerfileLines:
                 - FROM traggo/server:$$cap_traggo_version
 caproverOneClickApp:
     variables:
         - id: $$cap_traggo_version
           label: Traggo Version Tag
-          description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/traggo/server/tags'
-          defaultValue: '0.2.1'
+          description: "Check out their Docker page for the valid tags: https://hub.docker.com/r/traggo/server/tags"
+          defaultValue: "0.2.1"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_traggo_user
           label: Default User's Username
@@ -33,7 +35,7 @@ caproverOneClickApp:
             Traggo has been deployed and can be accessed at **$$cap_appname.$$cap_root_domain**. Enabling https is recommended.
 
             The `$$cap_appname-data` volume contains the sqlite database.
-    displayName: 'Traggo'
+    displayName: "Traggo"
     isOfficial: true
     description: Traggo is a simple tag-based time tracking tool. In Traggo there are no tasks, only tagged time spans.
     documentation: Taken from https://traggo.net/install/

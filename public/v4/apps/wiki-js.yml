@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgres:
@@ -12,7 +14,7 @@ services:
         environment:
             DB_TYPE: postgres
             DB_HOST: srv-captain--$$cap_appname-postgres
-            DB_PORT: '5432'
+            DB_PORT: "5432"
             DB_USER: wikijs
             DB_PASS: $$cap_DB_PASS
             DB_NAME: wiki
@@ -21,11 +23,11 @@ services:
         volumes:
             - $$cap_appname-data:/wiki
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - label: Wiki.js Version
-          defaultValue: '2.5'
+          defaultValue: "2.5"
           description: It's highly recommended that you don't use the latest tag but instead the major version you need, e.g. requarks/wiki:2
           id: $$cap_version
         - label: Postgres Version

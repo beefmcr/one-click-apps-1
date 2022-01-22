@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -16,7 +18,7 @@ caproverOneClickApp:
         - id: $$cap_heimdall_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/heimdall/tags
-          defaultValue: 'version-2.2.2'
+          defaultValue: "version-2.2.2"
     instructions:
         start: |-
             Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way. 

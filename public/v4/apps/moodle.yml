@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -13,20 +15,20 @@ services:
             MOODLE_DATABASE_USER: $$cap_db_user
             MOODLE_DATABASE_NAME: $$cap_db_name
             MOODLE_DATABASE_PASSWORD: $$cap_db_pass
-            ALLOW_EMPTY_PASSWORD: 'no'
+            ALLOW_EMPTY_PASSWORD: "no"
             MOODLE_USERNAME: admin
             MOODLE_PASSWORD: password
             MOODLE_EMAIL: $$cap_md_admin_email
             MOODLE_SITE_NAME: $$cap_md_sitename
             MOODLE_SKIP_BOOTSTRAP: $$cap_md_bootstrap
-            PHP_MAX_INPUT_VARS: '6000'
-            PHP_MEMORY_LIMIT: '256M'
+            PHP_MAX_INPUT_VARS: "6000"
+            PHP_MEMORY_LIMIT: "256M"
             PHP_UPLOAD_MAX_FILESIZE: 100M
             PHP_POST_MAX_SIZE: 100M
-            PHP_MAX_INPUT_TIME: '30'
-            PHP_MAX_EXECUTION_TIME: '30'
+            PHP_MAX_INPUT_TIME: "30"
+            PHP_MAX_EXECUTION_TIME: "30"
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - description: Valid values mariadb, mysqli
@@ -39,7 +41,7 @@ caproverOneClickApp:
           label: Database Host
         - id: $$cap_db_port
           label: Database Port
-          defaultValue: '3306'
+          defaultValue: "3306"
           description: Default Mysql port will be 3306
           validRegex: /^([^\s^\/])+$/
         - description: Database name
@@ -68,7 +70,7 @@ caproverOneClickApp:
           description: Moodle application email.
         - id: $$cap_md_bootstrap
           label: Is moodle exists in db?
-          defaultValue: 'no'
+          defaultValue: "no"
           description: Set 'no' for new installation. This is necessary in case you use a database that already has Moodle data.
     instructions:
         start: >-

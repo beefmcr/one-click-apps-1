@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-redis:
@@ -5,7 +7,7 @@ services:
         volumes:
             - $$cap_appname-cache-data:/app/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-postgres:
         image: postgres:$$cap_postgres_version
         volumes:
@@ -16,7 +18,7 @@ services:
             POSTGRES_PASSWORD: $$cap_pg_pass
             POSTGRES_DB: weblate
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: weblate/weblate:$$cap_weblate_version
         depends_on:
@@ -44,7 +46,7 @@ services:
             POSTGRES_PORT: 5432
             REDIS_PORT: 6379
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version

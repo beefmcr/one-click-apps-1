@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,7 +13,7 @@ services:
             POSTGRES_DB: redmine
             PGDATA: /var/lib/postgresql/data/pgdata
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         depends_on:
@@ -28,21 +30,21 @@ services:
         volumes:
             - $$cap_appname-data:/usr/src/redmine/files
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 
 caproverOneClickApp:
     variables:
         - id: $$cap_redmine_version
           label: Redmine Version
-          defaultValue: '4.2.3'
-          description: 'Check out their Docker page for the valid tags https://hub.docker.com/_/redmine?tab=tags'
+          defaultValue: "4.2.3"
+          description: "Check out their Docker page for the valid tags https://hub.docker.com/_/redmine?tab=tags"
         - id: $$cap_postgres_version
           label: PostgreSQL Version
-          defaultValue: '9.6'
-          description: 'Check out their Docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags'
+          defaultValue: "9.6"
+          description: "Check out their Docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags"
         - id: $$cap_postgres_user
           label: PostgreSQL username
-          defaultValue: 'redmine'
+          defaultValue: "redmine"
         - id: $$cap_postgres_password
           label: PostgreSQL Password
           defaultValue: $$cap_gen_random_hex(16)

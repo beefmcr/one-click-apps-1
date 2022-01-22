@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -10,7 +12,7 @@ services:
             POSTGRES_PASSWORD: $$cap_pg_pass
             POSTGRES_DB: mattermost
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: mattermost/mattermost-prod-app:$$cap_mattermost_version
         depends_on:
@@ -29,7 +31,7 @@ services:
             DB_HOST: srv-captain--$$cap_appname-db
             MM_SERVICESETTINGS_SITEURL: https://$$cap_appname.$$cap_root_domain
         caproverExtra:
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
 caproverOneClickApp:
     variables:
         - id: $$cap_mattermost_version

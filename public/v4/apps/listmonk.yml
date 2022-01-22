@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 
 services:
@@ -11,7 +13,7 @@ services:
             POSTGRES_PASSWORD: $$cap_postgres_password
             POSTGRES_DB: $$cap_postgres_db_name
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         environment:
             TZ: Etc/UTC
@@ -37,21 +39,21 @@ caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgresql Version
-          defaultValue: '14.1'
+          defaultValue: "14.1"
           description: Check out their Docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_listmonk_version
           label: Listmonk Version
-          defaultValue: 'v2.0.0'
+          defaultValue: "v2.0.0"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/listmonk/listmonk/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_db_name
           label: PostgreSQL Database name
-          defaultValue: 'listmonk'
+          defaultValue: "listmonk"
           validRegex: /.{1,}/
         - id: $$cap_postgres_username
           label: PostgreSQL username
-          defaultValue: 'listmonk'
+          defaultValue: "listmonk"
           validRegex: /.{1,}/
         - id: $$cap_postgres_password
           label: PostgreSQL Password
@@ -59,11 +61,11 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_postgres_ssl_mode
           label: PostgreSQL SSL Mode
-          defaultValue: 'disable'
+          defaultValue: "disable"
           validRegex: /.{1,}/
         - id: $$cap_listmonk_admin_username
           label: Listmonk Admin Username
-          defaultValue: 'listmonk'
+          defaultValue: "listmonk"
           validRegex: /.{1,}/
         - id: $$cap_listmonk_admin_password
           label: Listmonk Admin Password

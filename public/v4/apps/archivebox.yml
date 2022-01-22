@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -5,14 +7,14 @@ services:
         volumes:
             - $$cap_appname-data:/data
         environment:
-            ALLOWED_HOSTS: '*'
+            ALLOWED_HOSTS: "*"
             MEDIA_MAX_SIZE: $$cap_max_size_in_mo
         restart: always
         caproverExtra:
             dockerfileLines:
                 - FROM archivebox/archivebox:$$cap_archivebox_version
                 - CMD ["server", "--quick-init", "0.0.0.0:8000"]
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
 caproverOneClickApp:
     variables:
         - id: $$cap_archivebox_version

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,7 +9,7 @@ services:
             - $$cap_appname-config:/etc/grafana
             - $$cap_appname-data:/var/lib/grafana
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - label: Grafana Docker Hash
@@ -16,7 +18,7 @@ caproverOneClickApp:
           id: $$cap_version
     instructions:
         end: Grafana is now starting. You can log in with the default login/password of admin/admin.
-        start: 'Read more about Grafana: https://grafana.com/'
+        start: "Read more about Grafana: https://grafana.com/"
     displayName: Grafana
     isOfficial: true
     description: Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored.

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-core:
@@ -10,12 +12,12 @@ services:
         environment:
             DATABASE_CLIENT: postgres
             DATABASE_HOST: srv-captain--$$cap_appname-postgres
-            DATABASE_PORT: '5432'
+            DATABASE_PORT: "5432"
             DATABASE_NAME: strapi
             DATABASE_USERNAME: strapi
             DATABASE_PASSWORD: $$cap_postgres_password
         caproverExtra:
-            containerHttpPort: '1337'
+            containerHttpPort: "1337"
     $$cap_appname-postgres:
         image: postgres:$$cap_postgres_version
         volumes:
@@ -26,7 +28,7 @@ services:
             POSTGRES_USER: strapi
             POSTGRES_PASSWORD: $$cap_postgres_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_strapi_version
@@ -36,7 +38,7 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_version
           label: PostgreSQL Version
-          defaultValue: '9.6.20'
+          defaultValue: "9.6.20"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_password

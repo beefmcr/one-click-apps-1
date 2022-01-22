@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -12,7 +14,7 @@ services:
             MYSQL_USER: $$cap_db_user
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         documentation: Taken from https://hub.docker.com/r/bitnami/orangehrm
         depends_on:
@@ -45,7 +47,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_orangehrm_version
           label: OrangeHRM Version
-          defaultValue: '4.6.0-0'
+          defaultValue: "4.6.0-0"
           description: https://hub.docker.com/r/bitnami/orangehrm/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mariadb_version
@@ -73,7 +75,7 @@ caproverOneClickApp:
           description: The host for your smtp server
         - id: $$cap_smtp_port
           label: SMTP port
-          defaultValue: '587'
+          defaultValue: "587"
           description: The port for your smtp server
         - id: $$cap_smtp_user
           label: SMTP user

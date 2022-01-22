@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -11,24 +13,24 @@ services:
             CONTAINER_CACHE: $$cap_foundry_container_cache
             TIMEZONE: $$cap_foundry_timezone
         caproverExtra:
-            containerHttpPort: '30000'
+            containerHttpPort: "30000"
         volumes:
             - $$cap_appname:/data
 caproverOneClickApp:
     variables:
         - id: $$cap_foundry_version
           label: Foundry VTT Version
-          defaultValue: '0.8.9'
+          defaultValue: "0.8.9"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/felddy/foundryvtt/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_foundry_username
           label: Username
-          defaultValue: 'user'
+          defaultValue: "user"
           description: Account username or email address for foundryvtt.com. Required for downloading an application distribution.
           validRegex: /.{1,}/
         - id: $$cap_foundry_password
           label: Password
-          defaultValue: 'password'
+          defaultValue: "password"
           description: Account password for foundryvtt.com. Required for downloading an application distribution.
           validRegex: /.{1,}/
         - id: $$cap_foundry_admin_key
@@ -36,21 +38,21 @@ caproverOneClickApp:
           description: Admin password to be applied at startup. If omitted the admin password will be cleared.
         - id: $$cap_foundry_proxy_ssl
           label: Proxy SSL
-          defaultValue: 'true'
+          defaultValue: "true"
           description: Indicates whether the software is running behind a reverse proxy that uses SSL. This allows invitation links and A/V functionality to work as if the Foundry Server had SSL configured directly. CapRover has built-in reverse proxy.
           validRegex: /.{1,}/
         - id: $$cap_foundry_minify_static_files
           label: Minify static?
-          defaultValue: 'true'
+          defaultValue: "true"
           description: Set to true to reduce network traffic by serving minified static JavaScript and CSS files. Enabling this setting is recommended for most users, but module developers may wish to disable it.
           validRegex: /.{1,}/
         - id: $$cap_foundry_container_cache
           label: Cache path
-          defaultValue: '/data/container_cache'
+          defaultValue: "/data/container_cache"
           description: Set a path to cache downloads of the Foundry distribution archive and speed up subsequent container startups. The path should be in /data or another persistent mount point in the container. e.g.; /data/container_cache
         - id: $$cap_foundry_timezone
           label: Timezone
-          defaultValue: 'UTC'
+          defaultValue: "UTC"
           description: Container TZ database name https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
           validRegex: /.{1,}/
     instructions:

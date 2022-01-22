@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # RSS Bridge
@@ -9,13 +11,13 @@ services:
         volumes:
             - $$cap_appname-config:/config
         caproverExtra:
-            containerHttpPort: '80'
+            containerHttpPort: "80"
 
 caproverOneClickApp:
     variables:
         - id: $$cap_app_version
           label: RSS Bridge
-          defaultValue: '2021-04-25'
+          defaultValue: "2021-04-25"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/rssbridge/rss-bridge/tags
 
     instructions:
@@ -24,7 +26,7 @@ caproverOneClickApp:
         end: >-
             Done! 😄
             Your service is available at http://$$cap_appname.$$cap_root_domain
-    displayName: 'RSS Bridge'
+    displayName: "RSS Bridge"
     isOfficial: true
     description: RSS-Bridge is a PHP project capable of generating RSS and Atom feeds for websites that don't have one. It can be used on webservers or as a stand-alone application in CLI mode.
     documentation: https://github.com/RSS-Bridge/rss-bridge

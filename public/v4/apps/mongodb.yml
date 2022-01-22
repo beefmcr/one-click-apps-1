@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,12 +12,12 @@ services:
             MONGO_INITDB_ROOT_USERNAME: $$cap_mongo_username
             MONGO_INITDB_ROOT_PASSWORD: $$cap_mongo_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4'
+          defaultValue: "4"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mongo_username

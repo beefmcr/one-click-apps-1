@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -6,12 +8,12 @@ services:
             - $$cap_appname-data:/opt/couchbase/var
         restart: always
         caproverExtra:
-            containerHttpPort: '8091'
+            containerHttpPort: "8091"
 caproverOneClickApp:
     variables:
         - id: $$cap_cb_version
           label: CouchBase Version
-          defaultValue: 'community-6.6.0'
+          defaultValue: "community-6.6.0"
           description: Check out their Docker page for the valid tags https://registry.hub.docker.com/_/couchbase?tab=tags
           validRegex: /^([^\s^\/])+$/
     instructions:

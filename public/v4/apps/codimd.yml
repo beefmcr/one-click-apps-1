@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mariadb:
@@ -13,7 +15,7 @@ services:
         volumes:
             - $$cap_appname-mariadb-config:/config
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         environment:
             DB_HOST: srv-captain--$$cap_appname-mariadb
@@ -29,7 +31,7 @@ services:
         volumes:
             - $$cap_appname-config:/config
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - label: Database Password

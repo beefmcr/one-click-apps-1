@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -12,13 +14,13 @@ services:
             MYSQL_USER: $$cap_db_user
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         documentation: Taken from https://github.com/nextcloud/docker/blob/master/.examples/docker-compose/with-nginx-proxy/mariadb-cron-redis/apache/docker-compose.yml
         image: redis:$$cap_redis_version
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-db
@@ -51,7 +53,7 @@ services:
             dockerfileLines:
                 - FROM nextcloud:$$cap_nextcloud_version
                 - 'ENTRYPOINT [ "/cron.sh" ] '
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_nextcloud_version

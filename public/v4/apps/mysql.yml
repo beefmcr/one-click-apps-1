@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -8,17 +10,17 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_mysql_version
           label: MySQL Version
-          defaultValue: '5.7'
+          defaultValue: "5.7"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mysql/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_db_pass
           label: MySQL Root password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
     instructions:
         start: >-

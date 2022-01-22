@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 networks:
     db:
@@ -15,7 +17,7 @@ services:
             POSTGRES_PASSWORD: $$cap_postgres_password
             POSTGRES_DB: postgres
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: odoo:$$cap_odoo_version
         depends_on:
@@ -29,7 +31,7 @@ services:
             POSTGRES_PASSWORD: $$cap_postgres_password
             HOST: srv-captain--$$cap_appname-db
         caproverExtra:
-            containerHttpPort: '8069'
+            containerHttpPort: "8069"
 caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
@@ -39,11 +41,11 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_password
           label: Postgres Password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_odoo_version
           label: Odoo Version
-          defaultValue: '13.0'
+          defaultValue: "13.0"
           description: Check out their docker page for the valid tags https://hub.docker.com/_/odoo?tab=tags
           validRegex: /^([^\s^\/])+$/
     instructions:

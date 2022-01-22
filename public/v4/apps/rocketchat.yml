@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 
 services:
@@ -51,7 +53,7 @@ caproverOneClickApp:
         - id: $$cap_app_version
           label: Rocket.Chat Version
           description: See version numbers at https://hub.docker.com/r/library/rocket-chat/tags/ or https://github.com/RocketChat/Rocket.Chat/releases. Version must be >=4.x.y
-          defaultValue: '4.2.1'
+          defaultValue: "4.2.1"
           # enforcing deployment of v4+
           validRegex: /^[4-9](\.[0-9](\.[0-9])?)?$/
 
@@ -76,7 +78,7 @@ caproverOneClickApp:
         - id: $$cap_app_db_version
           label: MongoDB Version
           description: See https://docs.rocket.chat/quick-start/installing-and-updating/manual-installation/mongo-versions for supported MongoDB versions. See https://hub.docker.com/r/bitnami/mongodb/tags/ for MongoDB image tags. Version must be >=4.x.y but please prefer >=4.4.z
-          defaultValue: '4.4'
+          defaultValue: "4.4"
           # ensuring v4+ is used
           validRegex: /^[4-9](\.[0-9](\.[0-9])?)?(-debian-[0-9]+-r[0-9]+)?$/
 

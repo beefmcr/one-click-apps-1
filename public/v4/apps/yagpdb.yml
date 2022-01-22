@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 
 services:
@@ -29,7 +31,7 @@ services:
         volumes:
             - $$cap_appname-redis-data:/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     # PostgreSQL
     $$cap_appname-postgres:
@@ -41,13 +43,13 @@ services:
         volumes:
             - $$cap_appname-db-data:/var/lib/postgresql/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
 caproverOneClickApp:
     variables:
         - id: $$cap_yagpdb_version
           label: Yagpdb Version
-          defaultValue: 'v1.28.0'
+          defaultValue: "v1.28.0"
           description: Checkout their docker page for the valid tags https://hub.docker.com/r/teyker/yagpdb/tags
 
         - id: $$cap_postgres_password

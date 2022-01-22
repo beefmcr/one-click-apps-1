@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -12,7 +14,7 @@ services:
         volumes:
             - $$cap_appname-data:/var/ts3server/
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - label: TeamSpeak Docker Version
@@ -21,15 +23,15 @@ caproverOneClickApp:
           id: $$cap_version
         - label: Voice Port (UDP)
           description: Port for voice (UDP)
-          defaultValue: '9987'
+          defaultValue: "9987"
           id: $$cap_port_voice
         - label: File transfer (TCP)
           description: Transferring files.
-          defaultValue: '30033'
+          defaultValue: "30033"
           id: $$cap_port_files
         - label: Server Query Port (TCP)
           description: Port for querying in server discovery
-          defaultValue: '10011'
+          defaultValue: "10011"
           id: $$cap_port_query
     instructions:
         end: Then you can connect to localhost/ip in your TeamSpeak client. Please write down the server query password, and server admin privilege key that were generated. These are needed to administrate the TeamSpeak server. Found in the logs.

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -13,13 +15,13 @@ services:
             ME_CONFIG_SITE_COOKIESECRET: $$cap_appname$$cap_gen_random_hex(16)
             ME_CONFIG_SITE_SESSIONSECRET: $$cap_appname$$cap_gen_random_hex(16)
         caproverExtra:
-            containerHttpPort: '8081'
+            containerHttpPort: "8081"
 caproverOneClickApp:
     variables:
         - id: $$cap_mongoexpress_version
           label: Mongo Express Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mongo-express/tags/
-          defaultValue: '0.54'
+          defaultValue: "0.54"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_me_server_address
           label: MongoDB Server Address
@@ -27,15 +29,15 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_me_server_port
           label: MongoDB Server Port (default is 27017)
-          defaultValue: '27017'
+          defaultValue: "27017"
           validRegex: /^([0-9])+$/
         - id: $$cap_me_server_admin_username
           label: MongoDB Admin Username
-          defaultValue: ''
+          defaultValue: ""
           validRegex: /.{1,}/
         - id: $$cap_me_server_admin_password
           label: MongoDB Admin Password
-          defaultValue: ''
+          defaultValue: ""
           validRegex: /.{1,}/
         - id: $$cap_me_dashboard_username
           label: Choose a Mongo-Express Dashboard Username
@@ -44,7 +46,7 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_me_dashboard_password
           label: Mongo-Express Dashboard Password
-          defaultValue: ''
+          defaultValue: ""
           description: Restrict access to your Mongo Express dashboard by choosing username/pass
           validRegex: /^([a-zA-Z0-9])+$/
     instructions:

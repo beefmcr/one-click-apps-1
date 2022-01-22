@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -10,7 +12,7 @@ services:
         volumes:
             - $$cap_appname-db-data:/var/lib/postgresql/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:$$cap_elasticsearch_version
         volumes:
@@ -54,36 +56,36 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_fusionauth_version
           label: FusionAuth Version
           defaultValue: 1.7.2
-          description: 'See tags at: https://hub.docker.com/r/fusionauth/fusionauth-app/tags'
+          description: "See tags at: https://hub.docker.com/r/fusionauth/fusionauth-app/tags"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_fusion_memory
           label: Fusion Memory
           defaultValue: 256M
-          description: ''
+          description: ""
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_postgres_version
           label: Postgres Version
-          defaultValue: '9.6'
-          description: ''
+          defaultValue: "9.6"
+          description: ""
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_container_port
           label: Container TCP Port
-          defaultValue: '9011'
+          defaultValue: "9011"
           description: Internal port for Fusion Auth container to listens to.
           validRegex: /^([0-9])+$/
         - id: $$cap_container_search_port
           label: Container TCP Port
-          defaultValue: '9200'
+          defaultValue: "9200"
           description: Internal port for Elasticsearch the container listens to.
           validRegex: /^([0-9])+$/
         - id: $$cap_elasticsearch_version
-          label: 'Elasticsearch Version Tag '
-          description: 'Check out the releases overview: https://www.elastic.co/de/downloads/elasticsearch'
+          label: "Elasticsearch Version Tag "
+          description: "Check out the releases overview: https://www.elastic.co/de/downloads/elasticsearch"
           defaultValue: 6.7.1
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_cluster_name
@@ -93,23 +95,23 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_unicast_hosts
           label: Unicasts hosts
-          description: 'References to other node to attach to. (for example: srv-captain--XXX)'
-          defaultValue: 'false'
+          description: "References to other node to attach to. (for example: srv-captain--XXX)"
+          defaultValue: "false"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_node_data
           label: Node Data
           description: Should the node used for storing data? (true / false)
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_node_master
           label: Node Master
           description: Define node as master-eligible (usual first node YES, others NO).
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_minimum_master_nodes
           label: Minimum Master Nodes
-          description: 'Define minimum amount of master (N) ( best practice: ceil(N/2 + 1) ).'
-          defaultValue: '1'
+          description: "Define minimum amount of master (N) ( best practice: ceil(N/2 + 1) )."
+          defaultValue: "1"
           validRegex: /^([0-9])+$/
     instructions:
         start: >-
@@ -121,4 +123,4 @@ caproverOneClickApp:
     displayName: FusionAuth
     isOfficial: true
     description: FusionAuth is a scalable, identity and user management platform built for devs
-    documentation: 'Adapted from: https://github.com/FusionAuth/fusionauth-containers'
+    documentation: "Adapted from: https://github.com/FusionAuth/fusionauth-containers"

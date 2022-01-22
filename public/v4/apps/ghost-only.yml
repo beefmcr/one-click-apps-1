@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -23,7 +25,7 @@ services:
         volumes:
             - $$cap_appname-data:/bitnami
         caproverExtra:
-            containerHttpPort: '2368'
+            containerHttpPort: "2368"
 caproverOneClickApp:
     variables:
         - defaultValue: 3.4.0
@@ -36,7 +38,7 @@ caproverOneClickApp:
           id: $$cap_mariadb_host
           label: Maria DB Host
         - description: Maria DB port
-          defaultValue: '3306'
+          defaultValue: "3306"
           id: $$cap_mariadb_port_number
           label: MariaDB port
         - description: Database name
@@ -71,7 +73,7 @@ caproverOneClickApp:
           id: $$cap_ghost_protocol
           label: Ghost Protocol
           validRegex: /^([^\s^\/])+$/
-        - defaultValue: '80'
+        - defaultValue: "80"
           description: Port that you will be using
           id: $$cap_ghost_port
           label: Ghost Port
@@ -83,7 +85,7 @@ caproverOneClickApp:
           description: The STMP host you will be using
           id: $$cap_ghost_smtp_host
           label: STMP host
-        - defaultValue: '465'
+        - defaultValue: "465"
           description: The SMTP port you will be using
           id: $$cap_ghost_smtp_port
           label: SMTP port

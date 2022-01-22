@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Metabase
@@ -18,7 +20,7 @@ services:
         volumes:
             - $$cap_appname-data:/metabase-data
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
     # Database
     $$cap_appname-db:
         image: postgres:12-alpine
@@ -30,12 +32,12 @@ services:
             POSTGRES_PASSWORD: $$cap_db_pass
             POSTGRES_DB: metabase
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_mb_version
           label: Metabase Version
-          defaultValue: 'v0.38.0-rc1'
+          defaultValue: "v0.38.0-rc1"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/metabase/metabase/tags
 
         - id: $$cap_db_pass
@@ -63,7 +65,7 @@ caproverOneClickApp:
         end: >-
             Aaaand you're done! 😄
             Your service is available at http://$$cap_appname.$$cap_root_domain
-    displayName: 'Metabase'
+    displayName: "Metabase"
     isOfficial: true
     description: Metabase is the easy, open source way for everyone in your company to ask questions and learn from data.
     documentation: https://www.metabase.com/docs/latest/operations-guide/running-metabase-on-docker.html

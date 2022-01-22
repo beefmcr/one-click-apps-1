@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -45,7 +47,7 @@ caproverOneClickApp:
         - description: The port number of your mongodb database
           id: $$cap_mongodb_port
           label: MONGODB PORT
-          defaultValue: '27017'
+          defaultValue: "27017"
         - description: The username of your mongodb database. If MONGODB_USER is empty while MONGODB_PASS is not, the image will use admin as the default username
           id: $$cap_mongodb_user
           label: MONGODB USER
@@ -71,15 +73,15 @@ caproverOneClickApp:
         - description: If set, create a backup when the container launched
           id: $$cap_init_backup
           label: INIT BACKUP
-          defaultValue: 'true'
+          defaultValue: "true"
         - description: If set (any string, eg. true), restore from latest when container is launched.
           id: $$cap_init_restore
           label: INIT RESTORE
-          defaultValue: ''
+          defaultValue: ""
         - description: if set (any string, eg.true), it will skip setting up automated backups. good for when you want to use this container to seed a dev environment.
           id: $$cap_disable_cron
           label: DISABLE CRON
-          defaultValue: ''
+          defaultValue: ""
     instructions:
         start: Runs mongodump to backup data using cronjob to an S3 bucket
         end: MongoDB Backup S3 is ready

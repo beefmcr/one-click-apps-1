@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgres:
@@ -10,7 +12,7 @@ services:
             POSTGRES_PASSWORD: $$cap_chaskiq_postgres_password
             POSTGRES_DB: chaskiq
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         volumes:
             - $$cap_appname-redis-data:/data
@@ -21,15 +23,15 @@ services:
             dockerfileLines:
                 - FROM redis:alpine
                 - CMD exec redis-server --requirepass "$$cap_chaskiq_redis_password"
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-web:
         restart: always
         environment:
             HOST: https://$$cap_appname-web.$$cap_root_domain
             WS: wss://$$cap_appname-web.$$cap_root_domain/cable
             RAILS_ENV: production
-            RAILS_LOG_TO_STDOUT: 'true'
-            RAILS_SERVE_STATIC_FILES: 'true'
+            RAILS_LOG_TO_STDOUT: "true"
+            RAILS_SERVE_STATIC_FILES: "true"
             SECRET_KEY_BASE: $$cap_chaskiq_secret_key_base
             ADMIN_EMAIL: $$cap_ADMIN_USER_EMAIL
             ADMIN_PASSWORD: $$cap_ADMIN_PASSWORD
@@ -46,7 +48,7 @@ services:
             DEFAULT_SENDER_EMAIL: $$cap_chaskiq_default_sender_email
 
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
             dockerfileLines:
                 - FROM chaskiq/chaskiq:$$cap_chaskiq_version
                 - EXPOSE 3000
@@ -57,7 +59,7 @@ services:
             HOST: https://$$cap_appname.$$cap_root_domain
             WS: wss://$$cap_appname.$$cap_root_domain/cable
             RAILS_ENV: production
-            RAILS_LOG_TO_STDOUT: 'true'
+            RAILS_LOG_TO_STDOUT: "true"
             SECRET_KEY_BASE: $$cap_chaskiq_secret_key_base
             ADMIN_EMAIL: $$cap_ADMIN_USER_EMAIL
             ADMIN_PASSWORD: $$cap_ADMIN_PASSWORD
@@ -77,14 +79,14 @@ services:
             dockerfileLines:
                 - FROM chaskiq/chaskiq:$$cap_chaskiq_version
                 - CMD bundle exec sidekiq -C config/sidekiq.yml
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_chaskiq_version
           label: Chaskiq Version Tag
           description: You can use latest tag or check version builds on https://hub.docker.com/r/chaskiq/chaskiq/tags
           defaultValue: 9009088
-        - defaultValue: 'admin@example.com'
+        - defaultValue: "admin@example.com"
           description: This is the admin email. Please change it.
           id: $$cap_ADMIN_USER_EMAIL
           label: Admin Email
@@ -96,7 +98,7 @@ caproverOneClickApp:
           validRegex: /^[^\@]{12,}$/
         - id: $$cap_chaskiq_default_sender_email
           label: Default sender email
-          description: 'Default email sender, like: notifications@mail.yourapp.com'
+          description: "Default email sender, like: notifications@mail.yourapp.com"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_chaskiq_default_ongoing_domain
           label: Default deliver domain
@@ -127,7 +129,7 @@ caproverOneClickApp:
           description: Amazon S3 bucket name
         - id: $$cap_chaskiq_aws_s3_region
           label: AWS bucket region
-          description: 'AWS S3 bucket region like: us-east-1'
+          description: "AWS S3 bucket region like: us-east-1"
         - id: $$cap_chaskiq_aws_sns_configuration_set
           label: SNS configuration set
           description: This is important for chaskiq to receive emails (optional)
@@ -155,4 +157,4 @@ caproverOneClickApp:
     displayName: Chaskiq
     isOfficial: true
     description: A full-featured Live Chat, Support & Marketing platform
-    documentation: 'Read more at: https://dev.chaskiq.io'
+    documentation: "Read more at: https://dev.chaskiq.io"

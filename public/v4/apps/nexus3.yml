@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,13 +9,13 @@ services:
         restart: always
         environment: {}
         caproverExtra:
-            containerHttpPort: '8081'
+            containerHttpPort: "8081"
 caproverOneClickApp:
     variables:
         - id: $$cap__version
           label: Version
           defaultValue: 3.15.2
-          description: 'Additional tags can be found here: https://hub.docker.com/r/sonatype/nexus3/tags'
+          description: "Additional tags can be found here: https://hub.docker.com/r/sonatype/nexus3/tags"
     instructions:
         start: >-
             Nexus is the world's first and only universal repository solution that's FREE to use. It supports Bower, Docker, Git LFS, Maven, npm, NuGet, PyPI, Ruby Gems, Yum, Apt, Conan, R, CPAN, Raw (Universal),P2 ,Helm and ELPA.

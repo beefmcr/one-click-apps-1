@@ -1,16 +1,18 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: linuxserver/raneto:$$cap_raneto_version
         environment:
             TZ: $$cap_tz
-            PUID: '1000'
-            GUID: '1000'
+            PUID: "1000"
+            GUID: "1000"
         hostname: $$cap_appname.$$cap_root_domain
         volumes:
             - $$cap_appname-config:/config
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - id: $$cap_raneto_version

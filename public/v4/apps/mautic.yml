@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -12,7 +14,7 @@ services:
             MYSQL_USER: $$cap_db_user
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-db
@@ -22,21 +24,21 @@ services:
         restart: always
         environment:
             MAUTIC_DB_HOST: srv-captain--$$cap_appname-db
-            MYSQL_PORT_3306_TCP: '3306'
+            MYSQL_PORT_3306_TCP: "3306"
             MAUTIC_DB_USER: $$cap_db_user
             MAUTIC_DB_PASSWORD: $$cap_db_pass
             MAUTIC_DB_NAME: mautic
-            MAUTIC_RUN_CRON_JOBS: 'true'
+            MAUTIC_RUN_CRON_JOBS: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_db_user
           label: Database user
           defaultValue: mauticuser
-          description: ''
+          description: ""
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_mautic_version
           label: Mautic Version
@@ -45,7 +47,7 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_percona_version
           label: Percona Version (database)
-          defaultValue: '5.7'
+          defaultValue: "5.7"
           description: Check out their Docker page for the valid tags https://hub.docker.com/_/percona?tab=tags
           validRegex: /^([^\s^\/])+$/
     instructions:

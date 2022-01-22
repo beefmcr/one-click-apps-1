@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Uptime Kuma
@@ -7,7 +9,7 @@ services:
         volumes:
             - $$cap_appname-data:/app/data
         caproverExtra:
-            containerHttpPort: '3001'
+            containerHttpPort: "3001"
 caproverOneClickApp:
     variables:
         - id: $$cap_kuma_version

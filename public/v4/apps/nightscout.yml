@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mongodb:
@@ -10,20 +12,20 @@ services:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: $$cap_mongo_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-nightscout:
         depends_on:
             - $$cap_appname-mongodb
         restart: always
         environment:
-            PORT: '1337'
-            INSECURE_USE_HTTP: 'true'
+            PORT: "1337"
+            INSECURE_USE_HTTP: "true"
             MONGO_CONNECTION: mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-mongodb:27017/nightscout?authSource=admin
             API_SECRET: $$cap_api_secret
             BASE_URL: https://replace.me.in.settings.of.website.com
             DISPLAY_UNITS: mg/dl
         caproverExtra:
-            containerHttpPort: '1337'
+            containerHttpPort: "1337"
             dockerfileLines:
                 - FROM node:10
                 - RUN mkdir -p /opt/app
@@ -37,7 +39,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4'
+          defaultValue: "4"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mongo_password
@@ -56,7 +58,7 @@ caproverOneClickApp:
     instructions:
         start: Nightscout acts as a web-based CGM (Continuous Glucose Monitor) to allow multiple caregivers to remotely view a patient's glucose data in real time.
         end: Nightscout is deployed and available as $$cap_appname-nightscout.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Nightscout is a free and open-source project, and associated social movement, that enables accessing and working with continuous glucose monitor data
     documentation: Built from scratch (https://github.com/nightscout/cgm-remote-monitor)

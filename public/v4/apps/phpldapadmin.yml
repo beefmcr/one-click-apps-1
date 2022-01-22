@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -11,7 +13,7 @@ services:
             LDAP_DOMAIN: $$cap_root_domain
             LDAP_ADMIN_PASSWORD: $$cap_openldap_ldap-admin-password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-admin:
         image: osixia/phpldapadmin:$$cap_phpldapadmin_version
         restart: always

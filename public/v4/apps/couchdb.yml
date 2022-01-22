@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,13 +12,13 @@ services:
             COUCHDB_USER: $$cap_couchdb_user
             COUCHDB_PASSWORD: $$cap_couchdb_password
         caproverExtra:
-            containerHttpPort: '5984'
+            containerHttpPort: "5984"
 caproverOneClickApp:
     variables:
         - id: $$cap_couchdb_version
           label: CouchDB Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/couchdb/tags/
-          defaultValue: '2'
+          defaultValue: "2"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_couchdb_user
           label: CouchDB Username
@@ -24,7 +26,7 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9_])+$/
         - id: $$cap_couchdb_password
           label: CouchDB Password
-          defaultValue: ''
+          defaultValue: ""
           validRegex: /.{1,}/
     instructions:
         start: >-

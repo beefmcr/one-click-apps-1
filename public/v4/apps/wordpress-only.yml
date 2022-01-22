@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-wordpress:
@@ -30,7 +32,7 @@ caproverOneClickApp:
           defaultValue: wordpressuser
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_wp_version
           label: WordPress Version

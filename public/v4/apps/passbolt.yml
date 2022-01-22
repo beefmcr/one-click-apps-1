@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -49,12 +51,12 @@ caproverOneClickApp:
           defaultValue: https://yourdomain.com
         - id: $$cap_email_host
           label: Email SMTP Server
-          description: 'Host used as smtp server. More info: https://help.passbolt.com/configure/email/setup.'
+          description: "Host used as smtp server. More info: https://help.passbolt.com/configure/email/setup."
           defaultValue: smtp.gmail.com
         - id: $$cap_email_port
           label: Email SMTP Port
-          description: 'Port used with the smtp server. More info: https://help.passbolt.com/configure/email/setup'
-          defaultValue: '587'
+          description: "Port used with the smtp server. More info: https://help.passbolt.com/configure/email/setup"
+          defaultValue: "587"
         - id: $$cap_email_user
           label: Email Username
           defaultValue: user@gmail.com
@@ -63,7 +65,7 @@ caproverOneClickApp:
           defaultValue: password
         - id: $$cap_email_tls
           label: TLS Enabled
-          defaultValue: 'true'
+          defaultValue: "true"
     instructions:
         start: >-
             Passbolt is a free and open source password manager that allows team members to store and share credentials securely.

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -8,14 +10,14 @@ services:
             NODE_ENV: production
             DB_TYPE: mysql
             DB_HOST: srv-captain--$$cap_appname-db
-            DB_PORT: '3306'
+            DB_PORT: "3306"
             DB_NAME: etherpad
             DB_USER: etherpad
             DB_PASS: $$cap_db_pass
             DB_CHARSET: utf8mb4
-            TRUST_PROXY: 'true'
+            TRUST_PROXY: "true"
         caproverExtra:
-            containerHttpPort: '9001'
+            containerHttpPort: "9001"
     $$cap_appname-db:
         image: mysql:$$cap_mysql_version
         volumes:
@@ -27,7 +29,7 @@ services:
             MYSQL_USER: etherpad
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_etherpad_version
@@ -36,11 +38,11 @@ caproverOneClickApp:
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/etherpad/etherpad/tags - default is 1.8.0 as of 2020-04-09
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_mysql_version
           label: MySQL Version
-          defaultValue: '5.7'
+          defaultValue: "5.7"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mysql/tags/
           validRegex: /^([^\s^\/])+$/
     instructions:
@@ -49,4 +51,4 @@ caproverOneClickApp:
     displayName: Etherpad
     isOfficial: true
     description: Etherpad is a real-time collaborative editor for the web
-    documentation: 'https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md '
+    documentation: "https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md "

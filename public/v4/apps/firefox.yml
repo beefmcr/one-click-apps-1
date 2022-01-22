@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -11,12 +13,12 @@ services:
             PGID: $$cap_pgid
             TZ: $$cap_tz
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - id: $$cap_firefox_version
           label: Firefox Version
-          defaultValue: '78.13.0'
+          defaultValue: "78.13.0"
           description: firefox Image Version, se more at https://hub.docker.com/r/linuxserver/firefox/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_puid
@@ -31,7 +33,7 @@ caproverOneClickApp:
           description: For GroupID. Ensure any volume directories on the host are owned by the same user you specify. Default to 1000, see more at https://docs.linuxserver.io/images/docker-firefox#user-group-identifiers
         - id: $$cap_tz
           label: Timezone
-          defaultValue: 'UTC'
+          defaultValue: "UTC"
           description: Timezone. Specify a timezone to use EG Europe/London
     instructions:
         start: >-

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Elkar
@@ -7,7 +9,7 @@ services:
         environment:
             TZ: $$cap_tz
             PHP_TZ: $$cap_tz
-            EB_CRON: 'enabled'
+            EB_CRON: "enabled"
             SYMFONY__DATABASE__HOST: srv-captain--$$cap_appname-mariadb
             SYMFONY__DATABASE__USER: $$cap_mariadb-user
             SYMFONY__DATABASE__PASSWORD: $$cap_mariadb-pass
@@ -20,7 +22,7 @@ services:
     $$cap_appname-mariadb:
         image: mariadb:$$cap_mariadb_version
         environment:
-            MYSQL_RANDOM_ROOT_PASSWORD: '1'
+            MYSQL_RANDOM_ROOT_PASSWORD: "1"
             MYSQL_DATABASE: $$cap_mariadb-db
             MYSQL_USER: $$cap_mariadb-user
             MYSQL_PASSWORD: $$cap_mariadb-pass
@@ -28,7 +30,7 @@ services:
             - $$cap_appname-mariadb-data:/var/lib/mysql
         restart: unless-stopped
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_tz
@@ -38,20 +40,20 @@ caproverOneClickApp:
         - id: $$cap_elkar_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/elkarbackup/elkarbackup/tags
-          defaultValue: '2'
+          defaultValue: "2"
         - id: $$cap_mariadb_version
           label: MariaDB Version
-          defaultValue: '10.6.2'
+          defaultValue: "10.6.2"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/library/mariadb/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mariadb-db
           label: MariaDB Database
           description: Database name for ElkarBackup
-          defaultValue: 'elkar'
+          defaultValue: "elkar"
         - id: $$cap_mariadb-user
           label: MariaDB User
           description: Database User for ElkarBackup
-          defaultValue: 'elkar'
+          defaultValue: "elkar"
         - id: $$cap_mariadb-pass
           label: MariaDB database user password
           description: Super secret database user password

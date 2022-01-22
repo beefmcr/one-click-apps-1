@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-agent:
@@ -11,7 +13,7 @@ services:
             DRONE_RPC_PROTO: http
             DRONE_RUNNER_CAPACITY: $$cap_drone_runner_capacity
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-agent
@@ -35,25 +37,25 @@ caproverOneClickApp:
           label: Drone Version
           defaultValue: 1.9.0
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/drone/drone/tags
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_runner_version
           label: Drone Docker runner Version
           defaultValue: 1.5.1
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/drone/drone-runner-docker/tags
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_gitea_server
           label: DRONE_GITEA_SERVER
           defaultValue: https://git.your.server
           description: A string containing your Gitea server address.
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_gitea_always_auth
           label: DRONE_GIT_ALWAYS_AUTH
-          defaultValue: 'false'
+          defaultValue: "false"
           description: Boolean value configures Drone to authenticate when cloning public repositories. This is only required when your source code management system (e.g. GitHub Enterprise) has private mode enabled.
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_runner_capacity
           label: DRONE_RUNNER_CAPACITY
-          defaultValue: '4'
+          defaultValue: "4"
           description: An integer defining the maximum number of pipelines the agent should execute concurrently. The default value is two pipelines.
           validRegex: /^[0-9]+$/
         - id: $$cap_drone_server_proto
@@ -65,32 +67,32 @@ caproverOneClickApp:
           label: DRONE_SERVER_HOST
           defaultValue: drone.yourhost.com
           description: A string containing your Drone server hostname or IP address.
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_server_port
           label: DRONE_RPC_PORT
           defaultValue: 80
           description: The port number on which your drone server will be running (for runner communication). As we use internal access, this should be 80
-          validRegex: ''
+          validRegex: ""
         - id: $$cap_drone_tls_autocert
           label: DRONE_TLS_AUTOCERT
-          defaultValue: 'false'
+          defaultValue: "false"
           description: An boolean indicating debug level logs should be use for automatic SSL certification generation and configuration. The default value is false..
           validRegex: /^([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])$/
         - id: $$cap_drone_secret
           label: secret for linking drone and agent
           description: some random secret here (min 10 characters)
-          defaultValue: ''
+          defaultValue: ""
           validRegex: /.{10,}/
         - id: $$cap_drone_gitea_client_id
           label: client ID created previously in Gitea
           description: Get from gitea settings -> Applications -> Oauth2 Applications
-          defaultValue: ''
-          validRegex: ''
+          defaultValue: ""
+          validRegex: ""
         - id: $$cap_drone_gitea_client_secret
           label: Client Secret created previously in Gitea
           description: Get from gitea settings -> Applications -> Oauth2 Applications
-          defaultValue: ''
-          validRegex: ''
+          defaultValue: ""
+          validRegex: ""
     instructions:
         start: >-
             Drone is a self-service Continuous Delivery platform for busy development teams. It can be used with different GIT servers like gogs, gitea as well as services like gitlab and github. This installer is gitea focused and requires a running gitea instances (which you can install via one-click-apps in caprover).   

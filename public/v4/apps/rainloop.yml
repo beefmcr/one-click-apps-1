@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,7 +8,7 @@ services:
         volumes:
             - $$cap_appname-data:/rainloop/data
         caproverExtra:
-            containerHttpPort: '8888'
+            containerHttpPort: "8888"
 caproverOneClickApp:
     variables:
         - id: $$cap_rainloop_version
@@ -23,6 +25,6 @@ caproverOneClickApp:
             Rainloop is deployed and available as $$cap_appname. 
 
             It will take about a minute for Rainloop to be ready. Before that, you might see 502 error page.
-    displayName: ''
+    displayName: ""
     description: RainLoop Webmail - Simple, modern & fast web-based email client
     documentation: Taken from https://hub.docker.com/r/hardware/rainloop

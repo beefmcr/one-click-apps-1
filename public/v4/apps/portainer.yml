@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,7 +9,7 @@ services:
             - $$cap_appname-data:/data
         restart: always
         caproverExtra:
-            containerHttpPort: '9000'
+            containerHttpPort: "9000"
 caproverOneClickApp:
     variables:
         - id: $$cap_portainer_version
@@ -26,7 +28,7 @@ caproverOneClickApp:
 
             Enter your portainer Configuration parameters and click on next. It will take about a minute for the process to finish.
         end: Portainer is deployed and available. The next step is to turn on Websocket Support and use the local connection option via websockets from the Portainer user interface.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Portainer is a lightweight management UI which allows you to easily manage your different Docker environments
     documentation: Taken from https://hub.docker.com/r/portainer/portainer-ce/

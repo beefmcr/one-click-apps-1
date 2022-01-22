@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgres:
@@ -10,7 +12,7 @@ services:
             POSTGRES_PASSWORD: $$cap_pg_pass
             POSTGRES_DB: mattermost
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-postgres
@@ -24,11 +26,11 @@ services:
         environment:
             MM_SQLSETTINGS_DATASOURCE: postgres://mattermost:$$cap_pg_pass@srv-captain--$$cap_appname-postgres:5432/mattermost?sslmode=disable&connect_timeout=10
             MM_SERVICESETTINGS_SITEURL: https://$$cap_appname.$$cap_root_domain
-            MM_LOGSETTINGS_ENABLEDIAGNOSTICS: 'false'
-            MM_SERVICESETTINGS_ENABLESECURITYFIXALERT: 'false'
+            MM_LOGSETTINGS_ENABLEDIAGNOSTICS: "false"
+            MM_SERVICESETTINGS_ENABLESECURITYFIXALERT: "false"
             MM_SQLSETTINGS_DRIVERNAME: postgres
         caproverExtra:
-            containerHttpPort: '8065'
+            containerHttpPort: "8065"
             dockerfileLines:
                 - FROM mattermost/mattermost-team-edition@$$cap_mattermost_version
                 - RUN sed -i 's#api.segment.io#xx.example.com#gI' /mattermost/bin/mattermost

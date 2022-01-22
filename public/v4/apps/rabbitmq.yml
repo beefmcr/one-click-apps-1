@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,21 +12,21 @@ services:
             RABBITMQ_DEFAULT_PASS: $$cap_rabbitmq_password
             RABBITMQ_NODENAME: $$cap_rabbitmq_nodename
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_rabbitmq_version
           label: RabbitMQ Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/rabbitmq/tags/
-          defaultValue: '3.7'
+          defaultValue: "3.7"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_rabbitmq_user
           label: RabbitMQ Default User
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_rabbitmq_password
           label: RabbitMQ Default Password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_rabbitmq_nodename
           label: RabbitMQ Nodename

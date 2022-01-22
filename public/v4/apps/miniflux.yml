@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -10,7 +12,7 @@ services:
             POSTGRES_PASSWORD: $$cap_postgres_password
             POSTGRES_DB: miniflux
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: miniflux/miniflux:$$cap_miniflux_version
         depends_on:
@@ -18,12 +20,12 @@ services:
         restart: always
         environment:
             DATABASE_URL: postgres://miniflux:$$cap_postgres_password@srv-captain--$$cap_appname-db/miniflux?sslmode=disable
-            RUN_MIGRATIONS: '1'
-            CREATE_ADMIN: '1'
+            RUN_MIGRATIONS: "1"
+            CREATE_ADMIN: "1"
             ADMIN_USERNAME: $$cap_admin_user
             ADMIN_PASSWORD: $$cap_admin_password
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - id: $$cap_miniflux_version
@@ -43,7 +45,7 @@ caproverOneClickApp:
         - id: $$cap_postgres_password
           label: Postgres Password
           defaultValue: $$cap_gen_random_hex(10)
-          description: ''
+          description: ""
           validRegex: /.{1,}/
     instructions:
         start: Miniflux is a minimalist and opinionated feed reader.

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 caproverOneClickApp:
     instructions:
@@ -20,13 +22,13 @@ caproverOneClickApp:
     variables:
         - id: $$cap_zammad_VERSION
           label: Zammad Version
-          defaultValue: '5.0.3-22'
+          defaultValue: "5.0.3-22"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/zammad/zammad-docker-compose/tags
           validRegex: /^([^\s^\/])+$/
 
         - id: $$cap_zammad_ELASTICSEARCH_ENABLED
           label: ELASTICSEARCH_ENABLED
-          defaultValue: 'true'
+          defaultValue: "true"
           description: Setting this variable to false will allow you to run your Zammad without Elasticsearch. Please note that we strongly advise against doing so.
           validRegex: /^(true|false)$/
 
@@ -38,7 +40,7 @@ caproverOneClickApp:
         - id: $$cap_zammad_POSTGRESQL_PASS
           label: POSTGRESQL_PASS
           defaultValue: $$cap_gen_random_hex(10)
-          description: 'The password of Zammads database user.'
+          description: "The password of Zammads database user."
           validRegex: /.{1,}/
 
         - id: $$cap_zammad_POSTGRESQL_DB
@@ -48,7 +50,7 @@ caproverOneClickApp:
 
         - id: $$cap_zammad_POSTGRESQL_CREATEDB
           label: POSTGRESQL_DB_CREATE
-          defaultValue: 'true'
+          defaultValue: "true"
           description: By default we will create the required database.
           validRegex: /^(true|false)$/
 
@@ -97,7 +99,7 @@ services:
         depends_on:
             - $$cap_appname-postgresql
         environment:
-            AUTOWIZARD_JSON: ''
+            AUTOWIZARD_JSON: ""
             ELASTICSEARCH_ENABLED: $$cap_zammad_ELASTICSEARCH_ENABLED
             ELASTICSEARCH_HOST: srv-captain--$$cap_appname-elasticsearch
             ELASTICSEARCH_PORT: 9200
@@ -141,7 +143,7 @@ services:
 
     $$cap_appname-nginx:
         ports:
-            - '8080:8080'
+            - "8080:8080"
         depends_on:
             - $$cap_appname-railsserver
         environment:

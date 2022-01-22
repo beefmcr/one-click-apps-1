@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-percona:
@@ -11,17 +13,17 @@ services:
             dockerfileLines:
                 - FROM percona:$$cap_percona_version
                 - CMD ["--character-set-server=$$cap_charset", "--collation-server=$$cap_collation", "--skip-character-set-client-handshake"]
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_percona_version
           label: Percona Version
-          defaultValue: 'ps-8.0'
+          defaultValue: "ps-8.0"
           description: Check out their Docker page for the valid tags https://hub.docker.com/_/mariadb?tab=tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_db_pass
           label: Percona Root password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
           defaultValue: $$cap_gen_random_hex(12)
         - id: $$cap_charset

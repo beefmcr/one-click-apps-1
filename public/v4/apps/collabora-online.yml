@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -11,7 +13,7 @@ services:
             username: $$cap_admin_user
             password: $$cap_admin_pass
         caproverExtra:
-            containerHttpPort: '9980'
+            containerHttpPort: "9980"
 caproverOneClickApp:
     variables:
         - id: $$cap_admin_user

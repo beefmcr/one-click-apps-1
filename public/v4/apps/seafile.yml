@@ -1,33 +1,35 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
-        image: 'mariadb:$$cap_mariadb_version'
+        image: "mariadb:$$cap_mariadb_version"
         environment:
             MYSQL_ROOT_PASSWORD: $$cap_mariadb_root_passwd
         volumes:
-            - '$$cap_appname-db-data:/var/lib/mysql'
+            - "$$cap_appname-db-data:/var/lib/mysql"
         networks:
             - seafile-net
         caproverExtra:
             notExposeAsWebApp: true
     $$cap_appname-memcached:
-        image: 'memcached:$$cap_memcached_version'
+        image: "memcached:$$cap_memcached_version"
         entrypoint: memcached -m 256
         networks:
             - seafile-net
         caproverExtra:
             notExposeAsWebApp: true
     $$cap_appname:
-        image: 'seafileltd/seafile-mc:$$cap_seafile_version'
+        image: "seafileltd/seafile-mc:$$cap_seafile_version"
         volumes:
-            - '$$cap_appname-seafile-data:/shared'
+            - "$$cap_appname-seafile-data:/shared"
         environment:
             DB_HOST: srv-captain--$$cap_appname-db
             DB_ROOT_PASSWD: $$cap_mariadb_root_passwd
             TIME_ZONE: $cap_timezone
             SEAFILE_ADMIN_EMAIL: $$cap_seafile_admin_email
             SEAFILE_ADMIN_PASSWORD: $$cap_seafile_admin_password
-            SEAFILE_SERVER_HOSTNAME: '$$cap_seafile_hostname'
+            SEAFILE_SERVER_HOSTNAME: "$$cap_seafile_hostname"
         depends_on:
             $$cap_appname-db:
                 condition: service_healthy
@@ -41,39 +43,39 @@ caproverOneClickApp:
           label: Seafile Version
           defaultValue: 8.0.7
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/seafileltd/seafile-mc/tags
-          validRegex: '/.{1,}/'
+          validRegex: "/.{1,}/"
         - id: $$cap_memcached_version
           label: Memcached Version
           defaultValue: 1.6.12
           description: Check out their Docker page for the valid tags https://hub.docker.com/_/memcached?tab=tags
-          validRegex: '/.{1,}/'
+          validRegex: "/.{1,}/"
         - id: $$cap_mariadb_version
           label: MariaDB Version
-          defaultValue: '10.6.4'
+          defaultValue: "10.6.4"
           description: Check out their Docker page for the valid tags https://hub.docker.com/_/mariadb?tab=tags
-          validRegex: '/.{1,}/'
+          validRegex: "/.{1,}/"
         - id: $$cap_mariadb_root_passwd
           label: MariaDB Root Password
-          defaultValue: '$$cap_gen_random_hex(10)'
+          defaultValue: "$$cap_gen_random_hex(10)"
           description: Default password for root user of MariaDB. Must have at least 8 chars, 1 letter and 1 number
-          validRegex: '/.{8,}/'
+          validRegex: "/.{8,}/"
         - id: $$cap_seafile_admin_email
           label: Seafile Admin Email
           defaultValue: admin@localhost
           description: Email for admin user of Seafile
         - id: $$cap_seafile_admin_password
           label: Seafile Admin Password
-          defaultValue: '$$cap_gen_random_hex(10)'
+          defaultValue: "$$cap_gen_random_hex(10)"
           description: Password for admin user of Seafile. Must have at least 8 chars, 1 letter and 1 number
-          validRegex: '/.{8,}/'
+          validRegex: "/.{8,}/"
         - id: $cap_timezone
           label: Seafile Time zone
-          defaultValue: 'Etc/UTC'
+          defaultValue: "Etc/UTC"
           description: Timezone that Seafile should use
-        - id: '$$cap_seafile_hostname'
+        - id: "$$cap_seafile_hostname"
           label: Seafile Hostname
           description: Hostname of Seafile instance (that will be used by it in future)
-          validRegex: '/.{3,}/'
+          validRegex: "/.{3,}/"
     instructions:
         start: >-
             Seafile is an open source cloud storage system with file encryption and

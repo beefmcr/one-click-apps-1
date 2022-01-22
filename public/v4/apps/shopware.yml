@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -11,7 +13,7 @@ services:
             MYSQL_USER: $$cap_db_user
             MYSQL_PASSWORD: $$cap_db_pass
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-shopware:
         depends_on:
             - $$cap_appname-db
@@ -55,7 +57,7 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
         - id: $$cap_sw_version
           label: Shopware Version
           defaultValue: 6.2.0

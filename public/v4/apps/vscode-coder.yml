@@ -1,9 +1,11 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         environment:
             PASSWORD: $$cap_coder_password
-        image: ''
+        image: ""
         restart: always
         volumes:
             - $$cap_appname-config-data:/home/coder/.local/share/code-server
@@ -11,10 +13,10 @@ services:
             - $$cap_appname-keys-directory:/root/.ssh
             - $$cap_appname-theme-and-plugin-directory:/root/.local/share/code-server
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
             dockerfileLines:
                 - FROM codercom/code-server:$$cap_coder_version
-                - '# Similar to the original file, except setting the user to root to prevent permission issues.'
+                - "# Similar to the original file, except setting the user to root to prevent permission issues."
                 - USER root
 caproverOneClickApp:
     variables:

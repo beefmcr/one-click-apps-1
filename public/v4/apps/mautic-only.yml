@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,41 +12,41 @@ services:
             MAUTIC_DB_USER: $$cap_db_user
             MAUTIC_DB_PASSWORD: $$cap_db_pass
             MAUTIC_DB_NAME: $$cap_db_name
-            MAUTIC_RUN_CRON_JOBS: 'true'
+            MAUTIC_RUN_CRON_JOBS: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_db_host
           label: Database Host
-          description: 'Database host ex. srv-captain--mydbsrv:3306'
+          description: "Database host ex. srv-captain--mydbsrv:3306"
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_user
           label: Database user
-          description: 'Inform the database user'
+          description: "Inform the database user"
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_db_pass
           label: Database password
-          description: 'Inform the database password'
+          description: "Inform the database password"
           validRegex: /.{1,}/
         - id: $$cap_mautic_version
           label: Mautic Version
-          defaultValue: 'v3'
+          defaultValue: "v3"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/mautic/mautic/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_php_tz
           label: PHP timezone
-          defaultValue: 'UTC'
+          defaultValue: "UTC"
           description: Set PHP timezone
         - id: $$cap_php_ml
           label: PHP memory limit
           description: Set PHP memory limit
-          defaultValue: '256M'
+          defaultValue: "256M"
         - id: $$cap_php_mu
           label: PHP upload max file size
           description: Set PHP upload max file size
-          defaultValue: '100M'
+          defaultValue: "100M"
         - id: $$cap_php_met
           label: PHP max execution time
-          defaultValue: '300'
+          defaultValue: "300"
           description: Set PHP max execution time
     instructions:
         start: >-

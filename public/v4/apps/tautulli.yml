@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,13 +12,13 @@ services:
             PUID: $$cap_puid
             PGID: $$cap_guid
         caproverExtra:
-            containerHttpPort: '8181'
+            containerHttpPort: "8181"
 caproverOneClickApp:
     variables:
         - id: $$cap_version
           label: Tautulli Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/tautulli/tautulli/tags?page=1&ordering=last_updated
-          defaultValue: 'v2.7.5'
+          defaultValue: "v2.7.5"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_tz
           label: Timezone
@@ -24,12 +26,12 @@ caproverOneClickApp:
           defaultValue: America/Los_Angeles
         - id: $$cap_puid
           label: User ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: User ID that the process uses
           validRegex: /.{1,}/
         - id: $$cap_guid
           label: Group ID
-          defaultValue: '1000'
+          defaultValue: "1000"
           description: Group ID that the process uses
           validRegex: /.{1,}/
     instructions:
@@ -42,4 +44,4 @@ caproverOneClickApp:
     displayName: Tautulli
     isOfficial: true
     description: A python based web application for monitoring, analytics and notifications for Plex Media Server.
-    documentation: 'Taken from https://hub.docker.com/r/tautulli/tautulli '
+    documentation: "Taken from https://hub.docker.com/r/tautulli/tautulli "

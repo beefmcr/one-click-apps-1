@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     # Postgres
@@ -10,14 +12,14 @@ services:
             POSTGRES_USER: $$cap_postgres_user
             POSTGRES_PASSWORD: $$cap_postgres_passwd
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     # Cache
     $$cap_appname-redis:
         image: redis:6
         volumes:
             - $$cap_appname-redis:/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     # Directus
     $$cap_appname:
         depends_on:
@@ -31,19 +33,19 @@ services:
         environment:
             KEY: $$cap_directus_auth_public_key
             SECRET: $$cap_directus_auth_secret_key
-            DB_CLIENT: 'pg'
+            DB_CLIENT: "pg"
             DB_HOST: srv-captain--$$cap_appname-postgres
-            DB_PORT: '5432'
+            DB_PORT: "5432"
             DB_DATABASE: $$cap_postgres_database_name
             DB_USER: $$cap_postgres_user
             DB_PASSWORD: $$cap_postgres_passwd
-            CACHE_ENABLED: 'true'
-            CACHE_STORE: 'redis'
+            CACHE_ENABLED: "true"
+            CACHE_STORE: "redis"
             CACHE_REDIS: redis://srv-captain--$$cap_appname-redis:6379
             ADMIN_EMAIL: $$cap_admin_email
             ADMIN_PASSWORD: $$cap_admin_password
         caproverExtra:
-            containerHttpPort: '8055'
+            containerHttpPort: "8055"
 caproverOneClickApp:
     variables:
         - description: Tag of Directus image on https://hub.docker.com/r/directus/directus/tags
@@ -93,7 +95,7 @@ caproverOneClickApp:
         start: >-
             Directus is an open-source suite of software that wraps custom SQL databases with a dynamic API and intuitive Admin App.
             For more information and available options, see https://github.com/directus/docker or the official documentation at https://docs.directus.io
-    displayName: 'Directus'
+    displayName: "Directus"
     isOfficial: true
     description: Directus is an open-source tool for managing content across all your omni-channel digital experiences
     documentation: Taken from https://docs.directus.io/guides/installation/docker/.

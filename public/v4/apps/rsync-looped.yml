@@ -1,8 +1,10 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
             dockerfileLines:
                 - FROM alpine:3.15.0
                 - RUN apk update && apk add openssh rsync nano openssl bash
@@ -23,7 +25,7 @@ caproverOneClickApp:
         - id: $$cap_REMOTE_SOURCE_DIRECTORY
           label: Remote source location
           description: The remote directory from which the content will be downloaded
-          defaultValue: '/backup-files/'
+          defaultValue: "/backup-files/"
 
         - id: $$cap_PRIVATE_KEY_BASE_64
           label: The base64 encoded version of private key for establish the SSH connection.
@@ -32,7 +34,7 @@ caproverOneClickApp:
 
         - id: $$cap_REMOTE_SSH_PORT
           label: The remote SSH port.
-          defaultValue: '22'
+          defaultValue: "22"
 
         - id: $$cap_REMOTE_SSH_ADDRESS
           label: The remote SSH address.

@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "One Click App Repository for CapRover",
   "scripts": {
-    "formatter": "prettier --check \"./public/**/*.(json|yml)\"",
-    "formatter-write": "prettier --write \"./public/**/*.(json|yml)\"",
-    "build_one_click_apps": "node ./scripts/build_one_click_apps.js",
-    "build_one_click_apps_v4": "node ./scripts/build_one_click_apps_v4.js",
-    "build": "rimraf ./dist/ && mkdirp dist && node ./scripts/build_one_click_apps.js && node ./scripts/build_one_click_apps_from_v4.js",
-    "validate_apps": "node ./scripts/validate_apps.js",
-    "publish": "npm run build",
-    "postpublish": "./scripts/publish-from-actions.sh"
+    "formatter": "madrun formatter",
+    "formatter-write": "madrun formatter-write",
+    "build_one_click_apps": "madrun build_one_click_apps",
+    "build_one_click_apps_v4": "madrun build_one_click_apps_v4",
+    "build": "madrun build",
+    "validate_apps": "madrun validate_apps",
+    "publish": "madrun publish",
+    "postpublish": "madrun postpublish"
   },
   "repository": {
     "type": "git",

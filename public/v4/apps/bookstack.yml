@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mariadb:
@@ -13,7 +15,7 @@ services:
         volumes:
             - $$cap_appname-mariadb-config:/config
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         environment:
             DB_HOST: srv-captain--$$cap_appname-mariadb
@@ -42,7 +44,7 @@ caproverOneClickApp:
         - id: $$cap_bookstack_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/bookstack/tags
-          defaultValue: 'v0.29.3-ls99'
+          defaultValue: "v0.29.3-ls99"
     instructions:
         start: |-
             A platform to create documentation/wiki content built with PHP & Laravel.

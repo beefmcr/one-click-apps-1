@@ -1,9 +1,11 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-redis:
         caproverExtra:
-            notExposeAsWebApp: 'true'
-        image: 'bitnami/redis:6.0.8-debian-10-r6'
+            notExposeAsWebApp: "true"
+        image: "bitnami/redis:6.0.8-debian-10-r6"
         environment:
             REDIS_PASSWORD: $$cap_APP_REDIS_PASSWORD
         volumes:
@@ -11,10 +13,10 @@ services:
 
     $$cap_appname-mongodb:
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
         image: bitnami/mongodb:4.4.1-debian-10-r8
         ports:
-            - '27017:27017'
+            - "27017:27017"
         volumes:
             - $$cap_appname-mongodb-data:/bitnami
         environment:
@@ -25,16 +27,16 @@ services:
 
     $$cap_appname-api:
         caproverExtra:
-            containerHttpPort: '1337'
+            containerHttpPort: "1337"
         restart: always
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:rw
         ports:
-            - '1337:1337'
+            - "1337:1337"
         image: ghcr.io/whoopsmonitor/whoopsmonitor/api:$$cap_APP_VERSION
         environment:
             NODE_ENV: production
-            CONFIG_CORS_ALLOW_ORIGINS: '*'
+            CONFIG_CORS_ALLOW_ORIGINS: "*"
             APP_PASSWORD: $$cap_APP_PASSWORD
             MONGO_CONNECTION: mongodb://$$cap_APP_MONGODB_USERNAME:$$cap_APP_MONGODB_PASSWORD@srv-captain--$$cap_appname-mongodb:27017/$$cap_APP_MONGODB_DATABASE?authSource=$$cap_APP_MONGODB_DATABASE
             APP_DATA_ENCRYPTION_KEY: $$cap_APP_DATA_ENCRYPTION_KEY
@@ -52,7 +54,7 @@ services:
         restart: always
         image: ghcr.io/whoopsmonitor/whoopsmonitor/monitor:$$cap_APP_VERSION
         ports:
-            - '8080:80'
+            - "8080:80"
         environment:
             NODE_ENV: production
             API_TOKEN: $$cap_APP_TOKEN
@@ -64,7 +66,7 @@ services:
 
     $$cap_appname-worker:
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
         restart: always
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:rw
@@ -87,7 +89,7 @@ services:
 
     $$cap_appname-alerting:
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
         restart: always
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:rw
@@ -107,7 +109,7 @@ services:
 
     $$cap_appname-image-metadata:
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
         restart: always
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:rw
@@ -125,12 +127,12 @@ caproverOneClickApp:
     variables:
         - label: Version
           description: Application version, currently 1.0
-          defaultValue: '1.0'
+          defaultValue: "1.0"
           id: $$cap_APP_VERSION
 
-        - label: '* External API URL'
+        - label: "* External API URL"
           description: API URL that is availaible from outside, like via browser. You can re-enter this value later but it is mandatory for "monitor" service.
-          defaultValue: 'https://'
+          defaultValue: "https://"
           id: $$cap_APP_API_URL
 
         - label: Redis Password

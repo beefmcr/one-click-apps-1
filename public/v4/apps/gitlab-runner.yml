@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,7 +9,7 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_gitlab-runner_version

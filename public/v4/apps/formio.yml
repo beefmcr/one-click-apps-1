@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mongodb:
@@ -7,7 +9,7 @@ services:
             - $$cap_appname-db-data:/data/db
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         documentation: Taken from https://hub.docker.com/r/calipseo/formio
         depends_on:
@@ -17,8 +19,8 @@ services:
             - $$cap_appname-data:/app
         restart: always
         environment:
-            APP_URL: 'https://$$cap_appname.$$cap_root_domain'
-            API_URL: 'https://$$cap_appname.$$cap_root_domain'
+            APP_URL: "https://$$cap_appname.$$cap_root_domain"
+            API_URL: "https://$$cap_appname.$$cap_root_domain"
             MONGO: mongodb://srv-captain--$$cap_appname-mongodb:27017/formio
             ROOT_EMAIL: $$cap_admin_email
             ROOT_PASSWORD: $$cap_admin_pass
@@ -27,7 +29,7 @@ services:
             SMTP_USERNAME: $$cap_smtp_user
             SMTP_PASSWORD: $$cap_smtp_pass
         caproverExtra:
-            containerHttpPort: '3001'
+            containerHttpPort: "3001"
 caproverOneClickApp:
     variables:
         - id: $$cap_admin_email

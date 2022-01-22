@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -8,7 +10,7 @@ services:
         volumes:
             - $$cap_appname-data:/mnt/sync
         caproverExtra:
-            containerHttpPort: '8888'
+            containerHttpPort: "8888"
 caproverOneClickApp:
     variables:
         - label: Resilio Sync Docker Version
@@ -17,7 +19,7 @@ caproverOneClickApp:
           id: $$cap_version
         - label: Listening port for Sync traffic
           description: Port that Sync listens on for data synchronization (TCP & UDP).
-          defaultValue: '55555'
+          defaultValue: "55555"
           id: $$cap_port_sync
     instructions:
         end: >-

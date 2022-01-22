@@ -1,33 +1,35 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: organizr/organizr:$$cap_version
         environment:
-            TZ: '$$cap_tz'
-            PHP_TZ: '$$cap_tz'
-            fpm: '$$cap_fpm'
-            branch: '$$cap_branch' #'v2-master' #v2-master or #v2-develop
+            TZ: "$$cap_tz"
+            PHP_TZ: "$$cap_tz"
+            fpm: "$$cap_fpm"
+            branch: "$$cap_branch" #'v2-master' #v2-master or #v2-develop
             PUID: 1000
             PGID: 1000
         volumes:
-            - '$$cap_appname-config:/config'
+            - "$$cap_appname-config:/config"
 caproverOneClickApp:
     variables:
-        - id: '$$cap_version'
+        - id: "$$cap_version"
           label: Organizr Version
-          defaultValue: 'amd64'
+          defaultValue: "amd64"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/organizr/organizr/tags
           validRegex: "/^([^\\s^\\/])+$/"
 
-        - id: '$$cap_fpm'
+        - id: "$$cap_fpm"
           label: Set FPM to True or False
-          defaultValue: 'true'
+          defaultValue: "true"
           description: Should Organizr us a socket connection instead of TCP?
-          validRegex: '/^(true|false)$/'
+          validRegex: "/^(true|false)$/"
 
-        - id: '$$cap_branch'
+        - id: "$$cap_branch"
           label: Organizr branch
-          defaultValue: 'v2-master'
+          defaultValue: "v2-master"
           description: Branch name to use
     instructions:
         start: |-

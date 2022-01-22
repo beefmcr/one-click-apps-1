@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -7,9 +9,9 @@ services:
             POSTGRES_USER: $$cap_postgres_user
             POSTGRES_PASSWORD: $$cap_postgres_password
         volumes:
-            - '$$cap_appname-db-data:/var/lib/postgresql/data'
+            - "$$cap_appname-db-data:/var/lib/postgresql/data"
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         environment:
@@ -17,7 +19,7 @@ services:
         depends_on:
             - $$cap_appname-db
         caproverExtra:
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
             dockerfileLines:
                 - FROM mattermost/focalboard:$$cap_focalboard_version
                 - CMD printenv CONFIG_JSON > /opt/focalboard/config.json && /opt/focalboard/bin/focalboard-server
@@ -27,11 +29,11 @@ caproverOneClickApp:
         - id: $$cap_focalboard_version
           label: Focalboard Version
           defaultValue: 0.6.5
-          description: 'Check out their docker page for the valid tags https://hub.docker.com/r/mattermost/focalboard/tags'
+          description: "Check out their docker page for the valid tags https://hub.docker.com/r/mattermost/focalboard/tags"
         - id: $$cap_postgres_version
           label: Postgres Version
           defaultValue: 9.6.21
-          description: 'Check out their docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags'
+          description: "Check out their docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags"
         - id: $$cap_postgres_db
           label: Postgres Database
           defaultValue: boards

@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 
 services:
@@ -5,7 +7,7 @@ services:
         depends_on:
             - $$cap_appname-db
         environment:
-            DATABASE_URL: 'ecto://postgres:$$cap_postgres_password@srv-captain--$$cap_appname-db/postgres'
+            DATABASE_URL: "ecto://postgres:$$cap_postgres_password@srv-captain--$$cap_appname-db/postgres"
             SECRET_KEY_BASE: $$cap_secret_key
             BACKEND_URL: $$cap_appname.$$cap_root_domain
             MIX_ENV: $$cap_mix_env
@@ -33,7 +35,7 @@ services:
             REQUIRE_DB_SSL: $$cap_db_require_ssl
 
         caproverExtra:
-            containerHttpPort: '4000'
+            containerHttpPort: "4000"
             dockerfileLines:
                 - FROM papercups/papercups:$$cap_papercups_tag
                 - ENTRYPOINT sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && echo 'running' && /entrypoint.sh run"
@@ -41,7 +43,7 @@ services:
     $$cap_appname-db:
         image: postgres:$$cap_postgres_tag
         volume:
-            - '$$cap_appname-db-data:/var/lib/postgresql/data'
+            - "$$cap_appname-db-data:/var/lib/postgresql/data"
         environment:
             POSTGRES_PASSWORD: $$cap_postgres_password
         caproverExtra:
@@ -52,11 +54,11 @@ caproverOneClickApp:
         - id: $$cap_papercups_tag
           label: Papercups Tag
           defaultValue: 1.1.0
-          description: 'Check out their docker page for the valid tags https://hub.docker.com/r/papercups/papercups/tags'
+          description: "Check out their docker page for the valid tags https://hub.docker.com/r/papercups/papercups/tags"
         - id: $$cap_postgres_tag
           label: Postgres Tag
           defaultValue: 9.6-alpine
-          description: 'Check out their docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags'
+          description: "Check out their docker page for the valid tags https://hub.docker.com/_/postgres?tab=tags"
         - id: $$cap_postgres_password
           label: Postgres Password
           defaultValue: $$cap_gen_random_hex(16)
@@ -64,74 +66,74 @@ caproverOneClickApp:
           label: Papercups Secret Key
           defaultValue: $$cap_gen_random_hex(64)
           validRegex: /.{64,}/
-          description: 'Must be at least 64 bytes'
+          description: "Must be at least 64 bytes"
         - id: $$cap_mix_env
           label: Mix Env
           defaultValue: prod
-          description: 'Learn more at https://hexdocs.pm/mix/Mix.html#module-environments'
+          description: "Learn more at https://hexdocs.pm/mix/Mix.html#module-environments"
         - id: $$cap_upload_enabled
           label: Enable Papercups Upload
           defaultValue: 1
         - id: $$cap_email_from_address
           label: Email From Address
-          defaultValue: 'noreply@mail.papercups.io'
+          defaultValue: "noreply@mail.papercups.io"
         - id: $$cap_mailgun_api_key
           label: Mailgun API Key
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_email_from_domain
           label: Email From Domain
-          defaultValue: '$$cap_appname.$$cap_root_domain'
+          defaultValue: "$$cap_appname.$$cap_root_domain"
         - id: $$cap_slack_bot_access_token
           label: Slack Bot Access Token
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_slack_client_id
           label: Slack Bot Client ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_slack_client_secret
           label: Slack Bot Client Secret
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_sentry_dsn
           label: Sentry DSN
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_stripe_secret
           label: Stripe Secret
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_react_google_analytics_id
           label: Google Analytics ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_react_slack_client_id
           label: Papercups's React Slack Client ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_react_sentry_dsn
           label: Papercups's React Sentry DSN
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_react_logrocket_id
           label: Papercups's React LogRocket ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_react_stripe_public_id
           label: Papercups's React Stripe Public ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_customer_io_site_id
           label: Customer.io Site ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_customer_io_api_key
           label: Customer.io API Key
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_aws_access_key_id
           label: AWS Access Key ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_aws_secret_key
           label: AWS Secret Key ID
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_aws_bucket
           label: AWS Bucket
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_aws_region
           label: AWS Region
-          defaultValue: ''
+          defaultValue: ""
         - id: $$cap_db_require_ssl
           label: DB Require SSL
-          defaultValue: 'false'
+          defaultValue: "false"
     instructions:
         start: >-
             Papercups is an open source live customer chat web app written in Elixir.

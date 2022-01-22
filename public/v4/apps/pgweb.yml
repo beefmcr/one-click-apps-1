@@ -1,10 +1,12 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: sosedoff/pgweb:$$cap_pgweb_version
         restart: always
         caproverExtra:
-            containerHttpPort: '8081'
+            containerHttpPort: "8081"
 caproverOneClickApp:
     variables:
         - id: $$cap_pgweb_version
@@ -15,6 +17,6 @@ caproverOneClickApp:
     instructions:
         start: pgweb is a web-based database browser for PostgreSQL, written in Go.
         end: pgweb is deployed.
-    displayName: ''
+    displayName: ""
     description: Pgweb is a web-based database browser for PostgreSQL, written in Go
     documentation: See https://hub.docker.com/r/sosedoff/pgweb for details

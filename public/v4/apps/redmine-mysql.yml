@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-db:
@@ -10,7 +12,7 @@ services:
             MYSQL_DATABASE: redmine
             MYSQL_ROOT_PASSWORD: $$cap_mysql_password
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 
     $$cap_appname:
         depends_on:
@@ -25,18 +27,18 @@ services:
         volumes:
             - $$cap_appname-data:/usr/src/redmine/files
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 
 caproverOneClickApp:
     variables:
         - id: $$cap_redmine_version
           label: Redmine Version
           defaultValue: 4.2.3
-          description: 'Check out their Docker page for the valid tags https://hub.docker.com/_/redmine?tab=tags'
+          description: "Check out their Docker page for the valid tags https://hub.docker.com/_/redmine?tab=tags"
         - id: $$cap_mysql_version
           label: MySQL Version
           defaultValue: 5.7
-          description: 'Check out their Docker page for the valid tags https://hub.docker.com/_/mysql?tab=tags'
+          description: "Check out their Docker page for the valid tags https://hub.docker.com/_/mysql?tab=tags"
         - id: $$cap_mysql_password
           label: MySQL Password
           defaultValue: $$cap_gen_random_hex(16)

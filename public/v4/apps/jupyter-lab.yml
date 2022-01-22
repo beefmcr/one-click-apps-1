@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,7 +9,7 @@ services:
         volumes:
             - $$cap_appname:/home/jovyan/
         caproverExtra:
-            containerHttpPort: '8888'
+            containerHttpPort: "8888"
             dockerfileLines:
                 - FROM jupyter/datascience-notebook:9f9e5ca8fe5a
                 - RUN pip install lxml
@@ -28,4 +30,4 @@ caproverOneClickApp:
     displayName: JupyterLab
     isOfficial: true
     description: JupyterLab is the next-generation user interface for Project Jupyter. It offers all the familiar building blocks of the classic Jupyter Notebook in a flexible and powerful user interface.
-    documentation: 'Read more at: https://jupyter-docker-stacks.readthedocs.io/'
+    documentation: "Read more at: https://jupyter-docker-stacks.readthedocs.io/"

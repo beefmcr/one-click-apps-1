@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-editor:
@@ -21,14 +23,14 @@ services:
             APPSMITH_ENCRYPTION_PASSWORD: $$cap_ENCRYPTION_PASSWORD
             APPSMITH_ENCRYPTION_SALT: $$cap_ENCRYPTION_SALT
         caproverExtra:
-            containerHttpPort: '8080'
-            notExposeAsWebApp: 'true'
+            containerHttpPort: "8080"
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         image: redis:3.2
         volumes:
             - $$cap_appname-redis:/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - description: Your previous mongodb with Appsmith data

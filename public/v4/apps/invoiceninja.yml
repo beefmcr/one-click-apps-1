@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 caproverOneClickApp:
     instructions:
@@ -21,7 +23,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_invoiceninja_VERSION
           label: Invoice Ninja Version
-          defaultValue: '5'
+          defaultValue: "5"
           description: It's a good idea to check for breaking changes between versions
           validRegex: /^([^\s^\/])+$/
 
@@ -32,13 +34,13 @@ caproverOneClickApp:
         - id: $$cap_invoiceninja_admin_user_email
           label: ADMIN_USER_EMAIL
           defaultValue: admin@example.com
-          description: 'Admin user for Invoice Ninja'
+          description: "Admin user for Invoice Ninja"
           validRegex: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
         - id: $$cap_invoiceninja_admin_pass
           label: ADMIN_USER_PASS
           defaultValue: $$cap_gen_random_hex(10)
-          description: 'Admin pass for Invoice Ninja'
+          description: "Admin pass for Invoice Ninja"
           validRegex: /.{1,}/
 
         - id: $$cap_invoiceninja_DB_USERNAME
@@ -49,7 +51,7 @@ caproverOneClickApp:
         - id: $$cap_invoiceninja_DB_PASSWORD
           label: DB_PASSWORD
           defaultValue: $$cap_gen_random_hex(10)
-          description: 'The password of Invoice Ninjas database user.'
+          description: "The password of Invoice Ninjas database user."
           validRegex: /.{1,}/
 
         - id: $$cap_invoiceninja_DB_DATABASE
@@ -60,13 +62,13 @@ caproverOneClickApp:
         - id: $$cap_invoiceninja_DB_ROOT_PASSWORD
           label: DB_ROOT_PASSWORD
           defaultValue: $$cap_gen_random_hex(10)
-          description: 'The password of DB superuser.'
+          description: "The password of DB superuser."
           validRegex: /.{1,}/
 
         - id: $$cap_invoiceninja_debugmode
           label: Debug Mode
-          defaultValue: 'false'
-          description: 'Useful for debugging, not suitable for production'
+          defaultValue: "false"
+          description: "Useful for debugging, not suitable for production"
           validRegex: /^(true|false)$/
 
 services:
@@ -141,9 +143,9 @@ services:
             USERNAME: root
             PASSWORD: $$cap_invoiceninja_DB_ROOT_PASSWORD
             DBHOST: srv-captain--$$cap_appname-db
-            DBEXCLUDE: 'performance_schema information_schema'
-            CRON_SCHEDULE: '0 0 * * *'
-            EXTRA_OPTS: '--single-transaction'
+            DBEXCLUDE: "performance_schema information_schema"
+            CRON_SCHEDULE: "0 0 * * *"
+            EXTRA_OPTS: "--single-transaction"
         volumes:
             - $$cap_appname-db-backup:/backup
         caproverExtra:

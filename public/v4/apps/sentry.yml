@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgres:
@@ -10,7 +12,7 @@ services:
             POSTGRES_PASSWORD: $$cap_pg_pass
             POSTGRES_DB: sentry
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         volumes:
             - $$cap_appname-redis-data:/data
@@ -19,7 +21,7 @@ services:
             dockerfileLines:
                 - FROM redis:$$cap_redis_version
                 - CMD exec redis-server
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-cron:
         depends_on:
             - $$cap_appname
@@ -33,7 +35,7 @@ services:
                 - RUN groupadd -r $$cap_appname-cron && useradd -r -g $$cap_appname-cron $$cap_appname-cron
                 - USER $$cap_appname-cron
                 - CMD sentry run cron
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-worker:
         depends_on:
             - $$cap_appname-cron
@@ -41,7 +43,7 @@ services:
         environment:
             SENTRY_SECRET_KEY: $$cap_sentry_secret
             SENTRY_REDIS_HOST: srv-captain--$$cap_appname-redis
-            SENTRY_REDIS_PORT: '6379'
+            SENTRY_REDIS_PORT: "6379"
             SENTRY_POSTGRES_HOST: srv-captain--$$cap_appname-postgres
             SENTRY_DB_NAME: sentry
             SENTRY_DB_USER: sentry
@@ -52,7 +54,7 @@ services:
                 - RUN groupadd -r $$cap_appname-worker && useradd -r -g $$cap_appname-worker $$cap_appname-worker
                 - USER $$cap_appname-worker
                 - CMD sentry run worker
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-postgres
@@ -66,7 +68,7 @@ services:
             CAP_SENTRY_SUPERUSER_PASSWORD: $$cap_sentry_superuser_password
             SENTRY_POSTGRES_HOST: srv-captain--$$cap_appname-postgres
             SENTRY_REDIS_HOST: srv-captain--$$cap_appname-redis
-            SENTRY_REDIS_PORT: '6379'
+            SENTRY_REDIS_PORT: "6379"
             SENTRY_DB_NAME: sentry
             SENTRY_DB_USER: sentry
             SENTRY_DB_PASSWORD: $$cap_pg_pass
@@ -79,7 +81,7 @@ services:
             SENTRY_EMAIL_PASSWORD: $$cap_sentry_email_password
             SENTRY_EMAIL_USE_TLS: $$cap_sentry_email_use_tls
         caproverExtra:
-            containerHttpPort: '9000'
+            containerHttpPort: "9000"
             dockerfileLines:
                 - FROM sentry:$$cap_sentry_version
                 - "RUN echo 'auth.allow-registration: false' > /etc/sentry/config.yml"
@@ -111,7 +113,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgres Version Tag
-          defaultValue: '9.6'
+          defaultValue: "9.6"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_redis_version
@@ -126,22 +128,22 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_pass
           label: Postgres Password
-          description: 'Password strength minimal requeriments: Should contain at least one digit, one lower case, one upper case, one special character and at least 12 from the mentioned characters.'
+          description: "Password strength minimal requeriments: Should contain at least one digit, one lower case, one upper case, one special character and at least 12 from the mentioned characters."
           validRegex: /^(?=.*[A-Z])(?=.*[/!?@±#§$€%^&*()\\-_=+{}~+´ºª`^"';:,<.>\|\]\[])(?=.*[0-9])(?=.*[a-z]).{12,}$/
         - id: $$cap_sentry_secret
           label: Sentry Secret
-          description: 'A secret key used for cryptographic functions within Sentry. This key should be unique and consistent across all running instances. Password strength minimal requeriments: Should contain at least one digit, one lower case, one special character and at least 50 from the mentioned characters. You can generate a new secret key doing something like: docker run --rm sentry config generate-secret-key'
+          description: "A secret key used for cryptographic functions within Sentry. This key should be unique and consistent across all running instances. Password strength minimal requeriments: Should contain at least one digit, one lower case, one special character and at least 50 from the mentioned characters. You can generate a new secret key doing something like: docker run --rm sentry config generate-secret-key"
           validRegex: /^(?=.*[/!?@±#§$€%^&*()\\-_=+{}~+´ºª`^"';:,<.>\|\]\[])(?=.*[0-9])(?=.*[a-z]).{50,}$/
         - id: $$cap_sentry_superuser_email
           label: Sentry Superuser Email
           validRegex: /.{1,}/
         - id: $$cap_sentry_superuser_password
           label: Sentry Superuser Password
-          description: 'Password strength minimal requeriments: Should contain at least one digit, one lower case, one upper case, one special character and at least 12 from the mentioned characters.'
+          description: "Password strength minimal requeriments: Should contain at least one digit, one lower case, one upper case, one special character and at least 12 from the mentioned characters."
           validRegex: /^(?=.*[A-Z])(?=.*[/!?@±#§$€%^&*()\\-_=+{}~+´ºª`^"';:,<.>\|\]\[])(?=.*[0-9])(?=.*[a-z]).{12,}$/
         - id: $$cap_sentry_server_mail
           label: Sentry Server Email (optional)
-          description: 'The email address used for From: in outbound emails.'
+          description: "The email address used for From: in outbound emails."
           defaultValue: root@localhost
           validRegex: /.{1,}/
         - id: $$cap_sentry_email_host
@@ -178,7 +180,7 @@ caproverOneClickApp:
             Sentry is deployed and available as srv-captain--$$cap_appname:9000. 
 
             IMPORTANT: It will take up to 10 minutes for Sentry to be ready. Before that, you might see 502 error page.
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Open-source error tracking with full stacktraces & asynchronous context
     documentation: Taken from https://hub.docker.com/_/sentry/ and https://docs.sentry.io/server/

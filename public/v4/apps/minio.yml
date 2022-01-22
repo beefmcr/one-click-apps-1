@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -8,11 +10,11 @@ services:
         environment:
             MINIO_ROOT_USER: $$cap_access_key
             MINIO_ROOT_PASSWORD: $$cap_secret_key
-            MINIO_REGION_NAME: 'eu-east-1'
+            MINIO_REGION_NAME: "eu-east-1"
             MINIO_BROWSER_REDIRECT_URL: https://$$cap_appname.$$cap_root_domain
             MINIO_SERVER_URL: https://$$cap_appname-s3.$$cap_root_domain # MinIO S3 API
         caproverExtra:
-            containerHttpPort: '9001'
+            containerHttpPort: "9001"
             dockerfileLines:
                 - FROM minio/minio:$$cap_minio_version
                 - CMD ["server", "/data", "--console-address", ":9001"]
@@ -32,12 +34,12 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_access_key
           label: MinIO Access Key
-          defaultValue: ''
+          defaultValue: ""
           description: Username to access MinIO server
           validRegex: /.{5,}/
         - id: $$cap_secret_key
           label: Minio Secret Key
-          defaultValue: ''
+          defaultValue: ""
           description: Password to access MinIO server
           validRegex: /.{8,}/
     instructions:
@@ -49,7 +51,7 @@ caproverOneClickApp:
             **Important**: Make sure to enable HTTPS for both $$cap_appname and $$cap_appname-s3
             You can access the dashboard at https://$$cap_appname.$$cap_root_domain
             And, you can access the S3 API Endpoint at https://$$cap_appname-s3.$$cap_root_domain
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: MinIO is a cloud storage server compatible with Amazon S3
     documentation: Taken from https://docs.min.io/docs/minio-docker-quickstart-guide.html

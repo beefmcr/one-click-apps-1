@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mongo:
@@ -5,13 +7,13 @@ services:
         volumes:
             - $$cap_appname-mongo:/data/db
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-redis:
         image: redis:3.2
         volumes:
             - $$cap_appname-redis:/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-talk:
         depends_on:
             - $$cap_appname-mongo
@@ -19,21 +21,21 @@ services:
         image: coralproject/talk:$$cap_talk_version
         restart: always
         caproverExtra:
-            containerHttpPort: '5000'
+            containerHttpPort: "5000"
         environment:
-            MONGODB_URI: 'mongodb://srv-captain--$$cap_appname-mongo:27017/coral'
-            REDIS_URI: 'redis://srv-captain--$$cap_appname-redis:6379'
+            MONGODB_URI: "mongodb://srv-captain--$$cap_appname-mongo:27017/coral"
+            REDIS_URI: "redis://srv-captain--$$cap_appname-redis:6379"
             SIGNING_SECRET: $$cap_signing_secret
 caproverOneClickApp:
     variables:
         - id: $$cap_signing_secret
           label: Signing Secret
           defaultValue: $$cap_gen_random_hex(32)
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_talk_version
           label: Coral Talk Version
-          defaultValue: '6'
+          defaultValue: "6"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/coralproject/talk/tags
           validRegex: /^([^\s^\/])+$/
     instructions:

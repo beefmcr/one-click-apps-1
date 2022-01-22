@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -7,7 +9,7 @@ services:
             - $$cap_appname-config:/etc/prometheus
             - $$cap_appname-data:/prometheus
         caproverExtra:
-            containerHttpPort: '9090'
+            containerHttpPort: "9090"
 caproverOneClickApp:
     variables:
         - label: Prometheus Docker Hash
@@ -16,7 +18,7 @@ caproverOneClickApp:
           id: $$cap_version
     instructions:
         end: Prometheus is now starting.
-        start: 'Read more about Prometheus: https://prometheus.io/'
+        start: "Read more about Prometheus: https://prometheus.io/"
     displayName: Prometheus
     isOfficial: true
     description: Prometheus is a systems and service monitoring system.

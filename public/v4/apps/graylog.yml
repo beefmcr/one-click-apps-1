@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-mongodb:
@@ -7,7 +9,7 @@ services:
             - $$cap_appname-db-config:/data/configdb
         restart: always
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname-elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:$$cap_elasticsearch_version
         volumes:
@@ -22,7 +24,7 @@ services:
             discovery.zen.minimum_master_nodes: $$cap_elasticsearch_minimum_master_nodes
             discovery.zen.ping.unicast.hosts: $$cap_elasticsearch_unicast_hosts
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         depends_on:
             - $$cap_appname-mongodb
@@ -35,27 +37,27 @@ services:
             GRAYLOG_HTTP_EXTERNAL_URI: //$$cap_appname.$$cap_root_domain/
             GRAYLOG_ROOT_PASSWORD_SHA2: $$cap_graylog_password
         caproverExtra:
-            containerHttpPort: '9000'
+            containerHttpPort: "9000"
 caproverOneClickApp:
     variables:
         - id: $$cap_graylog_version
           label: Graylog Version
-          defaultValue: '3.1'
+          defaultValue: "3.1"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/graylog/graylog/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_graylog_password
           label: Graylog Admin Password
-          defaultValue: ''
+          defaultValue: ""
           description: 'Admin password SHA256 encoded. Generate with: echo -n "<password>" | shasum -a 256 | cut -d" " -f1'
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4'
+          defaultValue: "4"
           description: Check out their docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_version
-          label: 'Elasticsearch Version Tag '
-          description: 'Check out the releases overview: https://www.elastic.co/de/downloads/elasticsearch'
+          label: "Elasticsearch Version Tag "
+          description: "Check out the releases overview: https://www.elastic.co/de/downloads/elasticsearch"
           defaultValue: 6.7.1
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_cluster_name
@@ -65,27 +67,27 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_unicast_hosts
           label: Elasticsearch Unicasts hosts
-          description: 'References to other node to attach to. (for example: srv-captain--XXX)'
-          defaultValue: 'false'
+          description: "References to other node to attach to. (for example: srv-captain--XXX)"
+          defaultValue: "false"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_node_data
           label: Elasticsearch Node Data
           description: Should the node used for storing data? (true / false)
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_node_master
           label: Elasticsearch Node Master
           description: Define node as master-eligible (usual first node YES, others NO).
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_elasticsearch_minimum_master_nodes
           label: Elasticsearch Minimum Master Nodes
-          description: 'Define minimum amount of master (N) ( best practice: ceil(N/2 + 1) ).'
-          defaultValue: '1'
+          description: "Define minimum amount of master (N) ( best practice: ceil(N/2 + 1) )."
+          defaultValue: "1"
           validRegex: /^([0-9])+$/
         - id: $$cap_container_port
           label: Elasticsearch Container TCP Port
-          defaultValue: '9200'
+          defaultValue: "9200"
           description: Internal port for Elasticsearch the container listens to.
           validRegex: /^([0-9])+$/
     instructions:
@@ -104,7 +106,7 @@ caproverOneClickApp:
 
             IMPORTANT! Do not forget to map port 12201 and 12202 in your app config. Without port mapping, Graylog will not work.
 
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: Graylog is used for log management of both structured and unstructured data along with debugging applications.
     documentation: Taken from https://hub.docker.com/r/graylog/graylog

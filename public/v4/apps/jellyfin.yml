@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,29 +8,29 @@ services:
             PUID: $$cap_puid
             PGID: $$cap_pgid
             TZ: $$cap_tz
-            JELLYFIN_PublishedServerUrl: '$$cap_appname.$$cap_root_domain'
+            JELLYFIN_PublishedServerUrl: "$$cap_appname.$$cap_root_domain"
         volumes:
             - $$cap_appname-config:/config
         caproverExtra:
-            containerHttpPort: '8096'
+            containerHttpPort: "8096"
 caproverOneClickApp:
     variables:
         - id: $$cap_jf_version
           label: Jellyfin Version
-          defaultValue: '10.7.7'
+          defaultValue: "10.7.7"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/jellyfin/tags
           validRegex: /^([^\s^\/])+$/
-        - id: '$$cap_puid'
+        - id: "$$cap_puid"
           label: Jellyfin UserID
           defaultValue: 1000
           description: UserID used by JellyFin to avoid permission problems, please refer to docs- https://github.com/linuxserver/docker-jellyfin#Parameters
           validRegex: /[0-9]/
-        - id: '$$cap_pgid'
+        - id: "$$cap_pgid"
           label: Jellyfin GroupID
           defaultValue: 1000
           description: GroupID used by JellyFin to avoid permission problems, please refer to docs- https://github.com/linuxserver/docker-jellyfin#Parameters
           validRegex: /[0-9]/
-        - id: '$$cap_tz'
+        - id: "$$cap_tz"
           label: Time Zone
           defaultValue: Asia/Kolkata
           description: Get yours from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones

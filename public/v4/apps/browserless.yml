@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -34,7 +36,7 @@ services:
             CHROME_REFRESH_TIME: $$cap_chrome_refresh_time
             FUNCTION_ENABLE_INCOGNITO_MODE: $$cap_function_enable_incognito_mode
         caproverExtra:
-            containerHttpPort: '3000'
+            containerHttpPort: "3000"
 caproverOneClickApp:
     variables:
         - id: $$cap_browserless_version
@@ -44,12 +46,12 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_demo_mode
           label: Demo Mode
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: If you want to serve the interactive debugger, but not allow it to handle puppeteer.connect calls, you can do so via the DEMO_MODE flag.
         - id: $$cap_enable_debugger
           label: Enable Debugger
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: If you want to disable the debugger (and all accompnaying HTML) you can set the ENABLE_DEBUGGER to false to only allow puppeteer.connect calls to succeed.
         - id: $$cap_max_concurrent_sessions
@@ -70,7 +72,7 @@ caproverOneClickApp:
           description: Defining a workspace location
         - id: $$cap_workspace_delete_expired
           label: Deleting workspace files automatically
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: When downloads from Chrome are larger, it's easy for the docker image to fill it's disk-space if you forget to periodically delete files.
         - id: $$cap_workspace_expire_days
@@ -87,17 +89,17 @@ caproverOneClickApp:
           description: browserless captures metrics while it's running, and exposes them via the /metrics endpoint.
         - id: $$cap_disable_auto_set_download_behavior
           label: Disable download behavior
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: By default, browserless tells chromium to use a special directory in /tmp for storing files. If you want opt-out of this behavior, set to true
         - id: $$cap_default_block_ads
           label: Block Ads
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: Starts all sessions with the ad-blocker already running
         - id: $$cap_enable_api_get
           label: Enable API GET
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: Allows for enabling an expiremental GET-style operation, as opposed to POSTing bodies of code to run on our APIs.
         - id: $$cap_token
@@ -107,41 +109,41 @@ caproverOneClickApp:
           description: If you're exposing your instance to the world, but don't want anyone to use it, you can optionally apply a TOKEN param that will restrict calls without a token query-string parameter.
         - id: $$cap_enable_cors
           label: Enable CORS
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: You can enable cross-origin-resource-sharing with browserless
         - id: $$cap_enable_xvbf
           label: Enable XVFB
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: in some hosting environments it's not possible to write to the appropriate folders to support XVFB and you should set this parameter to false.
         - id: $$cap_exit_on_health_failure
           label: Exit on health failure
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: In order for browserless to restart on health-failure checks, you'll have to set to true.
         - id: $$cap_default_ignore_https_errors
           label: Ignore HTTPS errors
-          defaultValue: 'true'
+          defaultValue: "true"
           validRegex: /^(true|false)$/
           description: Tells browserless to, by default, ignore or not ignore HTTPS errors on sites.
         - id: $$cap_default_ignore_default_args
           label: Ignore Default Args
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: When set this will override any default arguments set by browserless to Chrome's launch arguments
         - id: $$cap_disabled_features
           label: Disable Routes
-          defaultValue: ''
+          defaultValue: ""
           description: Allows for disabling routes by supplying a list of routes to disable
         - id: $$cap_preboot_chrome
           label: Pre-booting Chrome
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: You can, optionally, pre-boot Chrome and keep it in a pool of instances (determined by MAX_CONCURRENT_SESSIONS) in order to cut-down on the boot time.
         - id: $$cap_keep_alive
           label: Keeping Chrome Alive
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: When the PREBOOT_CHROME flag is set, you can optionally keep Chrome "alive" after sessions are complete. This allows you to re-use Chrome instances without having to start and stop them (making for much faster execution).
         - id: $$cap_chrome_refresh_time
@@ -150,7 +152,7 @@ caproverOneClickApp:
           description: When both PREBOOT_CHROME and KEEP_ALIVE are true browserless keeps track of how long Chrome has been running, and will attempt to close it after a certain period.
         - id: $$cap_function_enable_incognito_mode
           label: Function Incognito Mode
-          defaultValue: 'false'
+          defaultValue: "false"
           validRegex: /^(true|false)$/
           description: When set, and PREBOOT_CHROME and KEEP_ALIVE are set, allows for generating a fresh page (incognito page) from a re-used browser.
     instructions:

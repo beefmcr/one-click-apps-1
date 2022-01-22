@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -29,7 +31,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_webui_port
           label: qBittorrent WebUI Port
-          defaultValue: '8081'
+          defaultValue: "8081"
           description: The port used to access qBittorrent
           validRegex: /\d/
         - id: $$cap_path_to_downloads

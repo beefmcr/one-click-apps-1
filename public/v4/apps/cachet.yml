@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname-postgres:
@@ -8,7 +10,7 @@ services:
         volumes:
             - $$cap_appname-postgres-data:/var/lib/postgresql/data
         caproverExtra:
-            notExposeAsWebApp: 'true'
+            notExposeAsWebApp: "true"
     $$cap_appname:
         image: cachethq/docker:$$cap_cachet_version
         environment:
@@ -26,7 +28,7 @@ services:
             DEBUG: false
         restart: always
         caproverExtra:
-            containerHttpPort: '8000'
+            containerHttpPort: "8000"
 caproverOneClickApp:
     variables:
         - label: Database Password
@@ -36,7 +38,7 @@ caproverOneClickApp:
         - id: $$cap_cachet_version
           label: Version Tag
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/cachethq/docker/tags
-          defaultValue: '2.3.15'
+          defaultValue: "2.3.15"
     instructions:
         start: |-
             📛 An open source status page system for everyone.

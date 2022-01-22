@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,7 +12,7 @@ services:
             SUPER_EMAIL: $$cap_SUPER_EMAIL
             SUPER_PASS: $$cap_SUPER_PASS
         caproverExtra:
-            containerHttpPort: '3735'
+            containerHttpPort: "3735"
 caproverOneClickApp:
     variables:
         - id: $$cap_version

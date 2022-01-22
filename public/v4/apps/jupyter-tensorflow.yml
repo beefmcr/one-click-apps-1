@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -8,7 +10,7 @@ services:
         volumes:
             - $$cap_appname:/home/jovyan/
         caproverExtra:
-            containerHttpPort: '8888'
+            containerHttpPort: "8888"
             dockerfileLines:
                 - FROM jupyter/tensorflow-notebook:36d857bb0121
                 - RUN pip install lxml
@@ -33,4 +35,4 @@ caproverOneClickApp:
     displayName: Jupyter Tensorflow
     isOfficial: true
     description: Jupyter Notebook with built in Tensorflow and Keras for your data analysis and machine learning work
-    documentation: 'Read more at: https://jupyter-docker-stacks.readthedocs.io/'
+    documentation: "Read more at: https://jupyter-docker-stacks.readthedocs.io/"

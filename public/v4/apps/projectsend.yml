@@ -1,18 +1,20 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: linuxserver/projectsend:$$cap_projectsend_version
         environment:
             TZ: $$cap_tz
-            PUID: '1000'
-            PGID: '1000'
+            PUID: "1000"
+            PGID: "1000"
             MAX_UPLOAD: $$cap_max_upload
         restart: unless-stopped
         volumes:
             - $$cap_appname-config:/config
             - $$cap_appname-data:/data
         caproverExtra:
-            containerHttpPort: '80'
+            containerHttpPort: "80"
 caproverOneClickApp:
     variables:
         - id: $$cap_projectsend_version
@@ -27,7 +29,7 @@ caproverOneClickApp:
           validRegex: /.{1,}/
         - id: $$cap_max_upload
           label: Max Upload size in MB
-          defaultValue: '5000'
+          defaultValue: "5000"
           description: To set maximum upload size (in MB), default if unset is 5000.
     instructions:
         start: |-

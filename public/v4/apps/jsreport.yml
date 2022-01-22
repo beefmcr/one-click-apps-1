@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,7 +12,7 @@ services:
             extensions_authentication_admin_password: $$cap_jsreport_password
             extensions_authentication_cookieSession_secret: $$cap_jsreport_secret
         caproverExtra:
-            containerHttpPort: '5488'
+            containerHttpPort: "5488"
 caproverOneClickApp:
     variables:
         - id: $$cap_jsreport_version
@@ -33,7 +35,7 @@ caproverOneClickApp:
     instructions:
         start: Reporting tools for creating PDF, HTMLS, Excel by converting your HTML + CSS + JavaScript knowledge.
         end: Congratulations! You have the new jsReport instance running. Happy reporting!
-    displayName: ''
+    displayName: ""
     isOfficial: true
     description: jsreport is an open source reporting platform where reports are designed using popular JavaScript templating engines
     documentation: Taken from https://hub.docker.com/r/jsreport/jsreport/

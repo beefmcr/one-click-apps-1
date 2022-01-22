@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -6,12 +8,12 @@ services:
             - $$cap_appname-data:/photoprism/originals/
         restart: always
         caproverExtra:
-            containerHttpPort: '2342'
+            containerHttpPort: "2342"
 caproverOneClickApp:
     variables:
         - id: $$cap_photoprism_version
           label: Photoprism Version
-          defaultValue: '20200427'
+          defaultValue: "20200427"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/photoprism/photoprism/tags
           validRegex: /^([^\s^\/])+$/
     instructions:

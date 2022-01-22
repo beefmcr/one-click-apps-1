@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -10,7 +12,7 @@ services:
             TW_PASSWORD: $$cap_wikipassword
             NODE_MEM: $$cap_nodemem
         caproverExtra:
-            containerHttpPort: '8080'
+            containerHttpPort: "8080"
 caproverOneClickApp:
     variables:
         - id: $$cap_wikusername
@@ -22,7 +24,7 @@ caproverOneClickApp:
           description: Password for authentication (leave blank for a public wiki)
         - id: $$cap_nodemem
           label: Max Memory
-          defaultValue: '400'
+          defaultValue: "400"
           validRegex: /^[0-9]+$/
           description: Limit the memory that the server can consume
     instructions:

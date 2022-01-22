@@ -1,16 +1,18 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
         image: linuxserver/ombi:$$cap_ombi_version
         environment:
             TZ: $$cap_tz
-            PUID: '1000'
-            PGID: '1000'
+            PUID: "1000"
+            PGID: "1000"
         restart: unless-stopped
         volumes:
             - $$cap_appname-config:/config
         caproverExtra:
-            containerHttpPort: '3579'
+            containerHttpPort: "3579"
 caproverOneClickApp:
     variables:
         - id: $$cap_ombi_version

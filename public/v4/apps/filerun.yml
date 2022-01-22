@@ -1,3 +1,5 @@
+# @format
+
 captainVersion: 4
 services:
     $$cap_appname:
@@ -23,7 +25,7 @@ caproverOneClickApp:
           id: $$cap_db_host
           label: Database Host
         - description: Database port. Default Value is 3306
-          defaultValue: '3306'
+          defaultValue: "3306"
           id: $$cap_db_port
           label: Database Port
         - description: Database name
@@ -35,11 +37,11 @@ caproverOneClickApp:
           defaultValue: filerunuser
         - id: $$cap_db_pass
           label: Database password
-          description: ''
+          description: ""
           validRegex: /.{1,}/
         - id: $$cap_wp_version
           label: Filerun Version.
-          defaultValue: ''
+          defaultValue: ""
           description: Use 'latest' tag for normal installation. If you wish to have LibreOffice included, use 'libreoffice' tag. Note that LibreOffice is considerably larger in disk size and memory usage. Check out their Docker page for the valid tags https://hub.docker.com/r/afian/filerun/tags
           validRegex: /^([^\s^\/])+$/
     instructions:
