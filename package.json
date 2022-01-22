@@ -5,9 +5,12 @@
   "scripts": {
     "formatter": "prettier --check \"./public/**/*.(json|yml)\"",
     "formatter-write": "prettier --write \"./public/**/*.(json|yml)\"",
-    "build": "rm -rf ./dist/ && mkdir -p dist && node ./scripts/build_one_click_apps.js && node ./scripts/build_one_click_apps_from_v4.js",
+    "build_one_click_apps": "node ./scripts/build_one_click_apps.js",
+    "build_one_click_apps_v4": "node ./scripts/build_one_click_apps_v4.js",
+    "build": "rimraf ./dist/ && mkdirp dist && node ./scripts/build_one_click_apps.js && node ./scripts/build_one_click_apps_from_v4.js",
     "validate_apps": "node ./scripts/validate_apps.js",
-    "publish": "npm run build && ./scripts/publish-from-actions.sh"
+    "publish": "npm run build",
+    "postpublish": "./scripts/publish-from-actions.sh"
   },
   "repository": {
     "type": "git",
@@ -25,16 +28,20 @@
     "prettier": "^2.5.1",
     "yaml": "^1.10.2",
     "rimraf": "3.0.2",
+    "mkdirp": "1.0.4",
     "semver": "^7.3.5"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
     "@types/gh-pages": "^3.2.0",
+    "@types/mkdirp": "1.0.2",
     "@types/prettier": "^2.4.3",
     "@types/rimraf": "3.0.2",
     "@types/semver": "^7.3.9",
     "@types/yaml": "^1.9.7",
     "caprover": "2.2.3",
-    "npm-check-updates": "12.2.1"
+    "madrun": "8.10.1",
+    "npm-check-updates": "12.2.1",
+    "redrun": "9.0.1"
   }
 }

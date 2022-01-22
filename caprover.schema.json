@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Caprover Schema",
+    "type": "object",
+    "properties": {
+        "captainVersion": {
+            "type": "number",
+            "minimum": 2,
+            "maxinum": 4
+        },
+        "services": {
+            "type": "object",
+            "patternProperties": {
+                "$$cap_appname-": {
+                    "type": "object",
+                    "properties": {
+                        "depends_on": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "image": {
+                            "type": "string"
+                        },
+                        "restart": {
+                            "type": "string",
+                            "pattern": "(always|on-failure|no|unless-stopped)"
+                        },
+                        "volumes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "environment": {
+                            "type": "object",
+                            "pattern": "^[A-Z_][A-Z0-9_]*$",
+                            "patternProperties": {
+                                "^[A-Z_][A-Z0-9_]*$": {
+                                    "type": [
+                                        "string",
+                                        "integer"
+                                    ]
+                                }
+                            }
+                        },
+                        "caproverExtra": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            }
+        },
+        "caproverOneClickApp": {
+            "type": "object",
+            "properties": {
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            },
+                            "defaultValue": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "validRegex": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "label"
+                        ]
+                    }
+                },
+                "instructions": {
+                    "type": "object",
+                    "properties": {
+                        "start": {
+                            "type": "string"
+                        },
+                        "end": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "start",
+                        "end"
+                    ]
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "isOfficial": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "description": {
+                    "type": "string"
+                },
+                "documentation": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "captainVersion",
+        "services"
+    ]
+}

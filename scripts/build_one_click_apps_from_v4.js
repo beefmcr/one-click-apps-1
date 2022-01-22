@@ -27,17 +27,28 @@ const pathOfSourceDirectoryLogos = path.join(pathOfSourceDirectory, 'logos');
       "logoUrl": "adminer.png"
      },.....]}
  */
-function createAppList(appsFileNames, pathOfApps) {
+/**
+ * 
+ * @param {string[]} appsFileNames 
+ * @param {string} pathOfApps 
+ * @returns {Promise<{apps: string[], appDetails: Array<{name: string, displayName: string, description: string, isOfficial: boolean, logoUrl: string}[], appsFileNames: string[]}>>}
+ */
+async function createAppList(appsFileNames, pathOfApps) {
+    /**
+     * @type {string[]}
+     */
     const apps = appsFileNames.filter(v => `${v}`.endsWith('.yml'));
 
     if (apps.length !== appsFileNames.length) {
         throw new Error('All files in v4 must end with .yml extension!');
     }
-
+    /**
+     * @type {Array<{name: string, displayName: string, description: string, isOfficial: boolean, logoUrl: string}>}
+     */
     const appDetails = [];
 
     for (var i = 0; i < apps.length; i++) {
-        const contentString = fs.readFileSync(path.join(pathOfApps, apps[i]), 'utf-8');
+        const contentString =await  fs.readFile(path.join(pathOfApps, apps[i]), 'utf-8');
         const content = yaml.parse(contentString);
         const captainVersion = `${content.captainVersion}`;
 
@@ -70,7 +81,11 @@ function createAppList(appsFileNames, pathOfApps) {
         appDetails: appDetails
     };
 }
-
+/**
+ * 
+ * @param {string} v4String 
+ * @returns {object}
+ */
 function convertV4toV2(v4String) {
     const parsed = JSON.parse(v4String);
     if (`${parsed.captainVersion}` !== '4') {
@@ -120,68 +135,82 @@ function convertV4toV2(v4String) {
     return parsed;
 }
 
-
-function buildDist() {
-    return fs.readdir(pathOfSourceDirectoryApps)
-        .then(function (appsFileNames) { // [ app1.yml app2.yml .... ]
-
-            appsFileNames.forEach(appFileName => {
-
-                console.log('Building dist for ' + appFileName);
-
-                const pathOfAppFileInSource = path.join(pathOfSourceDirectoryApps, appFileName);
-                const contentParsed = yaml.parse(fs.readFileSync(pathOfAppFileInSource, 'utf-8'));
-
-                //v4
-                fs.outputJsonSync(path.join(pathOfDistV4, `apps`, appFileName.split('.')[0]), contentParsed);
-
-                //v3
-                fs.outputJsonSync(path.join(pathOfDistV3, `apps`, appFileName.split('.')[0]), convertV4toV2(JSON.stringify(contentParsed)));
-
-                //v2
-                fs.outputJsonSync(path.join(pathOfDistV2, `apps`, appFileName.split('.')[0] + '.json'), convertV4toV2(JSON.stringify(contentParsed)));
+/**
+ * 
+ * @returns {Promise<true>}
+ * @throws {Error}
+ */
+async function buildDist() {
+    const appsFileNames = await fs.readdir(pathOfSourceDirectoryApps);
+try {
+        appsFileNames.forEach(appFileName => {
+    
+            console.log('Building dist for ' + appFileName);
+    
+            const pathOfAppFileInSource = path.join(pathOfSourceDirectoryApps, appFileName);
+            const contentParsed = yaml.parse(fs.readFileSync(pathOfAppFileInSource, 'utf-8'));
+    
+            //v4
+            await fs.outputJson(path.join(pathOfDistV4, `apps`, appFileName.split('.')[0]), contentParsed);
+    
+            //v3
+            await fs.outputJson(path.join(pathOfDistV3, `apps`, appFileName.split('.')[0]), convertV4toV2(JSON.stringify(contentParsed)));
+    
+            //v2
+            await fs.outputJson(path.join(pathOfDistV2, `apps`, appFileName.split('.')[0] + '.json'), convertV4toV2(JSON.stringify(contentParsed)));
+        });
+} catch (err) {
+    console.error("Could not build dist");
+    console.error(err);
+    throw err
+}
+    try {
+        await fs.copy(pathOfSourceDirectoryLogos, path.join(pathOfDistV2, `logos`));
+        await fs.copy(pathOfSourceDirectoryLogos, path.join(pathOfDistV3, `logos`));
+        await fs.copy(pathOfSourceDirectoryLogos, path.join(pathOfDistV4, `logos`));
+    } catch (err) {
+        console.error("Could not copy logos");
+        console.error(err);
+        throw err
+    }
+    const allAppsList = createAppList(appsFileNames, pathOfSourceDirectoryApps);
+    const v3List = {
+        oneClickApps: allAppsList.appDetails
+    };
+    // Remove once we are fully on V4
+    if (await fs.stat(path.join(pathOfDistV3, 'list'))) {
+        const v3ListExisting = await fs.readFile(path.join(pathOfDistV3, 'list'), 'utf-8');
+        if (v3ListExisting && JSON.parse(v3ListExisting).oneClickApps) {
+            v3List.oneClickApps = [...v3List.oneClickApps, ...JSON.parse(v3ListExisting).oneClickApps];
+            const names = {};
+            const list = [];
+            v3List.oneClickApps.forEach(a => {
+                if (!names[a.name]) {
+                    list.push(a);
+                    names[a.name] = true;
+                }
+            });
+            v3List.oneClickApps = list.sort(function (a_1, b) {
+                return `${a_1.name}`.localeCompare(b.name);
             });
 
-            fs.copySync(pathOfSourceDirectoryLogos, path.join(pathOfDistV2, `logos`));
-            fs.copySync(pathOfSourceDirectoryLogos, path.join(pathOfDistV3, `logos`));
-            fs.copySync(pathOfSourceDirectoryLogos, path.join(pathOfDistV4, `logos`));
-
-            const allAppsList = createAppList(appsFileNames, pathOfSourceDirectoryApps);
-            const v3List = {
-                oneClickApps: allAppsList.appDetails
-            };
-
-            // Remove once we are fully on V4
-            if (fs.existsSync(path.join(pathOfDistV3, 'list'))) {
-                const v3ListExisting = fs.readFileSync(path.join(pathOfDistV3, 'list'), 'utf-8');
-                if (v3ListExisting && JSON.parse(v3ListExisting).oneClickApps) {
-                    v3List.oneClickApps = [...v3List.oneClickApps, ...JSON.parse(v3ListExisting).oneClickApps];
-                    const names = {};
-                    const list = [];
-                    v3List.oneClickApps.forEach(a => {
-                        if (!names[a.name]) {
-                            list.push(a);
-                            names[a.name] = true;
-                        }
-                    });
-                    v3List.oneClickApps = list.sort(function (a, b) {
-                        return `${a.name}`.localeCompare(b.name);
-                    });
-
-                    allAppsList.appList = list.map(l => l.name);
-                    allAppsList.appDetails = v3List.oneClickApps;
-                }
-            }
-
-
-            fs.outputJsonSync(path.join(pathOfDistV2, 'autoGeneratedList.json'), allAppsList);
-            fs.outputJsonSync(path.join(pathOfDistV2, 'list'), v3List);
-            fs.outputJsonSync(path.join(pathOfDistV3, 'list'), v3List);
-            fs.outputJsonSync(path.join(pathOfDistV4, 'list'), v3List);
-        })
-        .then(function () {
-            return fs.copySync(path.join(pathOfPublic, 'CNAME'), path.join(pathOfDist, 'CNAME'));
-        });
+            allAppsList.appList = list.map(l => l.name);
+            allAppsList.appDetails = v3List.oneClickApps;
+        }
+    }
+    try {
+        await fs.outputJson(path.join(pathOfDistV2, 'autoGeneratedList.json'), allAppsList);
+        await fs.outputJson(path.join(pathOfDistV2, 'list'), v3List);
+        await fs.outputJson(path.join(pathOfDistV3, 'list'), v3List);
+        await fs.outputJson(path.join(pathOfDistV4, 'list'), v3List);
+        await fs.copy(path.join(pathOfPublic, 'CNAME'), path.join(pathOfDist, 'CNAME'));
+        
+    } catch (err) {
+        console.error("Could not copy lists");
+        console.error(err);
+        throw err
+    }
+    return true;
 }
 
 

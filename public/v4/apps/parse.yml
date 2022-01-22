@@ -23,13 +23,25 @@ services:
             PORT: '8080'
             PARSE_SERVER_APPLICATION_ID: $$cap_app_id
             PARSE_SERVER_MASTER_KEY: $$cap_master_key
-            PARSE_SERVER_DATABASE_URI: mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-mongodb:27017/parse?authSource=admin
+            #PARSE_SERVER_DATABASE_URI: mongodb://root:$$cap_mongo_password@srv-captain--$$cap_appname-mongodb:27017/parse?authSource=admin
+            PARSE_SERVER_DATABASE_URI: postgresql://$$cap_postgres_user:$$cap_postgres_password@srv-captain--$$cap_appname-pg-db:5432/$$cap_postgres_db
         caproverExtra:
             containerHttpPort: '8080'
+    $$cap_appname-pg-db:
+        image: supabase/postgres:$$cap_postgres_version
+        command: postgres -c config_file=/etc/postgresql/postgresql.conf 
+        environment:
+          POSTGRES_PASSWORD: $$cap_postgres_password
+          POSTGRES_USER: $$cap_postgres_user
+          POSTGRES_DB: $$cap_postgres_db
+        volumes:
+            - $$cap_appname-db:/srv/app
+        caproverExtra:
+            containerHttpPort: '5432'
     $$cap_appname-parse-dashboard:
         depends_on:
             - $$cap_appname-parse
-        image: parseplatform/parse-dashboard:$$cap_parse_dashboard_version
+        image: romanstark/parse-dashboard:$$cap_parse_dashboard_version
         restart: always
         environment:
             PORT: '4040'
@@ -44,26 +56,48 @@ services:
             containerHttpPort: '4040'
 caproverOneClickApp:
     variables:
+        - id: $$cap_postgres_version
+          label: PostgreSQL Version
+          defaultValue: 'latest'
+          description: Check out their Docker page for the valid tags https://hub.docker.com/r/supabase/postgres/tags/
+          validRegex: /^([^\s^\/])+$/
+        - id: $$cap_postgres_password
+          label: PostgreSQL password
+          defaultValue: '61324revb408'
+          description: Only use alphanumeric chars.
+          validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: '4'
+          defaultValue: '5'
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mongo_password
           label: MongoDB password
+          defaultValue: '61324revb408'
+          description: Only use alphanumeric chars.
+          validRegex: /^([a-zA-Z0-9])+$/
+        - id: $$cap_postgres_user
+          label: Postgres user
+          defaultValue: 'postgres'
+          description: Only use alphanumeric chars.
+          validRegex: /^([a-zA-Z0-9])+$/
+        - id: $$cap_postgres_db
+          label: Postgres DB
+          defaultValue: 'parse'
           description: Only use alphanumeric chars.
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_parse_dashboard_version
           label: Parse Dashboard Version
-          defaultValue: 2.0.5
-          description: Check out their Docker page for the valid tags https://hub.docker.com/r/parseplatform/parse-dashboard/tags
+          defaultValue:  latest
+          description: Check out their Docker page for the valid tags https://hub.docker.com/r/romanstark/parse-dashboard/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_parse_dashboard_password
           label: Parse Dashboard Password
+          defaultValue: '61324revb408'
           validRegex: /^\S{8,}$/
         - id: $$cap_parse_version
           label: Parse Version
-          defaultValue: 3.1.3
+          defaultValue: master
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/parseplatform/parse-server/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_app_id
@@ -72,6 +106,7 @@ caproverOneClickApp:
           validRegex: /^([a-zA-Z0-9])+$/
         - id: $$cap_master_key
           label: Master Key
+          defaultValue: '61324revb408'
           description: Use a random string. See Parse documentation for more details.
           validRegex: /^([a-zA-Z0-9])+$/
     instructions:
@@ -80,7 +115,7 @@ caproverOneClickApp:
 
             Enter your Parse Configuration parameters and click on next. A MongoDB (database) and a Parse container will be created for you.  The process will take about a minute for the process to finish.
         end: 'Parse is deployed! IMPORTANT: Make sure to enable HTTPS and Force HTTPS on your apps before accessing them! Your Parse Dashboard username is "caprover"'
-    displayName: ''
+    displayName: 'Parse Server (ARM)'
     isOfficial: true
     description: Parse Server is an open source Backend-as-a-Service(BaaS) framework initially developed by Facebook
     documentation: Taken from https://hub.docker.com/r/parseplatform/parse-server/
