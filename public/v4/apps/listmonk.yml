@@ -44,8 +44,8 @@ caproverOneClickApp:
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_listmonk_version
           label: Listmonk Version
-          defaultValue: "v2.0.0"
-          description: Check out their Docker page for the valid tags https://hub.docker.com/r/listmonk/listmonk/tags
+          defaultValue: "0.0.6"
+          description: Check out their Docker page for the valid tags https://hub.docker.com/r/alexisvisco/listmonk/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_postgres_db_name
           label: PostgreSQL Database name

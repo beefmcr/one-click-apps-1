@@ -4,7 +4,7 @@ captainVersion: 4
 services:
     # Metabase
     $$cap_appname:
-        image: metabase/metabase:$$cap_mb_version
+        image: mekomsolutions/metabase:$$cap_mb_version
         restart: always
         environment:
             MB_DB_TYPE: postgres
@@ -23,7 +23,7 @@ services:
             containerHttpPort: "3000"
     # Database
     $$cap_appname-db:
-        image: postgres:12-alpine
+        image: postgres:14
         volumes:
             - $$cap_appname-db:/var/lib/postgresql/data
         restart: always
@@ -37,8 +37,8 @@ caproverOneClickApp:
     variables:
         - id: $$cap_mb_version
           label: Metabase Version
-          defaultValue: "v0.38.0-rc1"
-          description: Check out their docker page for the valid tags https://hub.docker.com/r/metabase/metabase/tags
+          defaultValue: "bahmni_latest"
+          description: Check out their docker page for the valid tags https://hub.docker.com/r/mekomsolutions/metabase/tags
 
         - id: $$cap_db_pass
           label: Database Password

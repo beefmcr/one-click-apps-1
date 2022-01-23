@@ -8,6 +8,8 @@ services:
             KIBANA_DEFAULTAPPID: $$cap_KIBANA_DEFAULTAPPID
             MONITORING_ENABLED: $$cap_MONITORING_ENABLED
             ELASTICSEARCH_HOSTS: $$cap_ELASTICSEARCH_HOSTS
+            TELEMETRY_ENABLED: faöse
+            
         image: docker.elastic.co/kibana/kibana:$$cap_version
         restart: always
         caproverExtra:

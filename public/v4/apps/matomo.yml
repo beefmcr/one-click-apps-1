@@ -35,7 +35,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_matomo_version
           label: Matomo Version
-          defaultValue: 4.2.1
+          defaultValue: LATEST
           description: Check out their docker page for the valid tags https://hub.docker.com/_/matomo?tab=tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mysql_version

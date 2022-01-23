@@ -34,7 +34,7 @@ services:
         caproverExtra:
             containerHttpPort: "3000"
             dockerfileLines:
-                - FROM tootsuite/mastodon:$$cap_mastodon_version
+                - FROM tyrm/mastodon:$$cap_mastodon_version
                 - CMD rm -f /mastodon/tmp/pids/server.pid; bundle exec rails db:setup; bundle exec rails s -b 0.0.0.0 -p 3000
     # Streaming
     $$cap_appname-streaming:
@@ -68,7 +68,7 @@ services:
         caproverExtra:
             containerHttpPort: "4000"
             dockerfileLines:
-                - FROM tootsuite/mastodon:$$cap_mastodon_version
+                - FROM tyrm/mastodon:$$cap_mastodon_version
                 - CMD node ./streaming
     # Sidekiq
     $$cap_appname-sidekiq:
@@ -101,12 +101,12 @@ services:
             - $$cap_appname-system:/mastodon/public/system
         caproverExtra:
             dockerfileLines:
-                - FROM tootsuite/mastodon:$$cap_mastodon_version
+                - FROM tyrm/mastodon:$$cap_mastodon_version
                 - CMD bundle exec sidekiq
             notExposeAsWebApp: "true"
     # PostgreSQL
     $$cap_appname-postgres:
-        image: postgres:12
+        image: postgres:14
         volumes:
             - $$cap_appname-postgres-data:/var/lib/postgresql/data
         environment:
@@ -123,15 +123,15 @@ services:
             REDIS_PASSWORD: $$cap_redis_password
         caproverExtra:
             dockerfileLines:
-                - FROM redis:alpine
+                - FROM redis
                 - CMD exec redis-server --requirepass "$$cap_redis_password"
             notExposeAsWebApp: "true"
 caproverOneClickApp:
     variables:
         - id: $$cap_mastodon_version
           label: Mastodon Version Tag
-          description: You can use latest tag or check version builds on https://hub.docker.com/r/tootsuite/mastodon/tags
-          defaultValue: v3.3.0
+          description: You can use latest tag or check version builds on https://hub.docker.com/r/tyrm/mastodon/tags
+          defaultValue: v3.4.4
 
         - id: $$cap_secret_key_base
           defaultValue: $$cap_gen_random_hex(64)

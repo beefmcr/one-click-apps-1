@@ -15,7 +15,7 @@ services:
         caproverExtra:
             notExposeAsWebApp: "true"
     $$cap_appname:
-        image: jboss/keycloak:$$cap_keycloak_version
+        image: chubi/keycloack:$$cap_keycloak_version
         depends_on:
             - $$cap_appname-db
         restart: always
@@ -34,13 +34,13 @@ caproverOneClickApp:
     variables:
         - id: $$cap_postgres_version
           label: Postgres Version
-          defaultValue: "9.6"
+          defaultValue: "14"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/postgres/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_keycloak_version
           label: Keycloak Version
-          defaultValue: 16.1.0
-          description: v16.1.0 current as of 2021-12-21.  Check out their Docker page for the valid tags https://hub.docker.com/r/jboss/keycloak/tags
+          defaultValue: latest
+          description: latest current as of 2021-12-21.  Check out their Docker page for the valid tags https://hub.docker.com/r/chubi/keycloack/tags
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_pg_pass
           label: Postgres Password
@@ -64,7 +64,7 @@ caproverOneClickApp:
 
             For source code, see: https://github.com/keycloak/keycloak
 
-            For docker image, see: https://hub.docker.com/r/jboss/keycloak
+            For docker image, see: https://hub.docker.com/r/chubi/keycloack
 
             Enter your Keycloak Configuration parameters and click on next. It will take about a minute for the process to finish.
         end: Keycloak is deployed and available as srv-captain--$$cap_appname:8080 to other apps

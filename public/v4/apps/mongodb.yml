@@ -17,7 +17,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_mongo_version
           label: MongoDB Version
-          defaultValue: "4"
+          defaultValue: "5"
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/library/mongo/tags/
           validRegex: /^([^\s^\/])+$/
         - id: $$cap_mongo_username

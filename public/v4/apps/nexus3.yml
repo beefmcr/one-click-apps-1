@@ -3,7 +3,7 @@
 captainVersion: 4
 services:
     $$cap_appname:
-        image: sonatype/nexus3:$$cap__version
+        image: klo2k/nexus3:$$cap__version
         volumes:
             - $$cap_appname-data:/nexus-data
         restart: always
@@ -14,8 +14,8 @@ caproverOneClickApp:
     variables:
         - id: $$cap__version
           label: Version
-          defaultValue: 3.15.2
-          description: "Additional tags can be found here: https://hub.docker.com/r/sonatype/nexus3/tags"
+          defaultValue: latest
+          description: "Additional tags can be found here: https://hub.docker.com/r/klo2k/nexus3/tags"
     instructions:
         start: >-
             Nexus is the world's first and only universal repository solution that's FREE to use. It supports Bower, Docker, Git LFS, Maven, npm, NuGet, PyPI, Ruby Gems, Yum, Apt, Conan, R, CPAN, Raw (Universal),P2 ,Helm and ELPA.

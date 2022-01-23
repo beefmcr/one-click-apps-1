@@ -13,7 +13,7 @@ caproverOneClickApp:
     variables:
         - id: $$cap_jenkins_version
           label: Jenkins Version
-          defaultValue: lts-jdk11
+          defaultValue: latest
           description: Check out their Docker page for the valid tags https://hub.docker.com/r/jenkins/jenkins/tags
           validRegex: /^([^\s^\/])+$/
     instructions:
