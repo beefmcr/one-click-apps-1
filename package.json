@@ -13,7 +13,8 @@
         "build": "run-s clean build_one_click_apps  build_one_click_apps_v4",
         "validate_apps": "node ./scripts/validate_apps.js",
         "publish:action": "./scripts/publish-from-actions.sh",
-        "publish": "run-s build publish:action"
+        "publish": "run-s build publish:action",
+        "gh-pages": "node index.js"
     },
     "repository": {
         "type": "git",
