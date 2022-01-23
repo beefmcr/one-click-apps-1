@@ -27,5 +27,9 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "dist": false
+    },
+    "yaml.schemas": {
+        "file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json": "*.qovery.y*ml",
+        "https://json.schemastore.org/github-workflow.json": "file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml"
     }
 }
