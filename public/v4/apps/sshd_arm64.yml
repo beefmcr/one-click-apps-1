@@ -50,6 +50,6 @@ caproverOneClickApp:
 
       ssh -i /path/to/private.key $$cap_sshd_username@$$cap_appname.$$cap_root_domain -p $$cap_sshd_port
   displayName: (ARM)SSH Container
-  isOfficial: true
+  isOfficial: false
   description: Just a simple container that has sshd installed so you can SSH directly into this container.
   documentation: "Taken from https://github.com/linuxserver/docker-openssh-server"

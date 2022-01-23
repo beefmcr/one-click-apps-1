@@ -154,6 +154,6 @@ caproverOneClickApp:
     end: >
       Penpot is deployed and available as http://$$cap_appname.$$cap_root_domain. IMPORTANT: It will take up to 2 minutes for Penpot to be ready. Before that, you might see a 502 error page.
   displayName: (ARM)Penpot
-  isOfficial: true
+  isOfficial: false
   description: The open-source solution for design and prototyping.
   documentation: Official docs are [here](https://github.com/penpot/penpot/tree/develop/docs)

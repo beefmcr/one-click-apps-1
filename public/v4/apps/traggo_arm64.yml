@@ -35,7 +35,7 @@ caproverOneClickApp:
       Traggo has been deployed and can be accessed at **$$cap_appname.$$cap_root_domain**. Enabling https is recommended.
 
       The `$$cap_appname-data` volume contains the sqlite database.
-  displayName: (ARM)"Traggo"
-  isOfficial: true
+  displayName: "(ARM)Traggo"
+  isOfficial: false
   description: Traggo is a simple tag-based time tracking tool. In Traggo there are no tasks, only tagged time spans.
   documentation: Taken from https://traggo.net/install/

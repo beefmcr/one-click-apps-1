@@ -36,7 +36,7 @@ caproverOneClickApp:
       After you are done you will be redirected to $$cap_appname.$$cap_root_domain:3000
       Just remove 3000 from the url and visit $$cap_appname.$$cap_root_domain
       You will be redirected to https://$$cap_appname.$$cap_root_domain/login.html
-  displayName: (ARM)"AdGuard Home"
-  isOfficial: true
+  displayName: "(ARM)AdGuard Home"
+  isOfficial: false
   description: AdGuard Home is a fast and easy way to block ads on any device and protect kids online!
   documentation: Taken from https://hub.docker.com/r/adguard/adguardhome

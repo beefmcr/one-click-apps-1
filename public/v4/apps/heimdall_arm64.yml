@@ -28,6 +28,6 @@ caproverOneClickApp:
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: (ARM)Heimdall
-  isOfficial: true
+  isOfficial: false
   description: Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.
   documentation: https://docs.linuxserver.io/images/docker-heimdall

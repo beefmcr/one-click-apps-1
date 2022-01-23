@@ -37,6 +37,6 @@ caproverOneClickApp:
           /config/images - This folder will serve content on http://$$cap_appname.$$cap_root_domain
 
   displayName: (ARM)Raneto
-  isOfficial: true
+  isOfficial: false
   description: Raneto - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.
   documentation: Taken from https://hub.docker.com/r/linuxserver/raneto.

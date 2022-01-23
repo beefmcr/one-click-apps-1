@@ -60,6 +60,6 @@ caproverOneClickApp:
       HedgeDoc has been successfully deployed!
       App is available as http://$$cap_appname.$$cap_root_domain
   displayName: (ARM)HedgeDoc
-  isOfficial: true
+  isOfficial: false
   description: HedgeDoc lets you create real-time collaborative markdown notes
   documentation: See https://docs.hedgedoc.org/

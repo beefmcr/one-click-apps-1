@@ -162,6 +162,6 @@ caproverOneClickApp:
       Your service is available at http://$$cap_appname.$$cap_root_domain?token=$$cap_token
       Atention: you need activate Websocket Support!
   displayName: (ARM)Browserless
-  isOfficial: true
+  isOfficial: false
   description: Browserless Web is communication between web applications without the need for a web browser.
   documentation: https://docs.browserless.io/docs/docker.html

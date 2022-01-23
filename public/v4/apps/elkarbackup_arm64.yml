@@ -72,6 +72,6 @@ caproverOneClickApp:
       Default user: root
       Default password: root
   displayName: (ARM)Elkarbackup
-  isOfficial: true
+  isOfficial: false
   description: Open source backup solution for your network.
   documentation: https://docs.elkarbackup.org/docs/introduction.html

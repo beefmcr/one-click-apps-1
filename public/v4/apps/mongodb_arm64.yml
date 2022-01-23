@@ -37,6 +37,6 @@ caproverOneClickApp:
       Enter your MongoDB Configuration parameters and click on next. It will take about a minute for the process to finish.
     end: "MongoDB is deployed and available as srv-captain--$$cap_appname:27017 to other apps. For example with NodeJS: mongoose.connect('mongodb://srv-captain--$$cap_appname/mydatabase?authSource=admin', {userMongoClient: true});"
   displayName: (ARM)MongoDB
-  isOfficial: true
+  isOfficial: false
   description: MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program
   documentation: Taken from https://hub.docker.com/r/mongo/

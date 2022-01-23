@@ -65,7 +65,7 @@ caproverOneClickApp:
     end: >-
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)"Metabase"
-  isOfficial: true
+  displayName: "(ARM)Metabase"
+  isOfficial: false
   description: Metabase is the easy, open source way for everyone in your company to ask questions and learn from data.
   documentation: https://www.metabase.com/docs/latest/operations-guide/running-metabase-on-docker.html

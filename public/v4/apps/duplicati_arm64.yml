@@ -51,6 +51,6 @@ caproverOneClickApp:
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: (ARM)Duplicati
-  isOfficial: true
+  isOfficial: false
   description: Free backup software to store encrypted backups online For Windows, macOS and Linux
   documentation: https://docs.linuxserver.io/images/docker-duplicati

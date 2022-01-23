@@ -28,7 +28,7 @@ caproverOneClickApp:
       Congratulations, you have successfully deployed ONLYOFFICE Document Server!
 
       Your app will soon be available at http://$$cap_appname.$$cap_root_domain/
-  displayName: (ARM)"ONLYOFFICE Document Server"
-  isOfficial: true
+  displayName: "(ARM)ONLYOFFICE Document Server"
+  isOfficial: false
   description: Online office suite comprising viewers and editors for texts, spreadsheets and presentations
   documentation: Taken from https://github.com/ONLYOFFICE/Docker-DocumentServer

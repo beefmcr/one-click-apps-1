@@ -155,6 +155,6 @@ caproverOneClickApp:
       The app will need to be served over SSL, activate HTTPS on the domain and websocket support.
 
   displayName: (ARM)Chaskiq
-  isOfficial: true
+  isOfficial: false
   description: A full-featured Live Chat, Support & Marketing platform
   documentation: "Read more at: https://dev.chaskiq.io"

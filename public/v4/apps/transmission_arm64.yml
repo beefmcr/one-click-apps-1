@@ -60,6 +60,6 @@ caproverOneClickApp:
       The default username/password is $$cap_user/$$cap_pass.
       Change username/password via the webui in the webui section of settings or using enviornament variables.
   displayName: (ARM)Transmission
-  isOfficial: true
+  isOfficial: false
   description: Transmission is a BitTorrent client which features a variety of user interfaces on top of a cross-platform back-end.
   documentation: Taken from https://hub.docker.com/r/linuxserver/transmission.

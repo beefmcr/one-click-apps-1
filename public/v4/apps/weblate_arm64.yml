@@ -85,6 +85,6 @@ caproverOneClickApp:
     start: Open-source collaborative localization tools. Check all the environment settings you can set here - https://github.com/WeblateOrg/docker-compose/blob/master/environment
     end: Weblate is deployed and available as srv-captain--$$cap_appname:80. Note that the application may take up to ten minutes to become available.
   displayName: (ARM)weblate
-  isOfficial: true
+  isOfficial: false
   description: Weblate is a copylefted libre software web-based continuous localization system, used by over 1150 libre projects and companies in more than 115 countries.
   documentation: https://hub.docker.com/r/weblate/weblate https://github.com/WeblateOrg/docker-compose https://docs.weblate.org/en/latest/admin/install/docker.html

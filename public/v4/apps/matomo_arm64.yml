@@ -53,7 +53,7 @@ caproverOneClickApp:
     end: >-
       Matomo is successfully deployed!
       your application will be available in the next few seconds. Please note to enable https if you need to track datas on https websites.
-  displayName: (ARM)""
-  isOfficial: true
+  displayName: "(ARM)"
+  isOfficial: false
   description: Matomo tracks online visits to one or more websites and displays reports on these visits for analysis
   documentation: Taken from https://hub.docker.com/_/matomo?tab=description

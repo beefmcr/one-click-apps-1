@@ -34,6 +34,6 @@ caproverOneClickApp:
 
       If you need to upload files bigger than 500M you will also need to modify the option: 'client_max_body_size 500m' by clicking in the menu: HTTP Settings>Edit Default Nginx Configurations.
   displayName: (ARM)phpMyAdmin
-  isOfficial: true
+  isOfficial: false
   description: phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web
   documentation: Taken from https://hub.docker.com/r/phpmyadmin/phpmyadmin/

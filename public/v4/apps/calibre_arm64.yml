@@ -34,7 +34,7 @@ caproverOneClickApp:
       Done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
       Default admin login: Username: admin Password: admin123
-  displayName: (ARM)"Calibre Web"
-  isOfficial: true
+  displayName: "(ARM)Calibre Web"
+  isOfficial: false
   description: Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
   documentation: https://github.com/janeczku/calibre-web

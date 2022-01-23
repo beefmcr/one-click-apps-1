@@ -25,6 +25,6 @@ caproverOneClickApp:
       Please wait for 2 minutes. Appsmith is deployed and available as $$cap_appname-appsmith. 
       To further enhance the installation, see the complete environment variables here https://github.com/appsmithorg/appsmith/blob/release/deploy/template/docker.env.sh
   displayName: (ARM)Appsmith
-  isOfficial: true
+  isOfficial: false
   description: Appsmith is the fastest way to build internal apps over any database or API.
   documentation: Taken from https://docs.appsmith.com/setup/docker

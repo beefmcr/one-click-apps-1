@@ -56,6 +56,6 @@ caproverOneClickApp:
       Enter your MongoExpress Configuration parameters and click on next. It will take about a minute for the process to finish.
     end: MongoExpress is deployed and available as $$cap_appname
   displayName: (ARM)Mongo Express
-  isOfficial: true
+  isOfficial: false
   description: Web-based MongoDB admin interface, written with Node.js and express
   documentation: Taken from https://hub.docker.com/_/mongo-express/ except it is manually adjusted for port 80

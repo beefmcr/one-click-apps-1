@@ -26,7 +26,7 @@ caproverOneClickApp:
     end: >-
       Done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)"RSS Bridge"
-  isOfficial: true
+  displayName: "(ARM)RSS Bridge"
+  isOfficial: false
   description: RSS-Bridge is a PHP project capable of generating RSS and Atom feeds for websites that don't have one. It can be used on webservers or as a stand-alone application in CLI mode.
   documentation: https://github.com/RSS-Bridge/rss-bridge

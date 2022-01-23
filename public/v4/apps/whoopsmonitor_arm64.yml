@@ -171,7 +171,7 @@ caproverOneClickApp:
       id: $$cap_APP_TOKEN
 
   displayName: (ARM)Whoops Monitor
-  isOfficial: true
+  isOfficial: false
   description: A monitoring tool that gives you clarity over your application landscape.
   documentation: https://github.com/whoopsmonitor/whoopsmonitor
   instructions:

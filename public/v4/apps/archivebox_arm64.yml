@@ -38,5 +38,5 @@ caproverOneClickApp:
       To go into your container please follow those instructions: https://caprover.com/docs/troubleshooting.html#how-to-run-shell-inside-my-application-inside-container
       Once the super admin is setted you can add other via the web ui.
   displayName: (ARM)ArchiveBox
-  isOfficial: true
+  isOfficial: false
   description: Open-source self-hosted web archiving.

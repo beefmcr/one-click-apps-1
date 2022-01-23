@@ -26,6 +26,6 @@ caproverOneClickApp:
       DB will be internally available as srv-captain--$$cap_appname in ports 8091,8092,8093,8094,11210.
       If you want this app available externally, map these ports on Caprover App-Config settings and allow on firewall.
   displayName: (ARM)CouchBase
-  isOfficial: true
+  isOfficial: false
   description: Couchbase is an open-source, distributed multi-model NoSQL document-oriented database software
   documentation: Taken from https://registry.hub.docker.com/_/couchbase

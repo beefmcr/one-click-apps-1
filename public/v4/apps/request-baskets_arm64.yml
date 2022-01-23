@@ -23,6 +23,6 @@ caproverOneClickApp:
       Request Baskets is deployed and available as $$cap_appname. Note that by default this app is holding all requests in memory, hence, it will lose the requests once restarted.
 
   displayName: (ARM)Request Baskets
-  isOfficial: true
+  isOfficial: false
   description: Request Baskets is a web service to collect arbitrary HTTP requests, similar to RequestBin or Webhook.site
   documentation: Taken from https://github.com/darklynx/request-baskets/

@@ -28,6 +28,6 @@ caproverOneClickApp:
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
   displayName: (ARM)Uptime Kuma
-  isOfficial: true
+  isOfficial: false
   description: A fancy self-hosted monitoring tool
   documentation: Taken from https://github.com/louislam/uptime-kuma

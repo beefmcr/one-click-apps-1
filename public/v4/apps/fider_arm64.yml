@@ -48,6 +48,6 @@ caproverOneClickApp:
     end: |-
       Fider has been successfully deployed! Enable HTTPS after installation.
   displayName: (ARM)Fider - No Database
-  isOfficial: true
+  isOfficial: false
   description: Fider is a platform to collect and organize customer feedback.
   documentation: See https://getfider.com/docs/hosting-instance

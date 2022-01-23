@@ -40,6 +40,6 @@ caproverOneClickApp:
       See more details here: https://leantime.io
     end: Leantime is deployed as available as $$cap_appname! You MUST ENABLE HTTPS before accessing the panel.
   displayName: (ARM)Leantime
-  isOfficial: true
+  isOfficial: false
   description: Open source project management for small teams
   documentation: https://github.com/Leantime/docker-leantime/blob/master/docker-compose.yml

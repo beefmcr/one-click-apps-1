@@ -40,6 +40,6 @@ caproverOneClickApp:
 
       Username and password are both admin.
   displayName: (ARM)Grocy
-  isOfficial: true
+  isOfficial: false
   description: Grocy is an ERP system for your kitchen and groceries! Cut down on food waste, and manage your chores with this brilliant utility.
   documentation: Taken from https://hub.docker.com/r/linuxserver/grocy/tags

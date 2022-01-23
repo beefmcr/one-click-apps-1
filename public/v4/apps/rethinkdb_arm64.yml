@@ -17,6 +17,6 @@ caproverOneClickApp:
       It may take a few minutes for RethinkDB to initialize.
     start: RethinkDB is an open-source, distributed database built to store JSON documents and effortlessly scale to multiple machines.
   displayName: (ARM)RethinkDB
-  isOfficial: true
+  isOfficial: false
   description: RethinkDB pushes JSON to your apps in realtime
   documentation: Taken from https://hub.docker.com/_/rethinkdb.

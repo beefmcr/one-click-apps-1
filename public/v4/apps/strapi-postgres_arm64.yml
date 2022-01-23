@@ -61,6 +61,6 @@ caproverOneClickApp:
 
       IMPORTANT: You need to add a config file manually to support the correct domain name. See this issue for more details: https://github.com/strapi/strapi-docker/issues/173
   displayName: (ARM)Strapi (postgresql)
-  isOfficial: true
+  isOfficial: false
   description: The Open source Headless CMS Front-End Developers love. Manage your content. Distribute it anywhere
   documentation: Taken from https://github.com/strapi/strapi-docker/blob/master/examples/postgresql/docker-compose.yml

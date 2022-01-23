@@ -106,6 +106,6 @@ caproverOneClickApp:
 
       IMPORTANT: It will take up to 2 minutes for it to be ready. Before that, you might see a 502 error page.
   displayName: (ARM)Outline
-  isOfficial: true
+  isOfficial: false
   description: An open, extensible, wiki for your team built using React and Node.js.
   documentation: Taken from https://github.com/outline/outline/blob/master/docker-compose.yml

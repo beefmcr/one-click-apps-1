@@ -119,6 +119,6 @@ caproverOneClickApp:
 
       You can also scan your nextcloud instance on https://scan.nextcloud.com/
   displayName: (ARM)nextcloud
-  isOfficial: true
+  isOfficial: false
   description: Nextcloud is a suite of client-server software for creating and using file hosting services
   documentation: Taken from https://hub.docker.com/_/nextcloud

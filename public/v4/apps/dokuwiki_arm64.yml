@@ -52,6 +52,6 @@ caproverOneClickApp:
       Dokuwiki has been successfully deployed. Please wait about 2 minutes before accessing Dokuwiki.
 
   displayName: (ARM)DokuWiki
-  isOfficial: true
+  isOfficial: false
   description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
   documentation: Taken from https://hub.docker.com/r/bitnami/dokuwiki/tags

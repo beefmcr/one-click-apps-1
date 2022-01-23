@@ -16,7 +16,7 @@ caproverOneClickApp:
       Zammad is deployed and available.
        IMPORTANT: It will take up to 5 minutes for Zammad to be ready. Before that, you might see a 502 error page.
   displayName: (ARM)Zammad
-  isOfficial: true
+  isOfficial: false
   description: Zammad is a web-based, open source user support/ticketing solution.
   documentation: Taken from https://hub.docker.com/r/zammad/zammad-docker-compose.
   variables:

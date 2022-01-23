@@ -91,7 +91,7 @@ caproverOneClickApp:
       Get your private and public key using-
 
       curl -H "X-Meili-API-Key: $$cap_master_key" -X GET 'http://$$cap_appname.$$cap_root_domain/keys'
-  displayName: (ARM)"MeiliSearch"
-  isOfficial: true
+  displayName: "(ARM)MeiliSearch"
+  isOfficial: false
   description: MeiliSearch is a lightning Fast, Ultra Relevant, and Typo-Tolerant Search Engine
   documentation: https://docs.meilisearch.com/

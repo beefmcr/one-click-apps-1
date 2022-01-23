@@ -107,5 +107,5 @@ caproverOneClickApp:
 
       Also, make sure you DO NOT activate basic auth manually.
   displayName: (ARM)n8n.io
-  isOfficial: true
+  isOfficial: false
   description: n8n is a free and open node based Workflow Automation Tool.

@@ -48,6 +48,6 @@ caproverOneClickApp:
       The default username/password is admin/adminadmin.
       Change username/password via the webui in the webui section of settings.
   displayName: (ARM)qBittorrent
-  isOfficial: true
+  isOfficial: false
   description: qBittorrent BitTorrent client
   documentation: Taken from https://hub.docker.com/r/linuxserver/qbittorrent.

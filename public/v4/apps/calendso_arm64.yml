@@ -180,7 +180,7 @@ caproverOneClickApp:
       Done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
       Make sure to enable https on your domain
-  displayName: (ARM)"Calendso"
+  displayName: "(ARM)Calendso"
   isOfficial: false
   description: The open-source Calendly alternative. You are in control of your events and data.
   documentation: https://calendso.com/

@@ -350,7 +350,7 @@ caproverOneClickApp:
     end: >-
       Done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)"Paperless-ng"
-  isOfficial: true
+  displayName: "(ARM)Paperless-ng"
+  isOfficial: false
   description: Paperless is an application by Daniel Quinn and others that indexes your scanned documents and allows you to easily search for documents and store metadata alongside your documents.
   documentation: https://paperless-ng.readthedocs.io/en/latest/

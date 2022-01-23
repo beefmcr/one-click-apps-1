@@ -68,7 +68,7 @@ caproverOneClickApp:
 
       Enter your Keycloak Configuration parameters and click on next. It will take about a minute for the process to finish.
     end: Keycloak is deployed and available as srv-captain--$$cap_appname:8080 to other apps
-  displayName: (ARM)""
-  isOfficial: true
+  displayName: "(ARM)"
+  isOfficial: false
   description: Keycloak is an open source identity and access management solution
   documentation: Taken from https://github.com/jboss-dockerfiles/keycloak/blob/master/server/README.md

@@ -32,6 +32,6 @@ caproverOneClickApp:
     start: Neo4j is an open-source, NoSQL, native graph database that provides an ACID-compliant transactional backend for your applications. Enter your configuration parameters and click on next.
     end: Neo4j is deployed and available as srv-captain--$$cap_appname-db:7687 for Bolt and srv-captain--$$cap_appname-db:7474 for HTTP connections.
   displayName: (ARM)Neo4j
-  isOfficial: true
+  isOfficial: false
   description: Neo4j is an open-source, NoSQL, native graph database that provides an ACID-compliant transactional backend for your applications.
   documentation: Taken from https://hub.docker.com/_/neo4j

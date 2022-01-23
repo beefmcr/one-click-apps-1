@@ -33,6 +33,6 @@ caproverOneClickApp:
 
       IMPORTANT: Make sure to enable websocket capability in the app config on CapRover dashboard!
   displayName: (ARM)Jupyter Tensorflow
-  isOfficial: true
+  isOfficial: false
   description: Jupyter Notebook with built in Tensorflow and Keras for your data analysis and machine learning work
   documentation: "Read more at: https://jupyter-docker-stacks.readthedocs.io/"

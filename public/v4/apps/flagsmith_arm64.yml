@@ -51,7 +51,7 @@ caproverOneClickApp:
       App is available as http://$$cap_appname.$$cap_root_domain
 
   displayName: (ARM)Flagsmith
-  isOfficial: true
+  isOfficial: false
   description: >-
     Flagsmith - an open source, fully featured, Feature Flag and Remote Config service. Use our hosted API, deploy to your own private cloud, or run on-premise.
   documentation: >-

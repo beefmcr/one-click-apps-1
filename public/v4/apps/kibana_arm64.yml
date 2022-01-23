@@ -40,6 +40,6 @@ caproverOneClickApp:
       Provide the ELASTICSEARCH_HOSTS so that kibana can find your elasticsearch instance. be sure to include the http:// protocol in the url.
       Note that Kibana does not have persistent volumes as all data is stored in the elasticsearch instance itself.
   displayName: (ARM)kibana
-  isOfficial: true
+  isOfficial: false
   description: Kibana is a free and open user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack.
   documentation: https://www.elastic.co/guide/en/kibana/current/docker.html

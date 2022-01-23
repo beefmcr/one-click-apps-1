@@ -52,6 +52,6 @@ caproverOneClickApp:
     end: >-
       All set. Influx is deployed and available as srv-captain--$$cap_appname:8086 to other apps. Externally you can access it via HTTP like a regular app. Make sure you enable SSL.
   displayName: (ARM)InfluxDb2
-  isOfficial: true
+  isOfficial: false
   description: InfluxDB2 is a time series database. It stores large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.
   documentation: Taken from https://hub.docker.com/_/influxdb

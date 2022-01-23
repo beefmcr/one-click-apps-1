@@ -38,6 +38,6 @@ caproverOneClickApp:
       Default login is admin:admin via the webui, accessible at http://$$cap_appname.$$cap_root_domain.
       Wait for few minutes to build and configure the app.
   displayName: (ARM)Papermerge
-  isOfficial: true
+  isOfficial: false
   description: Papermerge is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents.
   documentation: Taken from https://hub.docker.com/r/linuxserver/papermerge. Website -  https://www.papermerge.com/

@@ -49,6 +49,6 @@ caproverOneClickApp:
     start: Etherpad is a real-time collaborative editor for the web
     end: Etherpad is a real-time collaborative editor for the web is deployed and available as srv-captain--$$cap_appname. Note that the application may take some time to become available.
   displayName: (ARM)Etherpad
-  isOfficial: true
+  isOfficial: false
   description: Etherpad is a real-time collaborative editor for the web
   documentation: "https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md "

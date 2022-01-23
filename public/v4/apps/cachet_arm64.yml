@@ -51,6 +51,6 @@ caproverOneClickApp:
 
       If you need help with installation check out the docs! https://docs.cachethq.io/docs
   displayName: (ARM)Cachet
-  isOfficial: true
+  isOfficial: false
   description: An open source status page system for everyone.
   documentation: https://docs.cachethq.io/docs

@@ -49,7 +49,7 @@ function createAppList(appsList, pathOfApps) {
 
             appDetails[i] = {
                 name: apps[i],
-                displayName:  (ARM)content.displayName,
+                displayName:  content.displayName,
                 description: content.description,
                 isOfficial: `${content.isOfficial}`.toLowerCase() === 'true',
                 logoUrl: apps[i] + '.png'

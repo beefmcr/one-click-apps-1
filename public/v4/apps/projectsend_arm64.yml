@@ -41,6 +41,6 @@ caproverOneClickApp:
       Wait for few minutes to configure the app.
       Follow the setup wizard on initial install. Then configure the required services.
   displayName: (ARM)Project Send
-  isOfficial: true
+  isOfficial: false
   description: ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself!
   documentation: Taken from https://hub.docker.com/r/linuxserver/projectsend. Website -  https://www.projectsend.org/

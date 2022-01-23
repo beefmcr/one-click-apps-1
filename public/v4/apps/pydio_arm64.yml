@@ -76,8 +76,8 @@ caproverOneClickApp:
       3. Enable Websocket Support.
 
       4. after some time go to https://$$cap_appname.$$cap_root_domain and follow the installation steps.
-  displayName: (ARM)"Pydio Cells"
-  isOfficial: true
+  displayName: "(ARM)Pydio Cells"
+  isOfficial: false
   baseUrl: https://pydio.com/
   description: Privacy-conscious file sharing platform that connects all your teams in one place.
   documentation: Taken from https://hub.docker.com/r/pydio/cells

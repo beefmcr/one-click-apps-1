@@ -40,7 +40,7 @@ caproverOneClickApp:
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
       More environment variables can be found at https://docs.commento.io/configuration/backend/
-  displayName: (ARM)"Commento"
-  isOfficial: true
+  displayName: "(ARM)Commento"
+  isOfficial: false
   description: Commento is a fast, privacy-focused commenting platform.
   documentation: https://docs.commento.io/

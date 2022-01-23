@@ -31,6 +31,6 @@ caproverOneClickApp:
     end: Your instance of SinusBot is now starting up and should be ready within five minutes. Check the deployment logs for the initial password and open the web interface to set up your media library and bot connection.
     start: "You have to read and agree to the terms in the disclaimer: https://github.com/SinusBot/docker#disclaimer"
   displayName: (ARM)SinusBot
-  isOfficial: true
+  isOfficial: false
   description: Music bot for TS3 and Discord.
   documentation: https://hub.docker.com/r/sinusbot/docker

@@ -224,6 +224,6 @@ caproverOneClickApp:
 
       Check out https://docs.joinmastodon.org/admin/config/ for more env vars
   displayName: (ARM)Mastodon
-  isOfficial: true
+  isOfficial: false
   description: Social networking, back in your hands.
   documentation: "Read more at: https://docs.joinmastodon.org/"

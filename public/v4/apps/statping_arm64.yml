@@ -82,7 +82,7 @@ caproverOneClickApp:
 
 
       For more environment variables pls see https://github.com/statping/statping/wiki/Environment-Variables
-  displayName: (ARM)"Statping"
-  isOfficial: true
+  displayName: "(ARM)Statping"
+  isOfficial: false
   description: Statping - Web and App Status Monitoring for Any Type of Project.
   documentation: Taken from https://github.com/statping/statping

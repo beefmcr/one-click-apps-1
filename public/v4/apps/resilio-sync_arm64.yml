@@ -29,6 +29,6 @@ caproverOneClickApp:
       Note that all sync folders will have to be created under /mnt/sync/folders/ from within the app.
     start: Set up Sync to synchronize or share files without having to store your data in the cloud.
   displayName: (ARM)Resilio Sync
-  isOfficial: true
+  isOfficial: false
   description: File synchronization and sharing solution based on BitTorrent technology.
   documentation: https://hub.docker.com/r/resilio/sync

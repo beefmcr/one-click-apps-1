@@ -47,7 +47,7 @@ caproverOneClickApp:
     end: >-
       Aaaand you're done! 😄
       Your service is available at http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)"Mercure"
-  isOfficial: true
+  displayName: "(ARM)Mercure"
+  isOfficial: false
   description: Mercure is a protocol allowing to push data updates to web browsers and other HTTP clients.
   documentation: Taken from https://mercure.rocks/docs/hub/install

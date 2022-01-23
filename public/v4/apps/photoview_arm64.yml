@@ -32,7 +32,7 @@ services:
 
 caproverOneClickApp:
   displayName: (ARM)Photoview
-  isOfficial: true
+  isOfficial: false
   description: Photo gallery for self-hosted personal servers.
   documentation: Taken from https://github.com/photoview/photoview/blob/master/docker-compose.example.yml.
   instructions:

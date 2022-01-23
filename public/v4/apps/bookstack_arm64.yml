@@ -57,6 +57,6 @@ caproverOneClickApp:
 
       The default username is admin@admin.com with the password of password.
   displayName: (ARM)BookStack
-  isOfficial: true
+  isOfficial: false
   description: A platform to create documentation/wiki content built with PHP & Laravel
   documentation: https://www.bookstackapp.com/docs/

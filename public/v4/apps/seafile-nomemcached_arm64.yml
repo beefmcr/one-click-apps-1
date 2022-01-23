@@ -75,6 +75,6 @@ caproverOneClickApp:
 
       Don't forget to add specified hostname to Seafile domains!
   displayName: (ARM)Seafile (no memcached)
-  isOfficial: true
+  isOfficial: false
   description: Reliable and Performant File Sync and Share Solution
   documentation: Taken from https://manual.seafile.com/
