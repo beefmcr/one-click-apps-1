@@ -30,6 +30,7 @@
     },
     "yaml.schemas": {
         "file:///home/dev/.vscode/extensions/qovery.vscode-qovery-extension-0.1.2/out/domain/QoverySpec.json": "*.qovery.y*ml",
-        "https://json.schemastore.org/github-workflow.json": "file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml"
+        "https://json.schemastore.org/github-workflow.json": "file:///home/dev/source/caprover/one-click-apps/.github/workflows/deploy.yml",
+        "https://json.schemastore.org/yamllint.json": "file:///home/dev/source/caprover/one-click-apps/scripts/deploy.yml"
     }
 }

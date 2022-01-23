@@ -1,13 +1,19 @@
 {
-    "name": "caprover-one-click-apps",
+    "name": "one-click-apps",
     "version": "1.0.0",
     "description": "One Click App Repository for CapRover",
     "scripts": {
-        "formatter": "prettier --check \"./public/**/*.(json|yml)\"",
-        "formatter-write": "prettier --write \"./public/**/*.(json|yml)\"",
-        "build": "rm -rf ./dist/ && mkdir -p dist && node ./scripts/build_one_click_apps.js && node ./scripts/build_one_click_apps_from_v4.js",
+        "inst": "ncu -u && typesync && pnpm i && pettier -w ./package.json",
+        "format:check": "prettier --check \"./public/**/*.(json|yml)\"",
+        "format": "prettier --write \"./public/**/*.(json|yml)\"",
+        "format:workflows": "prettier --write \"./workflows/**/*.yml\"",
+        "clean": "rimraf ./dist/ && mkdirp dist && echo 'clean'",
+        "build_one_click_apps": "node ./scripts/build_one_click_apps.js",
+        "build_one_click_apps_v4": "node ./scripts/build_one_click_apps_from_v4.js",
+        "build": "run-s clean build_one_click_apps  build_one_click_apps_v4",
         "validate_apps": "node ./scripts/validate_apps.js",
-        "publish": "npm run build && ./scripts/publish-from-actions.sh"
+        "publish:action": "./scripts/publish-from-actions.sh",
+        "publish": "run-s build publish:action"
     },
     "repository": {
         "type": "git",
@@ -26,7 +32,11 @@
         "yaml": "^1.10.2",
         "rimraf": "3.0.2",
         "mkdirp": "1.0.4",
-        "semver": "^7.3.5"
+        "typesync": "0.8.0",
+        "npm-check-updates": "12.2.1",
+        "semver": "^7.3.5",
+        "npm-run-all": "4.1.5",
+        "pnpm": "6.27.1"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
@@ -38,7 +48,9 @@
         "@types/yaml": "^1.9.7",
         "caprover": "2.2.3",
         "madrun": "8.10.1",
-        "npm-check-updates": "12.2.1",
         "redrun": "9.0.1"
+    },
+    "pnpm": {
+        "enable-pre-post-scripts": true
     }
 }
