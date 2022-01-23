@@ -33,6 +33,15 @@ const pathOfSourceDirectory = path.join(pathOfPublic, "v2")
 const pathOfSourceDirectoryApps = path.join(pathOfSourceDirectory, "apps")
 const pathOfSourceDirectoryLogos = path.join(pathOfSourceDirectory, "logos")
 
+
+
+fs.mkdirpSync(pathOfDistV2)
+fs.mkdirpSync(pathOfDistV3)
+fs.mkdirpSync(pathOfDistV4)
+fs.mkdirpSync(pathOfSourceDirectory)
+fs.mkdirpSync(pathOfSourceDirectoryApps)
+fs.mkdirpSync(pathOfSourceDirectoryLogos)
+
 function createAppList(appsList, pathOfApps) {
     const apps = appsList.filter((v) => v.includes(".json"))
     const appDetails = []
@@ -144,11 +153,13 @@ function buildDist() {
                     path.join(pathOfDistV2, `apps`, appFileName)
                 )
 
-                //v3
-                fs.copySync(
-                    pathOfAppFileInSource,
-                    path.join(pathOfDistV3, `apps`, appFileName.split(".")[0])
-                )
+/**
+                    //v3
+                    fs.copySync(
+                        pathOfAppFileInSource,
+                        path.join(pathOfDistV3, `apps`, appFileName.split(".")[0])
+                    )
+*/
 
                 //v4
                 const contentString = fs.readFileSync(pathOfAppFileInSource)
@@ -162,10 +173,12 @@ function buildDist() {
                 pathOfSourceDirectoryLogos,
                 path.join(pathOfDistV2, `logos`)
             )
-            fs.copySync(
-                pathOfSourceDirectoryLogos,
-                path.join(pathOfDistV3, `logos`)
-            )
+/**
+                fs.copySync(
+                    pathOfSourceDirectoryLogos,
+                    path.join(pathOfDistV3, `logos`)
+                )
+*/
             fs.copySync(
                 pathOfSourceDirectoryLogos,
                 path.join(pathOfDistV4, `logos`)
@@ -192,11 +205,15 @@ function buildDist() {
         })
 }
 
-Promise.resolve()
-    .then(function () {
-        return buildDist()
-    })
-    .catch(function (err) {
-        console.error(err)
-        process.exit(127)
-    })
+const start = function () {
+    return Promise.resolve()
+        .then(function () {
+            return buildDist()
+        })
+        .catch(function (err) {
+            console.error(err)
+            process.exit(127)
+        })
+}
+
+start().then(console.log).catch(console.error)

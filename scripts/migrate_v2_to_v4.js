@@ -128,11 +128,22 @@ function buildDist() {
         })
 }
 
-Promise.resolve()
-    .then(function () {
-        return buildDist()
-    })
-    .catch(function (err) {
-        console.error(err)
-        process.exit(127)
-    })
+const start = function () {
+    Promise.resolve()
+        .then(function () {
+            return buildDist()
+        })
+        .catch(function (err) {
+            console.error(err)
+            process.exit(127)
+        })
+}
+
+// Call start
+(async() => {
+    console.log('before start');
+  
+    await start();
+    
+    console.log('after start');
+  })();

@@ -58,7 +58,7 @@ printf "%s\n" "######### CLONING REMOTE_BRANCH: $REMOTE_BRANCH"
 printf "%s\n" "#############################################"
 
 cp -r "$BUILD_DIR" "$SOURCE_DIRECTORY_DEPLOY_GH/"
-git clone --single-branch --branch=$REMOTE_BRANCH "$REMOTE_REPO" "$CLONED_DIRECTORY_DEPLOY_GH"
+git clone --single-branch --branch="$REMOTE_BRANCH" "$REMOTE_REPO" "$CLONED_DIRECTORY_DEPLOY_GH"
 sleep 1s
 printf "%s\n" "#############################################"
 printf "%s\n" "######### Removing old files"
@@ -69,7 +69,7 @@ printf "%s\n" "#############################################"
 printf "%s\n" "######### Copying files"
 printf "%s\n" "#############################################"
 cp -r "$SOURCE_DIRECTORY_DEPLOY_GH/$BUILD_DIR" "$CLONED_DIRECTORY_DEPLOY_GH/$BUILD_DIR"
-mv "$CLONED_DIRECTORY_DEPLOY_GH"/.git "$CLONED_DIRECTORY_DEPLOY_GH/$BUILD_DIR/"
+mv "$CLONED_DIRECTORY_DEPLOY_GH/.git" "$CLONED_DIRECTORY_DEPLOY_GH/$BUILD_DIR/"
 cd "$CLONED_DIRECTORY_DEPLOY_GH/$BUILD_DIR/"
 sleep 1s
 printf "%s\n" "#############################################"

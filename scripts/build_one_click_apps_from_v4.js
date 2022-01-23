@@ -6,6 +6,7 @@
 
 const path = require("path")
 const yaml = require("yaml")
+const _ = require('lodash')
 const fs = require("fs-extra")
 
 const pathOfPublic = path.join(__dirname, "..", `public`)
@@ -19,6 +20,14 @@ const pathOfDistV4 = path.join(pathOfDist, "v4")
 const pathOfSourceDirectory = path.join(pathOfPublic, "v4")
 const pathOfSourceDirectoryApps = path.join(pathOfSourceDirectory, "apps")
 const pathOfSourceDirectoryLogos = path.join(pathOfSourceDirectory, "logos")
+
+
+fs.mkdirpSync(pathOfDistV2)
+fs.mkdirpSync(pathOfDistV3)
+fs.mkdirpSync(pathOfDistV4)
+fs.mkdirpSync(pathOfSourceDirectory)
+fs.mkdirpSync(pathOfSourceDirectoryApps)
+fs.mkdirpSync(pathOfSourceDirectoryLogos)
 
 /**
  * Creates a listing of apps for GET http://oneclickapps.caprover.com/v4
@@ -168,19 +177,22 @@ async function buildDist() {
             )
 
             //v4
-            await fs.outputJson(
+            fs.outputJsonSync(
                 path.join(pathOfDistV4, `apps`, appFileName.split(".")[0]),
                 contentParsed
             )
 
             //v3
-            await fs.outputJson(
-                path.join(pathOfDistV3, `apps`, appFileName.split(".")[0]),
-                convertV4toV2(JSON.stringify(contentParsed))
-            )
+            _.attempt(fs.outputJsonSync, path.join(pathOfDistV3, `apps`, appFileName.split(".")[0]), convertV4toV2(JSON.stringify(contentParsed)))
+/**
+                fs.outputJsonSync(
+                    path.join(pathOfDistV3, `apps`, appFileName.split(".")[0]),
+                    convertV4toV2(JSON.stringify(contentParsed))
+                )
+*/
 
             //v2
-            await fs.outputJson(
+            fs.outputJsonSync(
                 path.join(
                     pathOfDistV2,
                     `apps`,
@@ -249,7 +261,7 @@ async function buildDist() {
             allAppsList
         )
         await fs.outputJson(path.join(pathOfDistV2, "list"), v3List)
-        await fs.outputJson(path.join(pathOfDistV3, "list"), v3List)
+        //await fs.outputJson(path.join(pathOfDistV3, "list"), v3List)
         await fs.outputJson(path.join(pathOfDistV4, "list"), v3List)
         await fs.copy(
             path.join(pathOfPublic, "CNAME"),
@@ -263,11 +275,15 @@ async function buildDist() {
     return true
 }
 
-Promise.resolve()
-    .then(function () {
-        return buildDist()
-    })
-    .catch(function (err) {
-        console.error(err)
-        process.exit(127)
-    })
+const start = function () {
+    return Promise.resolve()
+        .then(function () {
+            return buildDist()
+        })
+        .catch(function (err) {
+            console.error(err)
+            process.exit(127)
+        })
+}
+
+start().then(console.log).catch(console.error)
