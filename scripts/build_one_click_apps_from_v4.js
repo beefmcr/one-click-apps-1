@@ -54,7 +54,7 @@ function createAppList(appsFileNames, pathOfApps) {
 
             appDetails[i] = {
                 name: apps[i],
-                displayName: caproverOneClickApp.displayName,
+                displayName:  (ARM)caproverOneClickApp.displayName,
                 description: caproverOneClickApp.description,
                 isOfficial: `${caproverOneClickApp.isOfficial}`.toLowerCase().trim() === 'true',
                 logoUrl: apps[i] + '.png'
