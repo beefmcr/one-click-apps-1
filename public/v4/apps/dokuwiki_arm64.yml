@@ -3,7 +3,7 @@
 captainVersion: 4
 services:
   $$cap_appname:
-    image: bitnami/dokuwiki:$$cap_dokuwiki_version
+    image: crazymax/dokuwiki:$$cap_dokuwiki_version
     environment:
       DOKUWIKI_USERNAME: $$DOKUWIKI_USERNAME
       DOKUWIKI_EMAIL: $$DOKUWIKI_EMAIL
@@ -11,15 +11,15 @@ services:
       DOKUWIKI_PASSWORD: $$DOKUWIKI_PASSWORD
       DOKUWIKI_WIKI_NAME: $$DOKUWIKI_WIKI_NAME
     caproverExtra:
-      containerHttpPort: "8080"
+      containerHttpPort: "8000"
     volumes:
-      - $$cap_appname:/bitnami/dokuwiki
+      - $$cap_appname:/data
 caproverOneClickApp:
   variables:
     - id: $$cap_dokuwiki_version
       label: DokuWiki Version
       defaultValue: 20200729-debian-10
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/bitnami/dokuwiki/tags
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/crazymax/dokuwiki/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$DOKUWIKI_USERNAME
       label: username
@@ -54,4 +54,4 @@ caproverOneClickApp:
   displayName: (ARM)DokuWiki
   isOfficial: false
   description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
-  documentation: Taken from https://hub.docker.com/r/bitnami/dokuwiki/tags
+  documentation: Taken from https://hub.docker.com/r/crazymax/dokuwiki/tags
