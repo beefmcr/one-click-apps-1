@@ -13,7 +13,7 @@ services:
 caproverOneClickApp:
   variables:
     - label: Grafana Docker Hash
-      defaultValue: 7.4.3
+      defaultValue: latest
       description: Find versions on DockerHub https://hub.docker.com/r/grafana/grafana/tags
       id: $$cap_version
   instructions:

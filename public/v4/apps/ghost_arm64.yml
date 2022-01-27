@@ -4,23 +4,25 @@ captainVersion: 4
 services:
   $$cap_appname:
     environment:
-      GHOST_DATABASE_NAME: ghost
-      GHOST_DATABASE_PASSWORD: $$cap_db_ghost_password
-      GHOST_DATABASE_USER: ghost
+      database__client: mysql
+      database__connection__database: ghost
+      database__connection__password: $$cap_db_ghost_password
+      database__connection__user: ghost
       GHOST_EMAIL: $$cap_ghost_email
       GHOST_HOST: $$cap_ghost_host
       GHOST_PASSWORD: $$cap_ghost_password
       GHOST_PROTOCOL: $$cap_ghost_protocol
       GHOST_PORT_NUMBER: $$cap_ghost_port
-      MARIADB_HOST: srv-captain--$$cap_appname-db
-      MARIADB_PORT_NUMBER: "3306"
-      SMTP_FROM_ADDRESS: $$cap_ghost_smtp_from
-      SMTP_HOST: $$cap_ghost_smtp_host
-      SMTP_PASSWORD: $$cap_ghost_smtp_password
-      SMTP_PORT: $$cap_ghost_smtp_port
-      SMTP_SERVICE: $$cap_ghost_smtp_service
-      SMTP_USER: $$cap_ghost_smtp_user
-    image: bitnami/ghost:$$cap_ghost_version
+      database__connection__host: srv-captain--$$cap_appname-db
+      database__connection__port: "3306"
+      mail__transport: smtp
+      mail__options__host: $$cap_ghost_smtp_host
+      mail__options__from_address: $$cap_ghost_smtp_from
+      mail__options__auth__password: $$cap_ghost_smtp_password
+      mail__options__port: $$cap_ghost_smtp_port
+      mail__options__service: $$cap_ghost_smtp_service
+      mail__options__auth__user: $$cap_ghost_smtp_user
+    image: ghost:$$cap_ghost_version
     restart: always
     volumes:
       - $$cap_appname-data:/bitnami
@@ -42,7 +44,7 @@ services:
 caproverOneClickApp:
   variables:
     - defaultValue: 2.16.4
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/bitnami/ghost/tags
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/ghost/tags
       id: $$cap_ghost_version
       label: Ghost Version
       validRegex: /^([^\s^\/])+$/
@@ -82,15 +84,15 @@ caproverOneClickApp:
       description: Port that you will be using
       id: $$cap_ghost_port
       label: Ghost Port
-    - defaultValue: GMail
+    - defaultValue: Mailgun
       description: Ghost uses node mailer, check this docs https://docs.ghost.org/concepts/config/#mail
       id: $$cap_ghost_smtp_service
       label: STMP service to use
-    - defaultValue: smtp.gmail.com
+    - defaultValue: smtp.eu.mailgun.org
       description: The STMP host you will be using
       id: $$cap_ghost_smtp_host
       label: STMP host
-    - defaultValue: "465"
+    - defaultValue: "587"
       description: The STMP port you will be using
       id: $$cap_ghost_smtp_port
       label: STMP port

@@ -3,7 +3,7 @@
 captainVersion: 4
 services:
   $$cap_appname:
-    image: gitlab/gitlab-ce:$$cap_gitlab_version
+    image: yrzr/gitlab-ce-arm64v8:$$cap_gitlab_version
     hostname: $$cap_appname.$$cap_root_domain
     volumes:
       - "$$cap_appname-config: /etc/gitlab"
@@ -16,8 +16,8 @@ caproverOneClickApp:
   variables:
     - id: $$cap_gitlab_version
       label: Gitlab-CE Version Tag
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/gitlab/gitlab-ce/tags
-      defaultValue: 11.9.8-ce.0
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/yrzr/gitlab-ce-arm64v8/tags
+      defaultValue: latest
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_gitlab_omnibus_config
       label: Omnibus Config (Optional)
@@ -27,7 +27,7 @@ caproverOneClickApp:
       GitLab is a single application for the entire software development lifecycle. From project planning and source code management to CI/CD, monitoring, and security. 
 
       More about this container:
-      https://hub.docker.com/r/gitlab/gitlab-ce/ 
+      https://hub.docker.com/r/yrzr/gitlab-ce-arm64v8/ 
 
       Hardware and Software requeriments can be found here:
       https://docs.gitlab.com/ce/install/requirements.html
