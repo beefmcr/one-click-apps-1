@@ -42,7 +42,7 @@ caproverOneClickApp:
     end: >-
       Now edit the Targets file located in the volume $$cap_appname-config to ping the hosts you're interested in to match the format found there.
       Your service is available at http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)Smokeping
+  displayName: Smokeping (ARM)
   isOfficial: false
   description: Smokeping keeps track of your network latency.
   documentation: https://docs.linuxserver.io/images/docker-smokeping

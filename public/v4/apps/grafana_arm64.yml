@@ -19,7 +19,7 @@ caproverOneClickApp:
   instructions:
     end: Grafana is now starting. You can log in with the default login/password of admin/admin.
     start: "Read more about Grafana: https://grafana.com/"
-  displayName: (ARM)Grafana
+  displayName: Grafana (ARM)
   isOfficial: false
   description: Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored.
   documentation: https://hub.docker.com/r/grafana/grafana

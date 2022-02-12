@@ -41,7 +41,7 @@ caproverOneClickApp:
       For the ng tag, the default user/pass are pyload/pyload.
       For general usage please see the pyLoad wiki (https://github.com/pyload/pyload/wiki)
 
-  displayName: (ARM)Pyload
+  displayName: Pyload (ARM)
   isOfficial: false
   description: Pyload - Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web
   documentation: Taken from https://hub.docker.com/r/linuxserver/pyload. Official Website is https://pyload.net/

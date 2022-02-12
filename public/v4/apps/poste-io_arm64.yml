@@ -48,7 +48,7 @@ caproverOneClickApp:
 
 
       The deployment can take up to 2 minutes.
-  displayName: (ARM)Poste.io
+  displayName: Poste.io (ARM)
   isOfficial: false
   description: Poste.io - complete mailserver built in one container
   documentation: Read the poste.io documentation @ https://poste.io/doc

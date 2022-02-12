@@ -30,7 +30,7 @@ caproverOneClickApp:
 
             It can also include the dynamic parameters such as
             $$cap_appname and $$cap_other_random_char
-    displayName: (ARM)The Awesome App
+    displayName: The Awesome App (ARM)
     isOfficial: false ## Only if all images used here are official or from a trusted source.
     description: A relatively short description, less than 200 characters.
     documentation: This docker-compose is taken from example.com

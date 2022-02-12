@@ -42,7 +42,7 @@ caproverOneClickApp:
 
       It can take some time (2-3 minutes) for the service to launch in a new container. Check the "Deployment" tab logs to determine once GitLab is ready.
     end: Gitlab-CE is deployed and available as srv-captain--$$cap_appname:80 to other apps.
-  displayName: (ARM)Gitlab (CE)
+  displayName: Gitlab (CE) (ARM)
   isOfficial: false
   description: CE version of GitLab for CI/CD pipeline
   documentation: Taken from https://docs.gitlab.com/omnibus/docker/

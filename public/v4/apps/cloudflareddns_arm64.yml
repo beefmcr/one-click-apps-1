@@ -89,7 +89,7 @@ caproverOneClickApp:
       5 - Complete the wizard and copy the generated token into the Cloudflare API token field
     end: >-
       Cloudflare DDNS has been successfully deployed.
-  displayName: (ARM)CloudFlare DDNS
+  displayName: CloudFlare DDNS (ARM)
   isOfficial: false
   description: This small image will allow you to use the free CloudFlare DNS Service as a Dynamic DNS Provider (DDNS).
   documentation: Taken from https://github.com/oznu/docker-cloudflare-ddns

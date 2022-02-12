@@ -37,6 +37,6 @@ caproverOneClickApp:
       Before adding something you need to create an account by running the command `su - archivebox` then `archivebox manage createsuperuser" into the `data` folder
       To go into your container please follow those instructions: https://caprover.com/docs/troubleshooting.html#how-to-run-shell-inside-my-application-inside-container
       Once the super admin is setted you can add other via the web ui.
-  displayName: (ARM)ArchiveBox
+  displayName: ArchiveBox (ARM)
   isOfficial: false
   description: Open-source self-hosted web archiving.

@@ -52,6 +52,6 @@ caproverOneClickApp:
   instructions:
     start: OpenLDAP Software is an open source implementation of the Lightweight Directory Access Protocol.
     end: OpenLDAP is deployed and the admin interface is available on http://$$cap_appname-admin.$$cap_root_domain. You can connect by adapting cn=admin,dc=my-company,dc=com. If you want to access to your ldap server from outside, do not forget to add port mapping (389 for ldap with starttls, 636 for ldaps).
-  displayName: (ARM)OpenLDAP + phpLDAPadmin
+  displayName: OpenLDAP + phpLDAPadmin (ARM)
   description: OpenLDAP with administration interface
   documentation: https://github.com/osixia/docker-openldap

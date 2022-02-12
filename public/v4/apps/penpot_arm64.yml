@@ -90,17 +90,17 @@ caproverOneClickApp:
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_penpot_frontend_version
       label: Penpot Frontend Version
-      defaultValue: "1.4.1-alpha"
+      defaultValue: latest
       description: Checkout their docker page for the valid tags https://hub.docker.com/r/penpotapp/frontend/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_penpot_backend_version
       label: Penpot Backend Version
-      defaultValue: "1.4.1-alpha"
+      defaultValue: latest
       description: Checkout their docker page for the valid tags https://hub.docker.com/r/penpotapp/backend/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_penpot_exporter_version
       label: Penpot Exporter Version
-      defaultValue: "1.4.1-alpha"
+      defaultValue: latest
       description: Checkout their docker page for the valid tags https://hub.docker.com/r/penpotapp/exporter/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_postgres_pass
@@ -153,7 +153,7 @@ caproverOneClickApp:
       The open-source solution for design and prototyping.
     end: >
       Penpot is deployed and available as http://$$cap_appname.$$cap_root_domain. IMPORTANT: It will take up to 2 minutes for Penpot to be ready. Before that, you might see a 502 error page.
-  displayName: (ARM)Penpot
+  displayName: Penpot (ARM)
   isOfficial: false
   description: The open-source solution for design and prototyping.
   documentation: Official docs are [here](https://github.com/penpot/penpot/tree/develop/docs)

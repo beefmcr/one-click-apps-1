@@ -19,12 +19,12 @@ caproverOneClickApp:
   variables:
     - id: $$cap_projectsend_version
       label: ProjectSend Version
-      defaultValue: version-r1295
+      defaultValue: latest
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/linuxserver/projectsend/tags. If you want MSSQL support please use the tag r1053-ls27
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_tz
       label: Time Zone
-      defaultValue: Asia/Kolkata
+      defaultValue: Europe/Berlin
       description: Get yours from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
       validRegex: /.{1,}/
     - id: $$cap_max_upload
@@ -40,7 +40,7 @@ caproverOneClickApp:
       ProjectSend is deployed and available as http://$$cap_appname.$$cap_root_domain.
       Wait for few minutes to configure the app.
       Follow the setup wizard on initial install. Then configure the required services.
-  displayName: (ARM)Project Send
+  displayName: Project Send (ARM)
   isOfficial: false
   description: ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself!
   documentation: Taken from https://hub.docker.com/r/linuxserver/projectsend. Website -  https://www.projectsend.org/

@@ -29,7 +29,7 @@ caproverOneClickApp:
   instructions:
     start: This is a very simply reverse proxy image. It forwards all HTTP requests to the HTTP address that you define.
     end: Reverse Proxy is deployed and available as $$cap_appname
-  displayName: (ARM)Nginx Reverse Proxy
+  displayName: Nginx Reverse Proxy (ARM)
   isOfficial: false
   description: A simple Nginx image preloaded with reverse proxy config that allows you to proxy a URL to another URL
   documentation: Taken from https://github.com/caprover/nginx-reverse-proxy

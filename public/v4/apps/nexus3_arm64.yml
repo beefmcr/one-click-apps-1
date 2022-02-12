@@ -30,7 +30,7 @@ caproverOneClickApp:
 
       It can take some time (2-3 minutes) for the service to launch in a new container. Check the "Deployment" tab logs to determine once Nexus is ready.
     end: Nexus is deployed and available as srv-captain--$$cap_appname:8081 to other apps.
-  displayName: (ARM)Nexus3
+  displayName: Nexus3 (ARM)
   isOfficial: false
   description: Nexus is a repository manager. It allows you to proxy, collect, and manage your dependencies
   documentation: Taken from https://hub.docker.com/r/sonatype/nexus3/

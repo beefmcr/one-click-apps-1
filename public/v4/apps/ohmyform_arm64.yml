@@ -77,7 +77,7 @@ caproverOneClickApp:
       More details: https://ohmyform.com/
     end: |-
       OhMyForm has been successfully deployed! Be sure to activate (or better yet, enforce) https access for $$cap_appname-api and $$cap_appname. You can then log in with user $$cap_ohmyform_user and password $$cap_ohmyform_pass at https://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)OhMyForm
+  displayName: OhMyForm (ARM)
   isOfficial: false
   description: Create stunning embedable forms for recruiting, market research, surveys and more https://ohmyform.com/
   documentation: https://ohmyform.com/docs/

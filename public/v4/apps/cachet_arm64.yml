@@ -50,7 +50,7 @@ caproverOneClickApp:
       Your service is available at http://$$cap_appname.$$cap_root_domain
 
       If you need help with installation check out the docs! https://docs.cachethq.io/docs
-  displayName: (ARM)Cachet
+  displayName: Cachet (ARM)
   isOfficial: false
   description: An open source status page system for everyone.
   documentation: https://docs.cachethq.io/docs

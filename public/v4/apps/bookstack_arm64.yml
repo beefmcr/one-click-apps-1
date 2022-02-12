@@ -56,7 +56,7 @@ caproverOneClickApp:
       Your service is available at http://$$cap_appname.$$cap_root_domain
 
       The default username is admin@admin.com with the password of password.
-  displayName: (ARM)BookStack
+  displayName: BookStack (ARM)
   isOfficial: false
   description: A platform to create documentation/wiki content built with PHP & Laravel
   documentation: https://www.bookstackapp.com/docs/

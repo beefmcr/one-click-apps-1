@@ -24,7 +24,7 @@ caproverOneClickApp:
   instructions:
     end: Your instance of Syncthing is now starting up.
     start: "Read more about Syncthing's goals: https://github.com/syncthing/syncthing#goals"
-  displayName: (ARM)Syncthing
+  displayName: Syncthing (ARM)
   isOfficial: false
   description: Open Source Continuous File Synchronization.
   documentation: https://hub.docker.com/r/syncthing/syncthing

@@ -51,7 +51,7 @@ caproverOneClickApp:
       description: Only use alphanumeric chars.
       validRegex: /^([a-zA-Z0-9])+$/
 
-  displayName: (ARM)StFeerretDB (postgresql)
+  displayName: FeerretDB -postgresql (ARM)
   isOfficial: false
   instructions:
     start: Just use it

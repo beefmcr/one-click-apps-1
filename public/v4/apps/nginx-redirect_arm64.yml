@@ -17,7 +17,7 @@ caproverOneClickApp:
   instructions:
     start: "This is a very simply redirect nginx image. It redirects all HTTP requests to the HTTP address that you define. It's useful when you want to redirect all traffic from www.example.com to example.com, see more details here: https://github.com/caprover/nginx-redirect"
     end: Reverse redirect is deployed and available as $$cap_appname
-  displayName: (ARM)Nginx Redirect
+  displayName: Nginx Redirect (ARM)
   isOfficial: false
   description: A simple nginx image preloaded with redirect config that allows you to redirect to another URL. Useful for domain alias creation.
   documentation: Taken from https://github.com/caprover/nginx-redirect

@@ -106,6 +106,6 @@ caproverOneClickApp:
       IMPORTANT!! You need to enable https and websocket support.
 
       Also, make sure you DO NOT activate basic auth manually.
-  displayName: (ARM)n8n.io
+  displayName: n8n.io (ARM)
   isOfficial: false
   description: n8n is a free and open node based Workflow Automation Tool.

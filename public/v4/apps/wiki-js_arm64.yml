@@ -43,7 +43,7 @@ caproverOneClickApp:
 
       IMPORTANT: It will take up to 2 minutes for Wiki.js to be ready. Before that, you might see 502 error page.
     start: Wiki.js is a fully open source, adaptable platform for building and running a Wiki.
-  displayName: (ARM)wiki.js
+  displayName: wiki.js (ARM)
   isOfficial: false
   description: The most powerful and extensible open source Wiki software
   documentation: https://docs.requarks.io/

@@ -32,7 +32,7 @@ caproverOneClickApp:
     # app variables
     - id: "$$cap_version"
       label: HedgeDoc Version
-      defaultValue: "1.7.2"
+      defaultValue: "1.9.2"
       description: Make sure to use the latest release from https://hedgedoc.org/latest-release
       validRegex: '/^([^\\s^\\/])+$/'
       # db variables
@@ -59,7 +59,7 @@ caproverOneClickApp:
     end: |-
       HedgeDoc has been successfully deployed!
       App is available as http://$$cap_appname.$$cap_root_domain
-  displayName: (ARM)HedgeDoc
+  displayName: HedgeDoc (ARM)
   isOfficial: false
   description: HedgeDoc lets you create real-time collaborative markdown notes
   documentation: See https://docs.hedgedoc.org/

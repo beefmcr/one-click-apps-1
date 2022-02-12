@@ -4,7 +4,7 @@ captainVersion: 4
 
 services:
     $$cap_appname:
-        image: radhifadlillah/shiori@sha256:3d1eb1f0aeb9804dea41f3ec5d29de5cf214bb66ef04dce1aa942ca17caec7bb
+        image: geekgonecrazy/shiori@latest
         environment:
             SHIORI_DIR: /data
         volumes:

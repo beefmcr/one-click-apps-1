@@ -74,7 +74,7 @@ caproverOneClickApp:
       Your app will soon be available at http://$$cap_appname.$$cap_root_domain/
 
       Don't forget to add specified hostname to Seafile domains!
-  displayName: (ARM)Seafile (no memcached)
+  displayName: Seafile (no memcached) (ARM)
   isOfficial: false
   description: Reliable and Performant File Sync and Share Solution
   documentation: Taken from https://manual.seafile.com/

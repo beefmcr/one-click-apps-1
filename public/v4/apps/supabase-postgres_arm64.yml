@@ -18,7 +18,7 @@ caproverOneClickApp:
   variables:
     - id: $$cap_app_version
       label: Supabase Version
-      defaultValue: "0.14.0"
+      defaultValue: LATEST
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/supabase/postgres/tags
       validRegex: /^([^\s^\/])+$/
     - id: $$cap_pg_user
@@ -45,7 +45,7 @@ caproverOneClickApp:
 
       Our goal with this repo is not to modify Postgres, but to provide some of the most common extensions with a one-click install.
     end: "Supabase (Postgres) is deployed and available as srv-captain--$$cap_appname-db:5432 to other apps. For example with NodeJS: 'const client = new Client({ user: 'cap_pg_user', host: 'srv-captain--$$cap_appname', database: 'cap_pg_db', password: '********', port: 5432})'"
-  displayName: (ARM)Supabase PostgreSQL
+  displayName: Supabase PostgreSQL (ARM)
   isOfficial: false
   description: Supabase makes it easy to use Postgres.
   documentation: Taken from https://github.com/supabase/postgres

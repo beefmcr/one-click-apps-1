@@ -199,7 +199,7 @@ caproverOneClickApp:
       Admin panel: [$$cap_appname.$$cap_root_domain](//$$cap_appname.$$cap_root_domain), Webmail: [$$cap_appname.$$cap_root_domain/mail](//$$cap_appname.$$cap_root_domain/mail)
       Credentials: postmaster@$$cap_root_domain/$$cap_iredmail_default_password
       The deployment can take up to 5 minutes.
-  displayName: (ARM)iRedMail
+  displayName: iRedMail (ARM)
   isOfficial: false
   description: iRedMail - Open Source Mail Server, built in one container
   documentation: Read the iRedMail documentation -> https://docs.iredmail.org/

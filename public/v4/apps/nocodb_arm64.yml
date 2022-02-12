@@ -55,7 +55,7 @@ caproverOneClickApp:
   instructions:
     start: "NocoDB is an open source #NoCode platform that turns any database into a smart spreadsheet. https://github.com/nocodb/nocodb - https://www.nocodb.com/"
     end: NocoDB has been successfully deployed! It might take a minute or two to boot though, during which time you might get a 502
-  displayName: (ARM)NocoDB
+  displayName: NocoDB (ARM)
   isOfficial: false
   description: The Open Source Airtable Alternative - Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
   documentation: See https://github.com/nocodb/nocodb

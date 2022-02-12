@@ -115,7 +115,7 @@ caproverOneClickApp:
 
       Volumes created for `config`, `scripts`, and `reports` are available in your default folder for Caprover volumes, typically `/var/lib/docker/volumes`
 
-  displayName: (ARM)Netbox
+  displayName: Netbox (ARM)
   isOfficial: false
   description: IP address management (IPAM) and data center infrastructure management (DCIM) tool
   documentation: "Read more at: https://docs.linuxserver.io/images/docker-netbox"

@@ -84,7 +84,7 @@ caproverOneClickApp:
 
       Enter your Influxdb configuration parameters and click on next. The default configuration has no users or authentication and is only accessible to other Caprover apps. It will take about a minute for the process to finish.
     end: All set. Influx is deployed and available as srv-captain--$$cap_appname-db:$$cap_influxdb_port to other apps. For example with curl 'curl -G http://srv-captain--$$cap_appname-db:$$cap_influxdb_port/query --data-urlencode "q=CREATE DATABASE mydb"'
-  displayName: (ARM)InfluxDb
+  displayName: InfluxDb (ARM)
   isOfficial: false
   description: InfluxDB is a time series database. It stores large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.
   documentation: Taken from https://hub.docker.com/_/influxdb

@@ -31,7 +31,7 @@ services:
       - $$cap_photos_path:/photos
 
 caproverOneClickApp:
-  displayName: (ARM)Photoview
+  displayName: Photoview (ARM)
   isOfficial: false
   description: Photo gallery for self-hosted personal servers.
   documentation: Taken from https://github.com/photoview/photoview/blob/master/docker-compose.example.yml.

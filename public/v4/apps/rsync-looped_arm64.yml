@@ -51,6 +51,6 @@ caproverOneClickApp:
       ** IMPORTANT: ** Make sure `rsync` is installed on the remote machine. If you're SSHing into a container, make sure `rsync` is installed in the container.
     end: >-
       The container is built and deployed. You can view the logs by going to Apps > $$cap_appname > deployment tab
-  displayName: (ARM)RSync Container
+  displayName: RSync Container (ARM)
   isOfficial: false
   description: Just a simple container that has runs rsync to download content periodically

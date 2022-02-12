@@ -13,7 +13,7 @@ services:
     volumes:
       - /filerun/db:/var/lib/mysql
   $$cap_appname:
-    image: afian/filerun:arm64v8
+    image: filerun/filerun:arm64v8
     volumes:
       - $$cap_appname-html:/var/www/html
       - $$cap_appname-userfiles:/user-files
@@ -59,7 +59,7 @@ caproverOneClickApp:
       IMPORTANT: It will take up to 2 minutes for FileRun to be ready. Before that, you might see a 502 error page.
 
       Remember that this app will not create a Database by itself. You need to provide all that information.
-  displayName: (ARM)FileRun - No DB
+  displayName: FileRun - No DB (ARM)
   isOfficial: false
   description: FileRun is a self-hosted Google Drive alternative. It is a full featured web based file manager with an easy to use user interface.
-  documentation: Taken from https://hub.docker.com/r/filerun/filerun/.
+  documentation: Taken from https://hub.docker.com/r/afian/filerun/.

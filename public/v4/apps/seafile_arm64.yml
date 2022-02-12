@@ -41,17 +41,17 @@ caproverOneClickApp:
   variables:
     - id: $$cap_seafile_version
       label: Seafile Version
-      defaultValue: 8.0.7
+      defaultValue: 9.0.1
       description: Check out their Docker page for the valid tags https://hub.docker.com/r/seafileltd/seafile-mc/tags
       validRegex: "/.{1,}/"
     - id: $$cap_memcached_version
       label: Memcached Version
-      defaultValue: 1.6.12
+      defaultValue:  latest
       description: Check out their Docker page for the valid tags https://hub.docker.com/_/memcached?tab=tags
       validRegex: "/.{1,}/"
     - id: $$cap_mariadb_version
       label: MariaDB Version
-      defaultValue: "10.6.4"
+      defaultValue: latest
       description: Check out their Docker page for the valid tags https://hub.docker.com/_/mariadb?tab=tags
       validRegex: "/.{1,}/"
     - id: $$cap_mariadb_root_passwd
@@ -84,7 +84,7 @@ caproverOneClickApp:
       Seafile has been successfully deployed!
       App is available as http://$$cap_appname.$$cap_root_domain
       Don't forget to add specified hostname to Seafile domains!
-  displayName: (ARM)Seafile (memcached)
+  displayName: Seafile (memcached) (ARM)
   isOfficial: false
   description: >-
     Seafile is an open source cloud storage system with file encryption and

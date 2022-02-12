@@ -32,7 +32,7 @@ caproverOneClickApp:
 
     end: Done! 😄 Your service is available at http://$$cap_appname.$$cap_root_domain
 
-  displayName: (ARM)Proxy Pool
+  displayName: Proxy Pool (ARM)
   isOfficial: false
   description: Python crawler proxy IP pool (proxy pool)
   documentation: https://hub.docker.com/r/jhao104/proxy_pool

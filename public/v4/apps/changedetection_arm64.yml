@@ -24,7 +24,7 @@ caproverOneClickApp:
       ChangeDetection.io has been successfully deployed!
       App is available as http://$$cap_appname.$$cap_root_domain.
       Don't forget to use Caprover's HTTP Basic Auth to protect your app.
-  displayName: (ARM)ChangeDetection.io
+  displayName: ChangeDetection.io (ARM)
   isOfficial: false
   description: >-
     ChangeDetection.io is the self-hosted website change detection monitoring.

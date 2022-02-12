@@ -28,7 +28,7 @@ caproverOneClickApp:
     end: |-
       Kanboard has been successfully deployed!
       You can connect to http://$$cap_appname.$$cap_root_domain with the user admin and password admin. Do not forget to update it with something more secure.
-  displayName: (ARM)Kanboard SQLite
+  displayName: Kanboard SQLite (ARM)
   isOfficial: false
   description: Kanboard is a free and open source Kanban project management software.
   documentation: See https://kanboard.org/

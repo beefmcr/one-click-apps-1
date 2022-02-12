@@ -3,7 +3,7 @@
 captainVersion: 4
 services:
   $$cap_appname:
-    image: rethinkdb:2.3.6
+    image: buddyspencer/rethinkdb:v2.4.1
     volumes:
       - $$cap_appname-data:/data/rethinkdb_data/
     caproverExtra:
@@ -16,7 +16,7 @@ caproverOneClickApp:
 
       It may take a few minutes for RethinkDB to initialize.
     start: RethinkDB is an open-source, distributed database built to store JSON documents and effortlessly scale to multiple machines.
-  displayName: (ARM)RethinkDB
+  displayName: RethinkDB (ARM)
   isOfficial: false
   description: RethinkDB pushes JSON to your apps in realtime
   documentation: Taken from https://hub.docker.com/_/rethinkdb.
