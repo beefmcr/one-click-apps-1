@@ -1,10 +1,7 @@
+captainVersion: 4
+
 caproverOneClickApp:
   variables:
-    - id: "$$cap_version"
-      label: netdata Version
-      defaultValue: "latest"
-      description: Check out their Docker page for the valid tags https://hub.docker.com/r/netdata/netdata/tags
-      validRegex: "/^([^\\s^\\/])+$/"
     - id: "$$cap_tz"
       label: Time Zone
       defaultValue: Europe/Berlin
