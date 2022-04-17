@@ -15,7 +15,7 @@ services:
 
 caproverOneClickApp:
     variables:
-      
+
     isOfficial: false
     displayName: "Shiori (ARM)"
     description: "A simple bookmark manager built with Go."
