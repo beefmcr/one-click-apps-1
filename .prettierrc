@@ -7,5 +7,5 @@
     "singleQuote": false,
     "quoteProps": "consistent",
     "useTabs": false,
-    "insertPragma": true
+    "insertPragma": false
 }
