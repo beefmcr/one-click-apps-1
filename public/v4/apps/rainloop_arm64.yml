@@ -2,29 +2,29 @@
 
 captainVersion: 4
 services:
-    $$cap_appname:
-        image: nerzhul/rainloop:$$cap_rainloop_version
-        restart: always
-        volumes:
-            - $$cap_appname-data:/rainloop/data
-        caproverExtra:
-            containerHttpPort: "8888"
+  $$cap_appname:
+    image: nerzhul/rainloop:$$cap_rainloop_version
+    restart: always
+    volumes:
+      - $$cap_appname-data:/rainloop/data
+    caproverExtra:
+      containerHttpPort: "8888"
 caproverOneClickApp:
-    variables:
-        - id: $$cap_rainloop_version
-          label: Rainloop Version
-          description: Check out their Docker page for the valid tags https://hub.docker.com/r/nerzhul/rainloop/tags
-          defaultValue: latest
-          validRegex: /^([^\s^\/])+$/
-    instructions:
-        start: >-
-            Rainloop is a simple, modern & fast web-based email client. 
+  variables:
+    - id: $$cap_rainloop_version
+      label: Rainloop Version
+      description: Check out their Docker page for the valid tags https://hub.docker.com/r/nerzhul/rainloop/tags
+      defaultValue: latest
+      validRegex: /^([^\s^\/])+$/
+  instructions:
+    start: >-
+      Rainloop is a simple, modern & fast web-based email client. 
 
-            For initial configuration, see https://www.rainloop.net/docs/configuration/
-        end: >-
-            Rainloop is deployed and available as $$cap_appname. 
+      For initial configuration, see https://www.rainloop.net/docs/configuration/
+    end: >-
+      Rainloop is deployed and available as $$cap_appname. 
 
-            It will take about a minute for Rainloop to be ready. Before that, you might see 502 error page.
-    displayName: "(ARM)"
-    description: RainLoop Webmail - Simple, modern & fast web-based email client
-    documentation: Taken from https://hub.docker.com/r/nerzhul/rainloop
+      It will take about a minute for Rainloop to be ready. Before that, you might see 502 error page.
+  displayName: "(ARM)"
+  description: RainLoop Webmail - Simple, modern & fast web-based email client
+  documentation: Taken from https://hub.docker.com/r/nerzhul/rainloop
